@@ -22,6 +22,7 @@
     "bootstrap": "^3.3.6",
     "install": "^1.0.4",
     "ngAnimate": "*",
-    "reset-css": "^2.0.2011012603"
+    "reset-css": "^2.0.2011012603",
+    "ng-jwplayer": "^0.2.1"
   }
 }
