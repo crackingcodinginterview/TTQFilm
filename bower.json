@@ -1,0 +1,27 @@
+{
+  "name": "TTQ",
+  "authors": [
+    "TTQ"
+  ],
+  "description": "Do An Cuoi Ki",
+  "main": "view/home.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-ui-router": "^0.3.0",
+    "animate.css": "^3.5.1",
+    "bower": "*",
+    "bootstrap": "^3.3.6",
+    "install": "^1.0.4",
+    "ngAnimate": "*",
+    "reset-css": "^2.0.2011012603"
+  }
+}
