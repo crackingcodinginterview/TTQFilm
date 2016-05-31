@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/reset-css/reset.css">
+    <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" type="text/css"/>
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/starrating.css">
+    <link rel="stylesheet" href="assets/css/listtopmovieitemthumb.css">
 </head>
 <body>
     <ng-include src="'app/components/template/header.html'"></ng-include>
     <ng-include src="'app/components/template/navbar.html'"></ng-include>
     <ng-include src="'app/components/template/main-content.html'"></ng-include>
     <ng-include src="'app/components/template/footer.html'"></ng-include>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
+    <script src="app/app.scrollbar.js"></script>
+    <script src="app/shared/starrating/starratingDirective.js"></script>
+    <script src="app/shared/widget/listtopmovieitemthumbDirective.js"></script>
 </body>
 </html>

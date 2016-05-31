@@ -8,10 +8,14 @@ body{
     font-family: Arial, sans-serif;
 }
 
+.clear{
+    clear: both;
+}
+
 a {color:#fff;}      /* unvisited link */
-a:visited {color:#fff;}  /* visited link */
+a:visited {color:#fff; text-decoration: none}  /* visited link */
 a:hover {color:#fff; text-decoration: none}  /* mouse over link */
-a:active {color:#fff;}  /* selected link */
+a:active {color:#fff; text-decoration: none}  /* selected link */
 
 /*S - Css Cho Header*/
 .header{

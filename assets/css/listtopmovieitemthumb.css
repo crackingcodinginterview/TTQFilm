@@ -1,0 +1,49 @@
+.list-top-movie-item{
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    border-bottom: solid 1px #333333;
+}
+
+.list-top-movie-item:hover
+.list-top-movie-item__right__name-vi{
+    color: #dacb46;
+}
+
+.list-top-movie-item:hover
+.list-top-movie-item__left__image{
+    opacity: 0.7;
+}
+
+.list-top-movie-item__left{
+    margin-right: 10px;
+}
+
+.list-top-movie-item__left__image{
+    width: 100px;
+    height: 135px;
+    border: solid 2px #999999;
+    border-radius: 5px;
+}
+
+.list-top-movie-item__right{
+    width: 195px;
+    word-wrap: break-word;
+}
+
+.list-top-movie-item__right__text{
+    margin-bottom: 10px;
+}
+
+.list-top-movie-item__right__name-vi,
+.list-top-movie-item__right__visit{
+    color: #2cd4f0;
+}
+
+.list-top-movie-item__right__name-vi{
+    font-weight: bold;
+}
+
+.list-top-movie-item__right__visit{
+    font-size: 11px;
+}

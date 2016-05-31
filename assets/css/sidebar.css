@@ -1,0 +1,28 @@
+.list-top-movie{
+    margin-top: 10px;
+}
+
+.list-top-movie__star-icon{
+    display: block;
+    background:  url("../img/image.png") no-repeat 0px -83px;
+    height: 32px;
+}
+
+.list-top-movie__header{
+    display: block;
+    padding-left: 35px;
+    padding-top: 1px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #dacb46;
+    text-shadow: 1px 1px 1px #1a1a1a;
+    text-transform : uppercase;
+}
+
+.list-top-movie__content{
+    display: block;
+    width: 100%;
+    height: 490px;
+    background-color: #1a1a1a;
+    font-size: 12px;
+}
