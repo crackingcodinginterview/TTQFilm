@@ -1,15 +1,27 @@
-<h1>Phim chiếu rạp mới<h1>
-<div class="seeall">
-	<h5>Xem tất cả</h5>
+<h1>Phim đề cử</h1>
+<div id = "secondary-slider" class="flexslider">
+	<ul class="slides">
+		<li ng-repeat="film in $ctrl.list.phimdecu">
+			<img class="img-responsive" src="{{film.url}}">
+		</li>
+	</ul>
 </div>
-<li>
-	<film-detail ng-repeat="film in $ctrl.list.phimdecu" filmitem="film"></film-detail>
-</li>
 
-<h1>Phim Hot<h1>
-<div class="seeall">
-	<h5>Xem tất cả</h5>
+
+
+
+<h1>Phim chiếu rạp mới</h1>
+<div class ="listfilm">
+	<div ng-repeat="film in $ctrl.list.phimdecu">
+		<film-detail filmitem="film"></film-detail>
+	</div>
 </div>
-<li>
-	<film-detail ng-repeat="film2 in $ctrl.list.phimhot" filmitem="film2"></film-detail>
-</li>
+
+
+
+<h1>Phim Hot</h1>
+<div class="listfilm">
+	<div ng-repeat="film in $ctrl.list.phimhot">
+		<film-detail filmitem="film"></film-detail>
+	</div>
+</div>
