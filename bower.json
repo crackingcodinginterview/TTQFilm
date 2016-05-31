@@ -23,6 +23,7 @@
     "install": "^1.0.4",
     "ngAnimate": "*",
     "reset-css": "^2.0.2011012603",
-    "ng-jwplayer": "^0.2.1"
+    "ng-jwplayer": "^0.2.1",
+    "angular-breadcrumb": "^0.4.1"
   }
 }

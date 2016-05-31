@@ -4,19 +4,28 @@
 (function(){
     var app = angular.module('movieApp');
     app.config(function($stateProvider, $urlRouterProvider){
-        $urlRouterProvider.otherwise("/home");
+        $urlRouterProvider.otherwise("/trangchu");
         $stateProvider
             .state('home', {
-                url : "/home",
-                templateUrl : 'app/components/home/homeView.html'
+                url : "/trangchu",
+                templateUrl : 'app/components/home/homeView.html',
+                ncyBreadcrumb: {
+                    label: 'TRANG CHỦ'
+                }
             })
             .state('login', {
-                url : '/login',
-                templateUrl : 'app/components/login/loginView.html'
+                url : '/dangnhap',
+                templateUrl : 'app/components/login/loginView.html',
+                ncyBreadcrumb: {
+                    label: 'ĐĂNG NHẬP'
+                }
             })
             .state('register', {
-                url : '/register',
-                templateUrl : 'app/components/register/registerView.html'
+                url : '/dangky',
+                templateUrl : 'app/components/register/registerView.html',
+                ncyBreadcrumb: {
+                    label: 'ĐĂNG KÝ'
+                }
             });
     });
 }());

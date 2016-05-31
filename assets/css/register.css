@@ -1,0 +1,17 @@
+.register__form-register{
+    padding: 40px;
+    background-color: #181818;
+    color: #fff;
+    font-size: 15px;
+}
+
+.register__form-register__label{
+    font-weight: bold;
+    color: #ddd;
+}
+
+.register__form-register__input-text{
+    background-color: #333333;
+    border-color: #000;
+    color: #b8ab8a;
+}

@@ -19,23 +19,20 @@ a:active {color:#fff;}  /* selected link */
     background-image: url("../img/header-bg.jpg");
     background-repeat: repeat-x;
     min-height: 80px;
-    padding-top: 13px;
+    padding-top: 14px;
     border-bottom: solid 5px #d8cc46;
 }
 
 .logo{
-    background-image: url("../img/image.png");
+    display: inline-block;
+    background: url("../img/image.png") 0px -320px no-repeat;
     color: #00b3ee;
-    background-position-x: 0;
-    background-position-y: -320px;
     width: 260px;
     height : 55px;
-    display: block;
 }
 
 .header__search{
-    /*background-color: red;*/
-    /*background: blue;*/
+
 }
 
 .form-search{
@@ -72,60 +69,42 @@ a:active {color:#fff;}  /* selected link */
 
 .header__user .button-register{
     display: inline-block;
-    background-image: url("../img/image.png");
-    background-repeat: no-repeat;
-    background-position-x: 0px;
-    background-position-y: 0;
+    background: url("../img/image.png") 0px 0px no-repeat;
     width: 79px;
     height: 40px;
 }
 
 .header__user .button-register:hover{
     display: inline-block;
-    background-image: url("../img/image.png");
-    background-repeat: no-repeat;
-    background-position-x: 0px;
-    background-position-y: -41px;
+    background: url("../img/image.png") 0px -41px no-repeat;
     width: 79px;
     height: 40px;
 }
 
 .header__user .button-login{
     display: inline-block;
-    background-image: url("../img/image.png");
-    background-repeat: no-repeat;
-    background-position-x: -79px;
-    background-position-y: 0;
+    background: url("../img/image.png") -79px 0px no-repeat;
     width: 95px;
     height: 40px;
 }
 
 .header__user .button-login:hover{
     display: inline-block;
-    background-image: url("../img/image.png");
-    background-repeat: no-repeat;
-    background-position-x: -79px;
-    background-position-y: -41px;
+    background: url("../img/image.png") -79px -41px no-repeat;
     width: 95px;
     height: 40px;
 }
 
 .button-login-with-facebook{
     display: inline-block;
-    background-image: url("../img/image.png");
-    background-repeat: no-repeat;
-    background-position-x: -175px;
-    background-position-y: 0px;
+    background: url("../img/image.png") -175px 0px no-repeat;
     width: 158px;
     height: 40px;
 }
 
 .button-login-with-facebook:hover{
     display: inline-block;
-    background-image: url("../img/image.png");
-    background-repeat: no-repeat;
-    background-position-x: -175px;
-    background-position-y: -41px;
+    background: url("../img/image.png") -175px -41px no-repeat;
     width: 158px;
     height: 40px;
 }
@@ -204,6 +183,7 @@ a:active {color:#fff;}  /* selected link */
 .main-view{
     margin-top: 20px;
     margin-bottom: 40px;
+    height: auto;
 }
 
 .footer{
@@ -215,14 +195,14 @@ a:active {color:#fff;}  /* selected link */
     padding-bottom: 20px;
 }
 
-.footer__logo__background{
-    background-image: url("../img/image.png");
+.footer__logo__image{
+    display: block;
+    background: url("../img/image.png") 0px -320px no-repeat;
+    /*background-position-x: 0;*/
+    /*background-position-y: -320px;*/
     color: #00b3ee;
-    background-position-x: 0;
-    background-position-y: -320px;
     width: 260px;
     height : 55px;
-    display: block;
 }
 
 .footer__link__group__title{

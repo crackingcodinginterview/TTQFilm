@@ -33,4 +33,15 @@
 .login__form-login__input-text{
     background-color: #333333;
     border-color: #000;
+    color: #b8ab8a;
+}
+
+.login__form-login__button-forgot-password{
+    background-color: #474949;
+
+}
+
+.login__form-login__button-forgot-password:hover{
+    color: #fff;
+    background-color: #3a3c3c;
 }
