@@ -7,26 +7,33 @@
     <link rel="stylesheet" href="bower_components/reset-css/reset.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
     <div class="header">
         <div class="container">
             <div class="row">
-                <div class="header__logo  col-lg-4 col-md-4 col-sm-12">
-                    <a href="#" class="logo"></a>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="header__logo">
+                        <a href="#" class="logo"></a>
+                    </div>
                 </div>
-                <div class="header__search col-lg-4 col-md-8 col-sm-12">
-                    <form class="form-horizontal form-search" role="form">
-                        <div class="form-group">
-                            <input type="text" class="seach-input form-control" placeholder="Tìm: tên phim, đạo diễn, diễn viên">
-                            <input type="submit" class="search-submit" value="">
-                        </div>
-                    </form>
+                <div class="col-lg-4 col-md-8 col-sm-12">
+                    <div class="header__search">
+                        <form class="form-horizontal form-search" role="form">
+                            <div class="form-group">
+                                <input type="text" class="seach-input form-control" placeholder="Tìm: tên phim, đạo diễn, diễn viên">
+                                <input type="submit" class="search-submit" value="">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="header__user col-lg-4 col-md-12 col-sm-12 text-right">
-                    <a class="button-register" href="#"></a>
-                    <a class="button-login" href="#"></a>
-                    <a class="button-login-with-facebook" href="#"></a>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="header__user text-right">
+                        <a class="button-register" href="#"></a>
+                        <a class="button-login" ui-sref="login"></a>
+                        <a class="button-login-with-facebook" href="#"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,52 +106,64 @@
             </div>
         </div>
     </div>
-    <ui-view></ui-view>
+    <div class="main-view" ui-view></div>
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer__logo col-lg-3 hidden-md hidden-sm hidden-xs">
-                    <span class="footer__logo__background"></span>
+                <div class="col-lg-3 hidden-md hidden-sm hidden-xs">
+                    <div class="footer__logo">
+                        <span class="footer__logo__background"></span>
+                    </div>
                 </div>
-                <div class="footer__link col-lg-6 col-md-9 col-sm-9 col-xs-12">
-                    <div class="row">
-                        <div class="footer__link__group col-xs-4">
-                            <p class="footer__link__group__title">Phim Mới</p>
-                            <ul class="footer__link__group__navbar">
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Lẻ Mới</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Mới</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Chiếu Rạp</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Kinh Điển</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Sắp Chiếu</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer__link__group col-xs-4">
-                            <p class="footer__link__group__title">Phim Mới</p>
-                            <ul class="footer__link__group__navbar">
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Hành Động</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Kiếm Hiệp</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Kinh Dị</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Viễn Tưởng</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Hoạt Hình</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer__link__group col-xs-4">
-                            <p class="footer__link__group__title">Phim Mới</p>
-                            <ul class="footer__link__group__navbar">
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Hàn Quốc</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Trung Quốc</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Mỹ</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Việt Nam</a></li>
-                                <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Hồng Kông</a></li>
-                            </ul>
+                <div class="col-lg-6 col-md-9 col-sm-9 col-xs-12">
+                    <div class="footer__link">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="footer__link__group">
+                                    <p class="footer__link__group__title">Phim Mới</p>
+                                    <ul class="footer__link__group__navbar">
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Lẻ Mới</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Mới</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Chiếu Rạp</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Kinh Điển</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Sắp Chiếu</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="footer__link__group">
+                                    <p class="footer__link__group__title">Phim Mới</p>
+                                    <ul class="footer__link__group__navbar">
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Hành Động</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Kiếm Hiệp</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Kinh Dị</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Viễn Tưởng</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Hoạt Hình</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="footer__link__group">
+                                    <p class="footer__link__group__title">Phim Mới</p>
+                                    <ul class="footer__link__group__navbar">
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Hàn Quốc</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Trung Quốc</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Mỹ</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Việt Nam</a></li>
+                                        <li class="footer__link__group__navbar__item"><a href="#" class="footer__link__group__navbar__link">Phim Bộ Hồng Kông</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="footer__contact col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <p class="footer__contact__row footer__contact__title">Liên hệ quảng cáo:</p>
-                    <p class="footer__contact__row">Email: contact@phimmoi.net</p>
-                    <p class="footer__contact__row footer__contact__title">IP của bạn:</p>
-                    <p class="footer__contact__row">1.52.37.205</p>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="footer__contact">
+                        <p class="footer__contact__row footer__contact__title">Liên hệ quảng cáo:</p>
+                        <p class="footer__contact__row">Email: contact@phimmoi.net</p>
+                        <p class="footer__contact__row footer__contact__title">IP của bạn:</p>
+                        <p class="footer__contact__row">1.52.37.205</p>
+                    </div>
                 </div>
             </div>
         </div>
