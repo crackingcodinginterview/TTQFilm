@@ -1,0 +1,22 @@
+.listfilm li img{
+	margin-left: 5px;
+	margin-top: 5px; 
+}
+
+.listfilm{
+	width: 70%;
+}
+
+#main-slider ul li img{
+	width: 100% !important;
+}
+
+#main-slider{
+	width: 70% !important;
+}
+
+.seeall h5{
+	margin-top:-26px;
+	margin-right:20px;
+	float: right;
+}
