@@ -133,47 +133,40 @@ a:active {color:#fff;}  /* selected link */
 
 /*S - Css Cho Nav*/
 
-.navbar{
+.customnavbar{
     background-color: #323031;
-    height: auto;
 }
 
-.navbar__listcategory{
+.customnavbar__listcategory{
     font-weight: bold;
     text-align: center;
-}
-
-.navbar__listcategory__item{
-    display: inline-block;
-    margin-left: -5px;
-    border: none;
-    border-radius: 0 !important;
-    background-color: #323031;
-    color: #fff;
-    position: relative;
-}
-
-.navbar__listcategory__item:first-child{
-    margin-left: 5px;
-}
-
-.navbar__listcategory__item:hover{
-    background-color: #292929;
-}
-
-.navbar__listcategory__item:hover .navbar__listcategory__item__title{
-    color: #dacb46;
-}
-
-.navbar__listcategory__item__title{
-    display: inline-block;
-}
-
-.navbar__listcategory__item:hover .navbar__listcategory__item__subcontainer{
     display: block;
 }
 
-.navbar__listcategory__item__subcontainer{
+.customnavbar__listcategory__item{
+    display: inline-block;
+    position: relative;
+}
+
+
+.customnavbar__listcategory__item:hover{
+    background-color: #292929;
+}
+
+.customnavbar__listcategory__item:hover .customnavbar__listcategory__item__title{
+    color: #dacb46;
+}
+
+.customnavbar__listcategory__item__title{
+    display: block;
+    padding: 10px 15px;
+}
+
+.customnavbar__listcategory__item__title:hover .customnavbar__listcategory__item__subcontainer{
+    display: block;
+}
+
+.customnavbar__listcategory__item__subcontainer{
     display: none;
     position: absolute;
     top: 101%;
@@ -187,20 +180,20 @@ a:active {color:#fff;}  /* selected link */
     width: 800px;
 }
 
-.navbar__listcategory__item__subcontainer__dropdown{
+.customnavbar__listcategory__item__subcontainer__dropdown{
     display: inline-block;
 }
 
-.navbar__listcategory__item__subcontainer__dropdown__item{
+.customnavbar__listcategory__item__subcontainer__dropdown__item{
     display: block;
 }
 
-.navbar__listcategory__item__subcontainer__dropdown__item__link{
+.customnavbar__listcategory__item__subcontainer__dropdown__item__link{
     display: inline-block;
     padding: 10px;
 }
 
-.navbar__listcategory__item__subcontainer__dropdown__item:hover{
+.customnavbar__listcategory__item__subcontainer__dropdown__item__link:hover{
     background-color: #000;
 }
 
@@ -210,7 +203,7 @@ a:active {color:#fff;}  /* selected link */
     height: auto;
     color: #fff;
     padding-top: 20px;
-
+    padding-bottom: 20px;
 }
 
 .footer__logo__background{
@@ -227,29 +220,35 @@ a:active {color:#fff;}  /* selected link */
     color: #44e2ff;
     font-size: 20px;
     line-height: 1.2;
+    margin-bottom: 10px;
 }
 
 .footer__link__group__navbar__item{
-    background-color: transparent;
-    border: none;
-    color: #fff !important;
-    padding-left: 0;
-    font-size: 13px;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.footer__link__group__navbar__item:hover{
-    color: #d8cc46 !important;
-    background-color: transparent !important;
+.footer__link__group__navbar__link{
+    display: inline-block;
+    font-size: 15px;
+}
+
+.footer__link__group__navbar__link:hover{
+    color: #d8cc46;
 }
 
 .footer__contact__row{
-    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
-.footer__contact__row:first-child{
-    margin-top: -5px;
-}
 .footer__contact__title{
     font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    .footer__contact{
+        text-align: center;
+        margin-top: 20px;
+    }
 }
 /*E - Css Cho Nav*/
