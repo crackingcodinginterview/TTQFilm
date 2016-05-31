@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss">
     <link rel="stylesheet" href="bower_components/reset-css/reset.css">
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
@@ -11,22 +12,18 @@
     <div class="header">
         <div class="container">
             <div class="row">
-                <div class="header_logo col-lg-4 col-md-4 col-sm-12">
+                <div class="header__logo  col-lg-4 col-md-4 col-sm-12">
                     <a href="#" class="logo"></a>
                 </div>
-                <div class="widget_search col-lg-4 col-md-8 col-sm-12">
+                <div class="header__search col-lg-4 col-md-8 col-sm-12">
                     <form class="form-horizontal form-search" role="form">
                         <div class="form-group">
-                            <div class="col-sm-12 controls">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm: tên phim, đạo diễn, diễn viên">
-                                    <span class="input-group-addon">t</span>
-                                </div>
-                            </div>
+                            <input type="text" class="seach-input form-control" placeholder="Tìm: tên phim, đạo diễn, diễn viên">
+                            <input type="submit" class="search-submit" value="">
                         </div>
                     </form>
                 </div>
-                <div class="widget_user_header col-lg-4 col-md-12 col-sm-12 text-right">
+                <div class="header__user col-lg-4 col-md-12 col-sm-12 text-right">
                     <a class="button-register" href="#"></a>
                     <a class="button-login" href="#"></a>
                     <a class="button-login-with-facebook" href="#"></a>
@@ -34,27 +31,133 @@
             </div>
         </div>
     </div>
-    <div class="nav">
+    <div class="navbar">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="list-group navbar-header">
-                        <a class="list-group-item">PHIM MỚI</a>
-                        <a class="list-group-item">THỂ LOẠI</a>
-                        <a class="list-group-item">QUỐC GIA</a>
-                        <a class="list-group-item">PHIM LẺ</a>
-                        <a class="list-group-item">PHIM BỘ</a>
-                        <a class="list-group-item">PHIM KINH ĐIỂN</a>
-                        <a class="list-group-item">PHIM CHIẾU RẠP</a>
-                        <a class="list-group-item">TRAILER</a>
-                        <a class="list-group-item">TOP 10 IMDB 2015</a>
+                <div class="col-lg-12">
+                    <div class="list-group navbar__listcategory">
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">PHIM MỚI</a>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">THỂ LOẠI</a>
+                            <div class="navbar__listcategory__item__subcontainer">
+                                <ul class="navbar__listcategory__item__subcontainer__dropdown">
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hành Động</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hài Hước</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Cổ Trang</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Chính Kịch</a></li>
+                                </ul>
+                                <ul class="navbar__listcategory__item__subcontainer__dropdown">
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Viễn Tưởng</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Võ Thuật</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Thần Thoại</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Thể Thao</a></li>
+                                </ul>
+                                <ul class="navbar__listcategory__item__subcontainer__dropdown">
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Chiến Tranh</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Kinh Dị</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Tân Lý</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Gia Đình</a></li>
+                                </ul>
+                                <ul class="navbar__listcategory__item__subcontainer__dropdown">
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hình Sự</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hồi Hộp</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Tài Liệu</a></li>
+                                    <li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hoạt Hình</a></li>
+                                </ul>
+                                <!--<ul class="navbar__listcategory__item__subcontainer__dropdown col-xs-12">-->
+                                    <!--<li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Phiêu Lưu</a></li>-->
+                                    <!--<li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Bí Ẩn</a></li>-->
+                                    <!--<li class="navbar__listcategory__item__subcontainer__dropdown__item"><a class="navbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Tình Cảm</a></li>-->
+                                <!--</ul>-->
+                            </div>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">QUỐC GIA</a>
+                            <div class="navbar__listcategory__item__dropdown">
+
+                            </div>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">PHIM LẺ</a>
+                            <div class="navbar__listcategory__item__dropdown">
+
+                            </div>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">PHIM BỘ</a>
+                            <div class="navbar__listcategory__item__dropdown">
+
+                            </div>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">PHIM KINH ĐIỂN</a>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">PHIM CHIẾU RẠP</a>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">TRAILER</a>
+                        </li>
+                        <li class="list-group-item navbar__listcategory__item">
+                            <a class="navbar__listcategory__item__title" href="#">TOP 10 IMDB 2015</a>
+                        </li>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div ui-view></div>
-    <div class="footer"></div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer__logo col-lg-3 hidden-md hidden-sm hidden-xs">
+                    <span class="footer__logo__background"></span>
+                </div>
+                <div class="footer__link col-lg-6 col-md-9 col-sm-9 col-xs-12">
+                    <div class="row">
+                        <div class="footer__link__group col-xs-4">
+                            <span class="footer__link__group__title">Phim Mới</span>
+                            <div class="list-group footer__link__group__navbar">
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Lẻ Mới</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Bộ Mới</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Chiếu Rạp</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Kinh Điển</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Sắp Chiếu</a>
+                            </div>
+                        </div>
+                        <div class="footer__link__group col-xs-4">
+                            <span class="footer__link__group__title">Phim Mới</span>
+                            <div class="list-group footer__link__group__navbar">
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Hành Động</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Kiếm Hiệp</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Kinh Dị</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Viễn Tưởng</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Hoạt Hình</a>
+                            </div>
+                        </div>
+                        <div class="footer__link__group col-xs-4">
+                            <span class="footer__link__group__title">Phim Mới</span>
+                            <div class="list-group footer__link__group__navbar">
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Bộ Hàn Quốc</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Bộ Trung Quốc</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Bộ Mỹ</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Bộ Việt Nam</a>
+                                <a href="#" class="list-group-item footer__link__group__navbar__item">Phim Bộ Hồng Kông</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__contact col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
+                    <p class="footer__contact__row footer__contact__title">Liên hệ quảng cáo:</p>
+                    <p class="footer__contact__row">Email: contact@phimmoi.net</p>
+                    <p class="footer__contact__row footer__contact__title">IP của bạn:</p>
+                    <p class="footer__contact__row">1.52.37.205</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="app/app.module.js"></script>
