@@ -11,33 +11,43 @@ using System.Windows.Forms;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
 
 namespace Test_1
 {
     public partial class Form1 : Form
     {
-        IWebDriver driver = new FirefoxDriver();
+        private IWebDriver driver;
         public Form1()
         {
             InitializeComponent();
+
+            DesiredCapabilities capability = DesiredCapabilities.Chrome();
+            capability.SetCapability("browserstack.user", "thanhtringuyen1");
+            capability.SetCapability("browserstack.key", "ssVPM7NpqiPqusyXmdNT");
+
+            driver = new RemoteWebDriver(new Uri("http://hub.browserstack.com/wd/hub/"), capability);
+
             Navigate("http://www.phimmoi.net/phim/phu-thuy-3206/xem-phim.html");
 
-            string FindJWVideoScript = "document.getElementsByClassName('jw-video').length";
+            string FindJWVideoScript = "document.getElementsByClassName('jw-video')[0].getAttribute('src')";
 
             //Thread.Sleep(5000);
 
             string Result = ExecuteJS(FindJWVideoScript).ToString();
 
-            Console.WriteLine(Result);
+            Log(Result);
 
-            while (Result != "1")
-            {
-                Thread.Sleep(100);
-                Result = ExecuteJS(FindJWVideoScript).ToString();
-                Log(Result);
-            }
+            //Console.WriteLine(Result);
 
-            Console.WriteLine("Done");
+            //while (Result != "1")
+            //{
+            //    Thread.Sleep(100);
+            //    Result = ExecuteJS(FindJWVideoScript).ToString();
+            //    Log(Result);
+            //}
+
+            //Console.WriteLine("Done");
 
         }
 
@@ -70,6 +80,11 @@ namespace Test_1
         private void Log(String Mess)
         {
             rtbRes.AppendText(Mess + "\r\n");
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            driver.Quit();
         }
     }
 }
