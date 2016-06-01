@@ -6,49 +6,63 @@
     app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         $urlRouterProvider.otherwise("/");
         $stateProvider
-            .state('home', {
+            .state('app', {
                 url : "/",
                 ncyBreadcrumb: {
-                    label: 'TRANG CHỦ'
+                    label: 'PHIM MỚI',
                 },
-
                 views : {
-                    'subview1' : {
-
+                    'subview2@' : {
+                        templateUrl : 'app/components/home/homeView.html',
                     },
-                    'subview2' : {
-                        templateUrl : 'app/components/home/homeView.html'
+                    'subview3' : {
+                        templateUrl : 'app/shared/sidebar/sidebarView.html'
+                    },
+                    'subview4' : {
+                        templateUrl : 'app/shared/headeruser/headeruserView.html'
                     }
                 }
             })
-            .state('login', {
-                url : '/dangnhap',
+            .state('app.login', {
+                url : 'dangnhap',
                 ncyBreadcrumb: {
                     label: 'ĐĂNG NHẬP',
-                    parent : 'home'
                 },
                 views : {
-                    'subview1' : {
+                    'subview1@' : {
                         template : '<div ncy-breadcrumb></div>',
                     },
-                    'subview2' : {
+                    'subview2@' : {
                         templateUrl : 'app/components/login/loginView.html',
                         controller : 'loginController'
                     }
                 }
             })
-            .state('register', {
-                url : '/dangky',
+            .state('app.register', {
+                url : 'dangky',
                 ncyBreadcrumb: {
-                    parent : 'home',
                     label: 'ĐĂNG KÝ'
                 },
                 views : {
-                    'subview1' : {
+                    'subview1@' : {
                         template : '<ncy-breadcrumb></ncy-breadcrumb>',
                     },
-                    'subview2' : {
+                    'subview2@' : {
                         templateUrl : 'app/components/register/registerView.html'
+                    }
+                }
+            })
+            .state('app.changepassword', {
+                url : 'doimatkhau',
+                ncyBreadcrumb: {
+                    label: 'ĐỔI MẬT KHẨU'
+                },
+                views : {
+                    'subview1@' : {
+                        template : '<ncy-breadcrumb></ncy-breadcrumb>',
+                    },
+                    'subview2@' : {
+                        templateUrl : 'app/components/changepassword/changepasswordView.html'
                     }
                 }
             });

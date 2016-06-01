@@ -25,6 +25,8 @@
     "reset-css": "^2.0.2011012603",
     "ng-jwplayer": "^0.2.1",
     "angular-breadcrumb": "^0.4.1",
-    "angular-ui-notification": "^0.2.0"
+    "angular-ui-notification": "^0.2.0",
+    "angular-ladda": "^0.3.4",
+    "angular-spinner": "^0.8.1"
   }
 }

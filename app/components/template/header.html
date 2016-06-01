@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="header__logo">
-                    <a ui-sref="home" class="logo"></a>
+                    <a ui-sref="app" class="logo"></a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
@@ -17,11 +17,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="header__user pull-right">
-                    <a class="button-register pull-left" ui-sref="register"></a>
-                    <a class="button-login pull-left" ui-sref="login"></a>
-                    <a class="button-login-with-facebook pull-left" href="#"></a>
-                </div>
+                <div class="pull-right" ui-view="subview4"></div>
             </div>
         </div>
     </div>

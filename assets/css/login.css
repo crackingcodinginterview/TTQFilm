@@ -1,9 +1,6 @@
 .login__form-login__button-login-with-facebook{
     display: inline-block;
-    background-image: url("../img/image.png");
-    background-repeat: no-repeat;
-    background-position-x: -175px;
-    background-position-y: 0px;
+    background: url("../img/image.png") -175px 0px no-repeat;
     width: 158px;
     height: 40px;
 }
@@ -33,7 +30,7 @@
 .login__form-login__input-text{
     background-color: #333333;
     border-color: #000;
-    color: #b8ab8a;
+    color: #b8b8b8;
 }
 
 .login__form-login__button-forgot-password{
