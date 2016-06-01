@@ -3,6 +3,7 @@
     width: 100%;
     padding: 10px;
     border-bottom: solid 1px #333333;
+    position: relative;
 }
 
 .list-top-movie-item:hover
@@ -46,4 +47,19 @@
 
 .list-top-movie-item__right__visit{
     font-size: 11px;
+}
+
+.list-top-movie-item__tool-tip{
+    display: none;
+    padding: 2px;
+    position: absolute;
+    left: 30%;
+    top: 45%;
+    background-color: #fff;
+    color: #000;
+}
+
+.list-top-movie-item:hover
+.list-top-movie-item__tool-tip{
+    display: inline-block;
 }

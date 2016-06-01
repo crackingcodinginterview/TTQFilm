@@ -13,7 +13,7 @@
     padding-left: 35px;
     padding-top: 1px;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 23px;
     color: #dacb46;
     text-shadow: 1px 1px 1px #1a1a1a;
     text-transform : uppercase;
@@ -21,8 +21,15 @@
 
 .list-top-movie__content{
     display: block;
+    border-radius: 5px;
     width: 100%;
     height: 490px;
     background-color: #1a1a1a;
     font-size: 12px;
+}
+
+@media (max-width: 992px) {
+    .book-mark{
+        margin-top: 20px;
+    }
 }

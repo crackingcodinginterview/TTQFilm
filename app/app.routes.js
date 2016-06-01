@@ -3,16 +3,18 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.config(function($stateProvider, $urlRouterProvider){
-        $urlRouterProvider.otherwise("/dangnhap");
+    app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+        $urlRouterProvider.otherwise("/");
         $stateProvider
             .state('home', {
-                url : "/trangchu",
+                url : "/",
                 ncyBreadcrumb: {
                     label: 'TRANG CHỦ'
                 },
+
                 views : {
                     'subview1' : {
+
                     },
                     'subview2' : {
                         templateUrl : 'app/components/home/homeView.html'
@@ -22,7 +24,8 @@
             .state('login', {
                 url : '/dangnhap',
                 ncyBreadcrumb: {
-                    label: 'ĐĂNG NHẬP'
+                    label: 'ĐĂNG NHẬP',
+                    parent : 'home'
                 },
                 views : {
                     'subview1' : {
@@ -36,11 +39,12 @@
             .state('register', {
                 url : '/dangky',
                 ncyBreadcrumb: {
+                    parent : 'home',
                     label: 'ĐĂNG KÝ'
                 },
                 views : {
                     'subview1' : {
-                        template : '<div ncy-breadcrumb></div>',
+                        template : '<ncy-breadcrumb></ncy-breadcrumb>',
                     },
                     'subview2' : {
                         templateUrl : 'app/components/register/registerView.html'

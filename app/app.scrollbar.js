@@ -5,6 +5,7 @@
     var app = angular.module('movieApp');
     app.config(function (ScrollBarsProvider) {
         ScrollBarsProvider.defaults = {
+
             autoHideScrollbar: false,
             // setHeight: 500,
             // scrollInertia: 500,
