@@ -32,7 +32,8 @@
                         template : '<div ncy-breadcrumb></div>',
                     },
                     'subview2' : {
-                        templateUrl : 'app/components/login/loginView.html'
+                        templateUrl : 'app/components/login/loginView.html',
+                        controller : 'loginController'
                     }
                 }
             })
