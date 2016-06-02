@@ -11,7 +11,6 @@
 
            },
            link : function(scope, element, attributes){
-
            }
        }
     });

@@ -1,38 +1,106 @@
 <div class="register">
-    <form class="register__form-register form-horizontal" role="form">
+    <form class="register__form-register form-horizontal"
+          role="form"
+          name="registerForm"
+    >
         <div class="form-group">
             <label class="register__form-register__label col-sm-3 control-label" for="">Tài Khoản</label>
             <div class="col-sm-6">
-                <input type="email" class="register__form-register__input-text form-control" placeholder="Nhập tên tài khoản">
+                <input type="email"
+                       class="register__form-register__input-text form-control"
+                       placeholder="Nhập tên tài khoản"
+                       name="username"
+                       ng-model="user.username"
+                       ng-minlength="6"
+                       ng-maxlength="20"
+                       required
+                >
+            </div>
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="help-block" ng-messages="registerForm.username.$error">
+                    <ng-messages-include src="app/app.message.html"></ng-messages-include>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <label class="register__form-register__label col-sm-3 control-label" for="">Mật Khẩu</label>
             <div class="col-sm-6">
-                <input type="password" class="register__form-register__input-text form-control" placeholder="Nhập mật khẩu truy cập">
+                <input type="password"
+                       class="register__form-register__input-text form-control"
+                       placeholder="Nhập mật khẩu truy cập"
+                       name="password"
+                       ng-model="user.password"
+                       ng-minlength="6"
+                       ng-maxlength="20"
+                       required
+                >
+            </div>
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="help-block" ng-messages="registerForm.password.$error">
+                    <p ng-message="pattern">Mật khẩu phải bao gồm kí tự thường, kí tự hoa và số.</p>
+                    <ng-messages-include src="app/app.message.html"></ng-messages-include>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <label class="register__form-register__label col-sm-3 control-label" for="">Nhập Lại Mật Khẩu</label>
             <div class="col-sm-6">
-                <input type="password" class="register__form-register__input-text form-control" placeholder="Nhập lại mật khẩu">
+                <input type="password"
+                       class="register__form-register__input-text form-control"
+                       placeholder="Nhập lại mật khẩu"
+                       name="repeatPassword"
+                       ng-model="user.repeatPassword"
+                       ng-minlength="6"
+                       ng-maxlength="20"
+                       ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/"
+                       required
+                >
+            </div>
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="help-block" ng-messages="registerForm.repeatPassword.$error">
+                    <p ng-message="pattern">Mật khẩu phải bao gồm kí tự thường, kí tự hoa và số.</p>
+                    <ng-messages-include src="app/app.message.html"></ng-messages-include>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <label class="register__form-register__label col-sm-3 control-label" for="">Họ tên</label>
             <div class="col-sm-6">
-                <input type="text" class="register__form-register__input-text form-control" placeholder="Nhập họ tên">
+                <input type="text"
+                       class="register__form-register__input-text form-control"
+                       placeholder="Nhập họ tên"
+                       name="name"
+                       ng-model="user.name"
+                       required
+                >
+            </div>
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="help-block" ng-messages="registerForm.name.$error">
+                    <ng-messages-include src="app/app.message.html"></ng-messages-include>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <label class="register__form-register__label col-sm-3 control-label" for="">Email</label>
             <div class="col-sm-6">
-                <input type="email" class="register__form-register__input-text form-control" placeholder="Nhập email">
+                <input type="email"
+                       class="register__form-register__input-text form-control"
+                       placeholder="Nhập email"
+                       name="email"
+                       ng-model="user.email"
+                       required
+                >
+            </div>
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="help-block" ng-messages="registerForm.email.$error">
+                    <ng-messages-include src="app/app.message.html"></ng-messages-include>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-10">
-                <button type="submit" class="register__form-register__button-login btn btn-primary">Đăng Nhập</button>
+            <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" class="register__form-register__button-login btn btn-primary" ladda="true">Đăng Ký</button>
+                <button type="reset" class="register__form-register__button-login btn btn-danger">Hủy</button>
             </div>
         </div>
     </form>

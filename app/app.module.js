@@ -7,6 +7,8 @@
             'ui.router',
             'ncy-angular-breadcrumb',
             'ngScrollbars',
-            'ui-notification'
+            'ui-notification',
+            'ngMessages',
+            'angular-ladda'
         ]);
 }());

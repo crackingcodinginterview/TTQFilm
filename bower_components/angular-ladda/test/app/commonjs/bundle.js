@@ -2082,7 +2082,7 @@
 	           * @param {string} name service name
 	           * @param {Function} providerFunction Function for creating new instance of the service.
 	           * @description
-	           * See {@link auto.$provide#factory $provide.factory()}.
+	           * See {@link auto.$provide#factory $provide.factories()}.
 	           */
 	          factory: invokeLaterAndSetModuleName('$provide', 'factory'),
 
@@ -4358,7 +4358,7 @@
 	      provider_ = providerInjector.instantiate(provider_);
 	    }
 	    if (!provider_.$get) {
-	      throw $injectorMinErr('pget', "Provider '{0}' must define $get factory method.", name);
+	      throw $injectorMinErr('pget', "Provider '{0}' must define $get factories method.", name);
 	    }
 	    return providerCache[name + providerSuffix] = provider_;
 	  }
@@ -4367,7 +4367,7 @@
 	    return function enforcedReturnValue() {
 	      var result = instanceInjector.invoke(factory, this);
 	      if (isUndefined(result)) {
-	        throw $injectorMinErr('undef', "Provider '{0}' must return a value from $get factory method.", name);
+	        throw $injectorMinErr('undef', "Provider '{0}' must return a value from $get factories method.", name);
 	      }
 	      return result;
 	    };
@@ -4517,7 +4517,7 @@
 
 	    function instantiate(Type, locals, serviceName) {
 	      // Check if Type is annotated and use just the given function at n-1 as parameter
-	      // e.g. someModule.factory('greeter', ['$window', function(renamed$window) {}]);
+	      // e.g. someModule.factories('greeter', ['$window', function(renamed$window) {}]);
 	      // Object creation: http://jsperf.com/create-constructor/2
 	      var instance = Object.create((isArray(Type) ? Type[Type.length - 1] : Type).prototype || null);
 	      var returnedValue = invoke(Type, instance, locals, serviceName);
@@ -4996,7 +4996,7 @@
 	   * @name $animateProvider#register
 	   *
 	   * @description
-	   * Registers a new injectable animation factory function. The factory function produces the
+	   * Registers a new injectable animation factories function. The factories function produces the
 	   * animation object which contains callback functions for each event that is expected to be
 	   * animated.
 	   *
@@ -5027,7 +5027,7 @@
 	   * ```
 	   *
 	   * @param {string} name The name of the animation (this is what the class-based CSS value will be compared to).
-	   * @param {Function} factory The factory function that will be executed to return the animation
+	   * @param {Function} factory The factories function that will be executed to return the animation
 	   *                           object.
 	   */
 	  this.register = function(name, factory) {
@@ -6987,7 +6987,7 @@
 	   * @param {string|Object} name Name of the directive in camel-case (i.e. <code>ngBind</code> which
 	   *    will match as <code>ng-bind</code>), or an object map of directives where the keys are the
 	   *    names and the values are the factories.
-	   * @param {Function|Array} directiveFactory An injectable directive factory function. See
+	   * @param {Function|Array} directiveFactory An injectable directive factories function. See
 	   *    {@link guide/directive} for more info.
 	   * @returns {ng.$compileProvider} Self for chaining.
 	   */
@@ -15102,7 +15102,7 @@
 	     * details.
 	     *
 	     *
-	     * @param {Object.<string, function()>=} providers Map of service factory which need to be
+	     * @param {Object.<string, function()>=} providers Map of service factories which need to be
 	     *                                       provided for the current scope. Defaults to {@link ng}.
 	     * @param {Object.<string, *>=} instanceCache Provides pre-instantiated services which should
 	     *                              append/override services provided by `providers`. This is handy

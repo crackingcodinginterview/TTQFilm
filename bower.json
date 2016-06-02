@@ -27,6 +27,7 @@
     "angular-breadcrumb": "^0.4.1",
     "angular-ui-notification": "^0.2.0",
     "angular-ladda": "^0.3.4",
-    "angular-spinner": "^0.8.1"
+    "angular-spinner": "^0.8.1",
+    "angular-messages": "^1.5.6"
   }
 }

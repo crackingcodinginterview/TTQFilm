@@ -1,24 +1,48 @@
 <div class="login">
-    <form class="login__form-login form-horizontal" role="form">
+    <form class="login__form-login form-horizontal"
+          name="loginForm"
+          novalidate>
         <div class="form-group">
             <label class="login__form-login__label col-sm-2 control-label" for="">Tài Khoản</label>
             <div class="col-sm-6">
-                <input type="email" class="login__form-login__input-text form-control" placeholder="Nhập tài khoản hoặc email">
+                <input type="text"
+                       class="login__form-login__input-text form-control"
+                       placeholder="Nhập tài khoản"
+                       name="username"
+                       ng-model="user.username"
+                       required
+                >
             </div>
             <div class="col-sm-4">
                 <a class="login__form-login__button-login-with-facebook button-login-with-facebook" href="#"></a>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="help-block" ng-messages="loginForm.username.$error">
+                    <ng-messages-include src="app/app.message.html"></ng-messages-include>
+                </div>
             </div>
         </div>
         <div class="form-group">
             <label class="login__form-login__label col-sm-2 control-label" for="">Mật Khẩu</label>
             <div class="col-sm-6">
-                <input type="password" class="login__form-login__input-text form-control" placeholder="Nhập mật khẩu truy cập">
+                <input type="password"
+                       class="login__form-login__input-text form-control"
+                       placeholder="Nhập mật khẩu truy cập"
+                       name="password"
+                       ng-model="user.password"
+                       required
+                >
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="help-block" ng-messages="loginForm.password.$error">
+                    <ng-messages-include src="app/app.message.html"></ng-messages-include>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-10">
-                <button type="submit" class="login__form-login__button-login btn btn-primary" ng-click="test()">Đăng Nhập</button>
-                <button type="submit" class="login__form-login__button-forgot-password btn">Quên Mật Khẩu</button>
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" class="login__form-login__button-login btn btn-primary">Đăng Nhập</button>
+                <button type="submit" class="login__form-login__button-forgot-password btn" ui-sref="app.forgotpassword">Quên Mật Khẩu</button>
             </div>
         </div>
     </form>

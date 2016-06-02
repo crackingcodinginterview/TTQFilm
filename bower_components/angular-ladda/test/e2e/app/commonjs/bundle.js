@@ -6758,9 +6758,9 @@
 	    <script>
 	      angular.module('compileExample', [], function($compileProvider) {
 	        // configure new 'compile' directive by passing a directive
-	        // factory function. The factory function injects the '$compile'
+	        factorys
 	        $compileProvider.directive('compile', function($compile) {
-	          // directive factory creates a link function
+	          factorys
 	          return function(scope, element, attrs) {
 	            scope.$watch(
 	              function(scope) {
