@@ -14,12 +14,13 @@
                 views : {
                     'subview2' : {
                         templateUrl : 'app/components/home/homeView.html',
+                        controller : 'ListFilmController'
                     },
                     'subview3' : {
                         templateUrl : 'app/shared/sidebar/sidebarView.html'
                     },
                     'subview4' : {
-                        templateUrl : 'app/component/headeruser/headeruserView.html'
+                        templateUrl : 'app/components/headeruser/headeruserView.html'
                     }
                 },
                 data : { pageTitle: 'PHIM MỚI' }
