@@ -11,24 +11,8 @@
 </head>
 <body ng-controller="mainController">
 
-	<div id="main-slider" class="flexslider">
-		<ul class="slides">
-			<li>
-				<img class="img-responsive" src="http://hdonline.vn/i/resources/new/film/1600x600/2016/05/31/hardcore-henry.jpg"/>
-			</li>
-			<li>
-				<img class="img-responsive" src="http://hdonline.vn/i/resources/new/film/1600x600/2016/05/29/super-eunuch-thai-giam-sieu-nang-luc-2.jpg"/>
-			</li>
-			<li>
-				<img class="img-responsive" src="http://hdonline.vn/i/resources/new/film/1600x600/2016/05/12/captain-america-civil-war.jpg" />
-			</li>
-			<li>
-				<img class="img-responsive" src="http://hdonline.vn/i/resources/new/film/1600x600/2016/04/25/game-of-thrones-season-6.jpg"/>
-			</li>
-		</ul>
-	</div>
-
-	<list-film></list-film>
+	<div ng-view></div>
+	<!-- <list-film></list-film> -->
 
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -44,5 +28,6 @@
 	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="js/listFilm.js"></script>
 	<script type="text/javascript" src="js/filmDetail.js"></script>
+	<script type="text/javascript" src="loadSlider/loadSliderDirective.js"></script>
 </body>
 </html>

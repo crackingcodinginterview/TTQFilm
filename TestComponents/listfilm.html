@@ -1,27 +1,35 @@
+<load-slider class="mainSlider" animation-type="fade" list-film="$ctrl.phimhanhdong"></load-slider>
+
 <h1>Phim đề cử</h1>
-<div id = "secondary-slider" class="flexslider">
-	<ul class="slides">
-		<li ng-repeat="film in $ctrl.list.phimdecu">
-			<img class="img-responsive" src="{{film.url}}">
-		</li>
-	</ul>
-</div>
+<load-slider animation-type="slide" list-film="$ctrl.phimhanhdong"></load-slider>
 
 
 
 
 <h1>Phim chiếu rạp mới</h1>
-<div class ="listfilm">
-	<div ng-repeat="film in $ctrl.list.phimdecu">
-		<film-detail filmitem="film"></film-detail>
-	</div>
-</div>
+<ul class ="listfilm">
+	<li ng-repeat="film in $ctrl.phimhoathinh">
+		<div class="film-item">		
+			<img class="img-responsive film-picture" src="{{film.Picture}}">
+
+			<div class="content">
+				<a href="#/films/{{film.ID}}">Đây là {{film.ID}}</a>
+			</div>
+		</div>
+	</li>
+</ul>
 
 
 
 <h1>Phim Hot</h1>
-<div class="listfilm">
-	<div ng-repeat="film in $ctrl.list.phimhot">
-		<film-detail filmitem="film"></film-detail>
-	</div>
-</div>
+<ul class ="listfilm">
+	<li ng-repeat="film in $ctrl.phimhanhdong">
+		<div class="film-item">		
+			<img class="img-responsive film-picture" src="{{film.Picture}}">
+
+			<div class="content">
+				<a href="#/films/{{film.ID}}">Đây là {{film.ID}}</a>
+			</div>
+		</div>
+	</li>
+</ul>
