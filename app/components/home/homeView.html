@@ -1,15 +1,16 @@
 <div class="home">
-	<load-slider class="mainSlider" animation-type="fade" list-film="$ctrl.phimhanhdong"></load-slider>
 
-	<h1>Phim đề cử</h1>
-	<load-slider animation-type="slide" list-film="$ctrl.phimhanhdong"></load-slider>
+	<load-slider class="mainSlider" animation-type="fade" list-film="phimhanhdong"></load-slider>
+
+	<p class="home-title">Phim đề cử</p>
+	<load-slider animation-type="slide" list-film="phimhanhdong"></load-slider>
 
 
 
 
-	<h1>Phim chiếu rạp mới</h1>
+	<p class= "home-title">Phim chiếu rạp mới</p>
 	<ul class ="listfilm">
-		<li ng-repeat="film in $ctrl.phimhoathinh">
+		<li ng-repeat="film in phimhoathinh">
 			<div class="film-item">		
 				<img class="img-responsive film-picture" src="{{film.Picture}}">
 
@@ -22,9 +23,9 @@
 
 
 
-	<h1>Phim Hot</h1>
+	<p class="home-title">Phim Hot</p>
 	<ul class ="listfilm">
-		<li ng-repeat="film in $ctrl.phimhanhdong">
+		<li ng-repeat="film in phimhanhdong">
 			<div class="film-item">		
 				<img class="img-responsive film-picture" src="{{film.Picture}}">
 
@@ -34,4 +35,6 @@
 			</div>
 		</li>
 	</ul>
+
+	<span us-spinner="{radius:30,width:8,length:16}" spinner-on="isLoading"></span>
 </div>

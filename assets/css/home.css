@@ -3,8 +3,17 @@
 	border: 0 !important;
 }
 
+.home-title{
+	display: block;
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #dacb46;
+    text-shadow: 1px 1px 1px #1a1a1a;
+    text-transform : uppercase;
+}
 .mainSlider .flexslider{
-	width: 60%;
+	width: 100%;
 }
 
 .seeall h5{
@@ -14,7 +23,7 @@
 }
 
 ul.listfilm{
-	width: 70% !important;
+	width: 100% !important;
 	padding-left: 0;
 }
 
