@@ -15,8 +15,19 @@ namespace Test_Selenium_Server.Controllers
         public string getResult(string id)
         {
             Global.Driver();
-            Global.Navigate("https://www.whatismyip.com/");
-            string Res =  Global.ExecuteJS("document.getElementsByClassName('ip')[0].innerText").ToString();
+            Global.Navigate("http://www.phimmoi.net/phim/ky-an-zootopia-3259/xem-phim.html");
+            //string Res =  Global.ExecuteJS("document.getElementsByClassName('ip')[0].innerText").ToString();
+            //string Res = Global.ExecuteJS("document.getElementsByTagName('body')[0].innerHTML").ToString();
+            string ConfirmLink =
+                Global.ExecuteJS("document.getElementsByClassName('redirect')[0].getElementsByTagName('a')[0].getAttribute('href')").ToString();
+
+            ConfirmLink = "http://www.phimmoi.net/" + ConfirmLink;
+
+            Global.Navigate(ConfirmLink);
+
+            //string Res = Global.ExecuteJS("document.getElementsByClassName('jw-video')[0].getAttribute('src')").ToString();
+            string Res = Global.ExecuteJS("document.getElementsByTagName('body')[0].innerHTML").ToString();
+
             Global.Close();
             return Res;
         }
