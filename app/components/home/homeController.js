@@ -16,7 +16,7 @@
 			$http.get('https://api.myjson.com/bins/1cse6').then(function(response){
 				ctrl.phimhoathinh = response.data;
 			});
-		}
+		};
 
 
 		sc.getPhim();
