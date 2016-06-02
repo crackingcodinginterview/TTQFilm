@@ -19,7 +19,7 @@
                         templateUrl : 'app/shared/sidebar/sidebarView.html'
                     },
                     'subview4' : {
-                        templateUrl : 'app/component/headeruser/headeruserView.html'
+                        templateUrl : 'app/components/headeruser/headeruserView.html'
                     }
                 },
                 data : { pageTitle: 'PHIM MỚI' }
