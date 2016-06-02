@@ -9,6 +9,7 @@
             'ngScrollbars',
             'ui-notification',
             'ngMessages',
-            'angular-ladda'
+            'angular-ladda',
+            'angularSpinner'
         ]);
 }());
