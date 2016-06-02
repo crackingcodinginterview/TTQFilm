@@ -14,6 +14,7 @@
                 views : {
                     'subview2' : {
                         templateUrl : 'app/components/home/homeView.html',
+                        controller : 'ListFilmController'
                     },
                     'subview3' : {
                         templateUrl : 'app/shared/sidebar/sidebarView.html'

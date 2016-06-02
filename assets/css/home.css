@@ -1,4 +1,64 @@
-.home{
-    height: 500px;
-    background-color: red;
+.flexslider{
+	margin-bottom: 0 !important;
+	border: 0 !important;
+}
+
+.mainSlider .flexslider{
+	width: 60%;
+}
+
+.seeall h5{
+	margin-top:-26px;
+	margin-right:25px;
+	float: right;
+}
+
+ul.listfilm{
+	width: 70% !important;
+	padding-left: 0;
+}
+
+ul.listfilm li{
+	display: inline-block;
+	list-style-type: none;
+}
+
+
+.film-item{
+	margin-bottom: 5px;
+	margin-left: 5px;
+	position: relative;
+}
+
+.film-item.film-item-slider .content{
+	width: 205px;
+}
+
+.film-item.film-item-slider a img{
+	width: 215px;
+	height: 340px;
+}
+
+.content{
+	height: 50px;
+	width: 215px;
+	background-color: rgba(0,0,0,0.8);
+	position: absolute;
+	bottom: 0;
+	text-align: left;
+	padding: 14px;
+}
+
+.content a{
+	color: white;
+	cursor: pointer;
+}
+
+.content a:hover{
+	color: white;
+}
+
+.film-picture{
+	width: 215px;
+	height: 340px;
 }
