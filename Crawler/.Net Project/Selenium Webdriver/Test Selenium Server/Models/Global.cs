@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -47,6 +48,7 @@ namespace Test_Selenium_Server.Models
         public static void Close()
         {
             driver.Quit();
+            driver = null;
         }
     }
 }

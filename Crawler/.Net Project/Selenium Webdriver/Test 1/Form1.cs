@@ -84,7 +84,7 @@ namespace Test_1
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            driver.Quit();
+            new Thread(() => driver.Quit()).Start();
         }
     }
 }

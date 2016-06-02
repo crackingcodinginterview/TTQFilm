@@ -137,6 +137,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Global.cs" />
+    <Compile Include="Models\Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +145,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\getlinkphimmoi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\getlinkphimmoi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\whattoeattoday4 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\whattoeattoday4 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">

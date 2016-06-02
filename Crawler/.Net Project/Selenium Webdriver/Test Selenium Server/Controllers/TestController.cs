@@ -15,20 +15,20 @@ namespace Test_Selenium_Server.Controllers
         public string getResult(string id)
         {
             Global.Driver();
-            Global.Navigate("http://www.phimmoi.net/phim/phu-thuy-3206/xem-phim.html");
-            string Res =  Global.ExecuteJS("document.getElementsByClassName('jw-video')[0].getAttribute('src')").ToString();
+            Global.Navigate("https://www.whatismyip.com/");
+            string Res =  Global.ExecuteJS("document.getElementsByClassName('ip')[0].innerText").ToString();
             Global.Close();
             return Res;
         }
 
         [HttpPost]
-        public string getLink([FromBody] string Address)
+        public Link getLink([FromBody] string Address)
         {
             Global.Driver();
             Global.Navigate(Address);
             string Res = Global.ExecuteJS("document.getElementsByClassName('jw-video')[0].getAttribute('src')").ToString();
             Global.Close();
-            return Res;
+            return new Link(Res);
         }
     }
 }
