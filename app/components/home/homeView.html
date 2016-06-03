@@ -14,7 +14,7 @@
 				<img class="img-responsive film-picture" src="{{film.Picture}}">
 
 				<div class="content">
-					<a href="#/films/{{film.ID}}">Đây là {{film.ID}}</a>
+					<a ui-sref="app.watchfilm({phimdetai : film})" >Đây là {{film.ID}}</a>
 				</div>
 			</div>
 		</li>
