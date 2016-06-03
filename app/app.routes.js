@@ -3,7 +3,7 @@
  */
  (function(){
     var app = angular.module('movieApp');
-    app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
+    app.config(function($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('/');
         $stateProvider
         .state('app', {
@@ -24,9 +24,12 @@
                     controller : 'headeruserController'
                 }
             },
-            data : { pageTitle: 'PHIM MỚI' }
+            data : {
+                pageTitle: 'PHIM MỚI',
+                role : ['GUESS', 'USER', 'ADMIN'],
+            }
         })
-            //State Xem phim
+            //State xem thông tin chi tiết của phim
             .state('app.watchfilm',{
                 url:'xemphim',
                 params: {
@@ -45,7 +48,10 @@
                         controller: 'watchfilmController'
                     }
                 },
-                data : { pageTitle: 'Xem Phim' }
+                data : {
+                    pageTitle: 'XEM PHIM',
+                    role : ['GUESS', 'USER', 'ADMIN'],
+                }
             })
 
             .state('app.login', {
@@ -62,7 +68,10 @@
                         controller : 'loginController'
                     }
                 },
-                data : { pageTitle: 'ĐĂNG NHẬP' }
+                data : {
+                    pageTitle: 'ĐĂNG NHẬP',
+                    role : ['GUESS'],
+                }
             })
             .state('app.register', {
                 url : 'dangky',
@@ -78,7 +87,10 @@
                         controller : 'registerController'
                     }
                 },
-                data : { pageTitle: 'ĐĂNG KÝ' }
+                data : {
+                    pageTitle: 'ĐĂNG KÝ',
+                    role : ['GUESS'],
+                }
             })
             .state('app.changepassword', {
                 url : 'doimatkhau',
@@ -94,7 +106,10 @@
                         controller : 'changepasswordController'
                     }
                 },
-                data : { pageTitle: 'ĐỔI MẬT KHẨU' }
+                data : {
+                    pageTitle: 'ĐỔI MẬT KHẨU',
+                    role : ['USER', 'ADMIN'],
+                }
             })
             .state('app.forgotpassword', {
                 url : 'laymatkhaumoi',
@@ -109,19 +124,42 @@
                         templateUrl : 'app/components/forgotpassword/forgotpasswordView.html'
                     }
                 },
-                data : { pageTitle: 'QUÊN MẬT KHẨU' }
+                data : {
+                    pageTitle: 'QUÊN MẬT KHẨU',
+                    role : ['GUESS'],
+                }
+            })
+            .state('app.accessdenied', {
+                url : 'trangblock',
+                ncyBreadcrumb: {
+                    label: 'CẢNH BÁO'
+                },
+                views : {
+                    'subview1@' : {
+                        template : '<ncy-breadcrumb></ncy-breadcrumb>',
+                    },
+                    'subview2@' : {
+                        templateUrl : 'app/components/accessdenied/accessdeniedView.html'
+                    }
+                },
+                data : {
+                    pageTitle: 'CẢNH BÁO',
+                    role : ['GUESS', 'USER', 'ADMIN'],
+                }
             });
         });
-    app.run(function ($rootScope, $state, $stateParams, $cookies) {
-        firebase.auth().onAuthStateChanged(function(response){
-         $rootScope.globals = {
-             currentUser : response,
-         };
-         $rootScope.$apply();
+     app.run(function ($rootScope, $state, $stateParams, AuthenticationService) {
+         $rootScope.globals = {};
+         AuthenticationService.waitForUser();
+         firebase.auth().onAuthStateChanged(function(response){
+             AuthenticationService.setCredential(response);
+         });
+         $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
+             $rootScope.toState = toState;
+             $rootScope.toStateParams = toStateParams;
+             if ($rootScope.globals.role !== undefined) {
+                 AuthenticationService.authorize();
+             }
+         });
      });
-        $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
-            $rootScope.toState = toState;
-            $rootScope.toStateParams = toStateParams;
-        });
-    });
 }());

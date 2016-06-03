@@ -2,7 +2,7 @@
 	<load-slider class="mainSlider" animation-type="fade" list-film="phimhanhdong"></load-slider>
 
 	<p class="home-title">Phim đề cử</p>
-	<load-slider animation-type="slide" list-film="phimhanhdong"></load-slider>
+	<load-slider class="secondSlider" animation-type="slide" list-film="phimhanhdong"></load-slider>
 
 
 
@@ -10,11 +10,14 @@
 	<p class= "home-title">Phim chiếu rạp mới</p>
 	<ul class ="listfilm">
 		<li ng-repeat="film in phimhoathinh">
-			<div class="film-item">		
-				<img class="img-responsive film-picture" src="{{film.Picture}}">
-
+			<div class="film-item">
+				<a ui-sref="app.watchfilm({filmdetail : film})">	
+					<img class="img-responsive film-picture" src="{{film.Picture}}">
+				</a>
 				<div class="content">
-					<a ui-sref="app.watchfilm({filmdetail : film})" >Đây là {{film.ID}}</a>
+					<a class="content-film-namevi" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_Vi}}</a>
+					<a class="content-film-nameen" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_En}}</a>
+					<span ui-sref="app.watchfilm({filmdetail : film})" class="content-film-duration">{{film.Duration}}</span>
 				</div>
 			</div>
 		</li>
@@ -25,15 +28,17 @@
 	<p class="home-title">Phim Hot</p>
 	<ul class ="listfilm">
 		<li ng-repeat="film in phimhanhdong">
-			<div class="film-item">		
-				<img class="img-responsive film-picture" src="{{film.Picture}}">
-
+			<div class="film-item">
+				<a ui-sref="app.watchfilm({filmdetail : film})">	
+					<img class="img-responsive film-picture" src="{{film.Picture}}">
+				</a>
 				<div class="content">
-					<a href="#/films/{{film.ID}}">Đây là {{film.ID}}</a>
+					<a class="content-film-namevi" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_Vi}}</a>
+					<a class="content-film-nameen" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_En}}</a>
+					<span ui-sref="app.watchfilm({filmdetail : film})" class="content-film-duration">{{film.Duration}}</span>
 				</div>
 			</div>
 		</li>
 	</ul>
 
-	<span us-spinner="{radius:30,width:8,length:16}" spinner-on="isLoading"></span>
 </div>

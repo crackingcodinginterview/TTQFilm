@@ -1,4 +1,38 @@
-<div class="watch-film">
-	<p>{{film.Name_Vi}}</p>
-	<p>{{film.Director}}</p>
+<div class="watchfilm">
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<img class="img-responsive watchfilm-picture" src="{{film.Picture}}"/>
+			<div class="btn-watchfilm-group">
+				<button class="btn btn-success btn-watchfilm">Download</button>
+				<button class="btn btn-primary btn-watchfilm">Trailer</button>
+				<button class="btn btn-danger btn-watchfilm">Xem Phim</button>
+			</div>
+		</div>
+
+		<div class="col-md-6 col-sm-6 col-xs-6">
+			<h1 class="watchfilm-movietitle">
+				<span class="watchfilm-movietitle-1">{{film.Name_Vi}}</span>
+				<span class="watchfilm-movietitle-2">{{film.Name_En}}</span>
+				<span class="watchfilm-movietitle-year">{{film.Year}}</span>
+			</h1>
+
+			<div class="watchfilm-filminfo" ng-scrollbars>
+				<ul>
+					<li>Trạng thái: </li>
+					<li>Điểm: </li>
+					<li>Đạo diễn: </li>
+					<li>Quốc gia: </li>
+					<li>Năm: </li>
+					<li>Ngày ra rạp: </li>
+					<li>Thời lượng: </li>
+					<li>Chất lượng: </li>
+					<li>Độ phân giải: </li>
+					<li>Ngôn ngữ: </li>
+					<li>Thể loại: </li>
+					<li>Công ty sản xuất: </li>
+					<li>Lượt xem: </li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>

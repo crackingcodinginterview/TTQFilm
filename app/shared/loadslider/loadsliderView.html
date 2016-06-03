@@ -2,11 +2,12 @@
 	<ul class="slides">
 		<li ng-repeat="film in listFilm">
 			<div class="film-item film-item-slider">
-				<a href="#/films/{{film.ID}}">
+				<a ui-sref="app.watchfilm({filmdetail : film})"">
 					<img class="img-responsive film-picture" ng-src="{{film.Picture}}">
 				</a>
 				<div class="content">
-					<a href="#/films/{{film.ID}}">Đây là {{film.ID}}</a>
+					<a class="content-film-namevi-slider" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_Vi}}</a>
+					<a class="content-film-nameen-slider" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_En}}</a>
 				</div>
 			</div>
 		</li>

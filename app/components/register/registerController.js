@@ -14,6 +14,7 @@
         }
 
         $scope.register = function(){
+            $scope.isWaiting = true;
             if(firstCheck($scope.user)) {
                 $scope.isWaiting = true;
                 UserService.createUser($scope.user).then(
@@ -30,6 +31,7 @@
             }
             else{
                 Notification.error('Nhập lại mật khẩu chưa đúng.')
+                $scope.isWaiting = false;
             }
         };
     });

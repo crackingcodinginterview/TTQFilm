@@ -1,5 +1,65 @@
-.watch-film{
-	background-color: red;
-	height: 100px;
-	width: 100px;
+.watchfilm{
+	background: url(../img/item_bg.gif);
+	width: 85%;
+	padding: 10px;
+	margin-left: 30px;
+}
+
+.watchfilm-picture{
+	position: relative;
+	text-align: center;
+}
+
+.btn-watchfilm-group{
+	position: absolute;
+	padding-left: 40px;
+	padding-top: 14px;
+	bottom: 0;
+	width: 92%;
+	height: 60px;
+	background: rgba(0,0,0,0.8);
+}
+
+.watchfilm-movietitle-1{
+	color: rgb(218, 203, 70);
+	display: block;
+	font-family: "UTMCafetaRegular";
+	font-size: 25px;
+	font-size-adjust: none;
+	font-style: normal;
+	font-language-override: normal;
+	font-kerning: auto;
+	font-synthesis: weight style;
+	font-variant: normal;
+	font-variant-alternates: normal;
+	font-weight: bold;
+	line-height: 28px;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	font-feature-settings: normal;
+	font-variant-caps: normal;
+	font-variant-position: normal;
+}
+
+.watchfilm-movietitle-2{
+	font-size: 14px;
+	color: white;
+}
+
+.watchfilm-movietitle-year{
+	font-size: 14px;
+	color: white;
+}
+
+.watchfilm-filminfo{
+	margin-top: 20px;
+	height: 240px;
+	width: 80%;
+	background: rgb(34,34,34);
+}
+
+.watchfilm-filminfo ul li{
+	margin-top: 8px;
+	color: white;
+	font-size: 14px;
 }

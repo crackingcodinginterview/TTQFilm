@@ -22,6 +22,20 @@
                     $scope.isWaiting = false;
                 }
             );
-        }
+        };
+
+        $scope.loginWithFacebook = function(){
+            AuthenticationService.loginWithFacebook().then(
+                function(response){
+                    if(response.success){
+                        $state.go('app');
+                        Notification.primary(response.message);
+                    }
+                    else{
+                        Notification.error(response.message);
+                    }
+                }
+            )
+        };
     });
 }());

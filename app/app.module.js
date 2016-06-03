@@ -12,6 +12,6 @@
             'angular-ladda',
             'angularSpinner',
             'firebase',
-            'ngCookies'
+            'blockUI'
         ]);
 }());
