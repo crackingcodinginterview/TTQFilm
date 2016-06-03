@@ -28,10 +28,10 @@
         })
             //State Xem phim
             .state('app.watchfilm',{
-                url:'xemphim',
-                params: {
-                    phimdetail: {}
-                },
+                url:'xemphim/:id',
+                // params: {
+                //     phimdetail: null
+                // },
                 ncyBreadcrumb:{
                     label: 'XEM PHIM'
                 },

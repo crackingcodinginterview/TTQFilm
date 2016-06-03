@@ -87,6 +87,7 @@
             return currentUser.updatePassword(newPassword).then(
                 function(){
                     return {success : true, message : 'Đổi mật khẩu thành công'};
+                    currentUser.reauthenticate()
                 },
                 function(error){
                     var message = '';
