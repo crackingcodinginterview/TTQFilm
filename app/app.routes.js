@@ -30,10 +30,10 @@
             .state('app.watchfilm',{
                 url:'xemphim',
                 params: {
-                    phimdetail: {}
+                    filmdetail: null
                 },
                 ncyBreadcrumb:{
-                    label: 'XEM PHIM'
+                    label: 'XEM PHIM / {{filmdetail.Name_Vi}}'
                 },
                 views : {
                     'subview1@' : {
