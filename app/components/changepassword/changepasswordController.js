@@ -13,8 +13,8 @@
             return true;
         };
         $scope.changePassword = function(){
+            $scope.isWaiting = true;
             if(firstCheck($scope.user)){
-                $scope.isWaiting = true;
                 var currentUser = $rootScope.globals.currentUser;
                 UserService.updatePassword(currentUser, $scope.user.password).then(
                     function(response){
@@ -29,6 +29,7 @@
             }
             else{
                 Notification.error('Nhập lại mật khẩu chưa đúng.')
+                $scope.isWaiting = false;
             }
         };
     });
