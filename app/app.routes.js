@@ -52,7 +52,8 @@
                         template : '<ncy-breadcrumb></ncy-breadcrumb>',
                     },
                     'subview2@' : {
-                        templateUrl : 'app/components/register/registerView.html'
+                        templateUrl : 'app/components/register/registerView.html',
+                        controller : 'registerController'
                     }
                 },
                 data : { pageTitle: 'ĐĂNG KÝ' }
@@ -67,7 +68,8 @@
                         template : '<ncy-breadcrumb></ncy-breadcrumb>',
                     },
                     'subview2@' : {
-                        templateUrl : 'app/components/changepassword/changepasswordView.html'
+                        templateUrl : 'app/components/changepassword/changepasswordView.html',
+                        controller : 'changepasswordController'
                     }
                 },
                 data : { pageTitle: 'ĐỔI MẬT KHẨU' }
@@ -89,12 +91,15 @@
             });
     });
     app.run(function ($rootScope, $state, $stateParams, $cookies) {
-            $rootScope.globals = $cookies.getObject('globals') || {};
-            console.log(firebase.auth().currentUser);
+            firebase.auth().onAuthStateChanged(function(response){
+               $rootScope.globals = {
+                   currentUser : response,
+               };
+                $rootScope.$apply();
+            });
             $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
                 $rootScope.toState = toState;
                 $rootScope.toStateParams = toStateParams;
-                // if (principal.isIdentityResolved()) authorization.authorize();
             });
         });
 }());

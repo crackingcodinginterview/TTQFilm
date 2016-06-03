@@ -3,20 +3,25 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.controller('loginController', function($scope, Notification, AuthenticationService, $state, $timeout, $cookies){
-        AuthenticationService.login({email : 'testtest@gmail.com', password : '123456'}).then(
-            function(response){
-                if(response.success){
-                    Notification.success(response.message);
-                    $timeout(function(){
-                        AuthenticationService.setCredential({email : 'testtest@gmail.com', password : '123456'});
-                        $state.go('app');
-                    }, 1000);
+    app.controller('loginController', function($scope, Notification, AuthenticationService, $state, $timeout){
+        $scope.user = {};
+
+        $scope.login = function() {
+            $scope.isWaiting = true;
+            AuthenticationService.login($scope.user).then(
+                function (response) {
+                    if (response.success) {
+                        Notification.primary(response.message);
+                        $timeout(function () {
+                            $state.go('app');
+                        }, 1000);
+                    }
+                    else {
+                        Notification.error(response.message);
+                    }
+                    $scope.isWaiting = false;
                 }
-                else{
-                    Notification.warning(response.message);
-                }
-            }
-        );
+            );
+        }
     });
 }());

@@ -11,7 +11,6 @@
 
 		   link: function(scope, iElm, iAttrs) {
 
-		   	console.log(scope.animationType);
 		   	scope.$watch('listFilm', function(newValue, oldValue) {
 		   		$('.flexslider').flexslider({
 		   			animation: scope.animationType,

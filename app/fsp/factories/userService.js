@@ -3,40 +3,109 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.factory('UserService', function($firebaseObject){
+    app.factory('UserService', function(){
         var service = {};
         service.login = login;
+        service.logout = logout;
         service.createUser = createUser;
-        service.deleteUser = deleteUser;
-        service.updateUser = updateUser;
+        service.updatePassword = updatePassword;
         return service;
 
         function login(user){
             return firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(
                 function(response){
-                    console.log(firebase.auth().currentUser);
-                    return {success : true, message : 'Đăng nhập thành công'};
+                    return {success : true, message : 'Đăng nhập thành công.'};
                 },
                 function(response){
-                    return {success : false, message : 'Tài khoản hoặc mật khẩu không đúng'};
+                    var message = '';
+                    switch (response.code){
+                        case 'auth/invalid-email':
+                            message = 'Email không hợp lệ.';
+                            break;
+
+                        case 'auth/user-disabled':
+                            message = 'Tài khoản của bạn chưa được kích hoạt.';
+                            break;
+
+                        case 'auth/user-not-found':
+                            message = 'Không tìm thấy tài khoản này.';
+                            break;
+
+                        case 'auth/wrong-password':
+                            message = 'Mật khẩu không đúng.';
+                            break;
+                    }
+                    return {success : false, message : message};
                 }
             )
         };
+        function logout(){
+            return firebase.auth().signOut().then(
+                function(){
+                    return {success : true, message : 'Đăng xuất thành công.'}
+                },
+                function(error){
+                    return {success : false, message : 'Vui lòng kiểm tra lại đường truyền.'}
+                }
+            );
+        }
         function createUser(user){
-            firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(
+            return firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(
                 function(response){
-                    console.log('ok');
+                    response.updateProfile({displayName: user.name});
+                    logout();
+                    return {success : true, message : 'Đăng kí tài khoản thành công.'};
                 },
                 function(response){
-                    console.log('lỗi');
+                    var message = '';
+                    switch (response.code){
+                        case 'auth/email-already-in-use':
+                            message = 'Email này đã được sử dụng.';
+                            break;
+
+                        case 'auth/weak-password':
+                            message = 'Mật khẩu không đủ mạnh';
+                            break;
+
+                        case 'auth/invalid-email':
+                            message = 'Email không hợp lệ';
+                            break;
+
+                        case 'auth/operation-not-allowed':
+                            message = 'Tài khoản của bạn chưa được kích hoạt';
+                            break;
+
+                        default:
+                            message = 'Vui lòng kiểm tra lại đường truyền.';
+                            break;
+                    }
+                    return {success : false, message : message};
                 }
             );
         };
-        function deleteUser(){
+        function updatePassword(currentUser, newPassword){
+            return currentUser.updatePassword(newPassword).then(
+                function(){
+                    return {success : true, message : 'Đổi mật khẩu thành công'};
+                },
+                function(error){
+                    var message = '';
+                    switch (error.code){
+                        case 'auth/weak-password':
+                            message  = 'Mật khẩu quá yếu.';
+                            break;
 
-        };
-        function updateUser(){
+                        case 'auth/requires-recent-login':
+                            message = 'Vui lòng đăng nhập lại.';
+                            break;
 
+                        default:
+                            message = 'Vui lòng kiểm tra lại đường truyền.';
+                            break;
+                    }
+                    return {success : false, message : message};
+                }
+            )
         };
     });
 }());

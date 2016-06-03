@@ -3,7 +3,7 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.factory('AuthenticationService', function(UserService, $rootScope, $cookies){
+    app.factory('AuthenticationService', function(UserService){
         var service = {};
         service.login = login;
         service.setCredential = setCredential;
@@ -20,17 +20,18 @@
                 }
             );
         };
-        function setCredential(user){
-            $rootScope.globals = {
-                currentUser : {
-                    email : user.email,
-                }
-            }
-            $cookies.putObject('globals', $rootScope.globals);
+        function setCredential(currentUser){
+            
         };
         function clearCredential(){
-            $rootScope.globals = {};
-            $cookies.remove('globals');
+            return UserService.logout().then(
+                function(response){
+                    return response;
+                },
+                function(response){
+                    return response;
+                }
+            );
         };
     });
 }());

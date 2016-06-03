@@ -5,13 +5,12 @@
 </div>
 <div class="header__user" ng-if="globals.currentUser">
     <div class="btn-group dropdown">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Xin chào, vominhquoc
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Xin chào, {{globals.currentUser.displayName}}
             <span class="caret"></span></button>
         <ul class="dropdown-menu">
-            <li><a ui-sref="app.changepassword">Thông tin tài khoản</a></li>
             <li><a ui-sref="app.changepassword">Đổi mật khẩu</a></li>
             <li class="divider"></li>
-            <li><a ui-sref="app.changepassword" ng-click="logout()">Thoát</a></li>
+            <li><a href="#" ng-click="logout()">Thoát</a></li>
         </ul>
     </div>
     <button type="button" class="btn btn-primary">Tủ phim</button>

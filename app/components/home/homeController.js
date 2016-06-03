@@ -3,7 +3,6 @@
 
 	app.controller('ListFilmController', function ($scope,$http) {
 		window.sc = $scope;
-
 		sc.isLoading = true;
 		sc.phimhanhdong = {};
 		sc.phimhoathinh = {};

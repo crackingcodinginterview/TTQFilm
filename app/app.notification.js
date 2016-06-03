@@ -5,7 +5,7 @@
     var app = angular.module('movieApp');
     app.config(function(NotificationProvider) {
         NotificationProvider.setOptions({
-            delay: 1000,
+            delay: 1500,
             startTop: 20,
             startRight: 10,
             verticalSpacing: 20,
