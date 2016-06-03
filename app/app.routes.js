@@ -33,19 +33,19 @@
                     filmdetail: null
                 },
                 ncyBreadcrumb:{
-                    label: 'XEM PHIM / {{filmdetail.Name_Vi}}'
+                    label: 'XEM PHIM / {{film.Name_Vi}}'
                 },
                 views : {
                     'subview1@' : {
-                        template: '<ncy-breadcrumb></ncy-breadcrumb>'
+                        template: '<ncy-breadcrumb></ncy-breadcrumb>',
+                        controller: 'watchfilmController'
                     },
                     'subview2@' : {
                         templateUrl: 'app/components/watchfilm/watchfilmView.html',
                         controller: 'watchfilmController'
-
                     }
                 },
-                data : { pageTitle: 'XEM PHIM' }
+                data : { pageTitle: 'Xem Phim' }
             })
 
             .state('app.login', {
