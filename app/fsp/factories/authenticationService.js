@@ -11,6 +11,7 @@
         service.setCredential = setCredential;
         service.clearCredential = clearCredential;
         service.loginWithFacebook = loginWithFacebook;
+        service.updatePassword = updatePassword;
         return service;
 
         function updatePassword(newPassword){
@@ -69,7 +70,7 @@
                     ? 'ADMIN' : 'USER',
             };
             $rootScope.$apply();
-            $state.go('app');
+            authorize();
         };
         function clearCredential(){
             return UserService.logout().then(

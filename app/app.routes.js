@@ -53,7 +53,6 @@
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             })
-
             .state('app.login', {
                 url : 'dangnhap',
                 ncyBreadcrumb: {
