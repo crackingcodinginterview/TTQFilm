@@ -32,8 +32,12 @@
                 // params: {
                 //     phimdetail: null
                 // },
+                url:'xemphim',
+                params: {
+                    filmdetail: null
+                },
                 ncyBreadcrumb:{
-                    label: 'XEM PHIM'
+                    label: 'XEM PHIM / {{filmdetail.Name_Vi}}'
                 },
                 views : {
                     'subview1@' : {
