@@ -1,9 +1,9 @@
-<div class="header__user" ng-if="true">
+<div class="header__user" ng-if="!globals.currentUser">
     <a class="button-register pull-left" ui-sref="app.register"></a>
     <a class="button-login pull-left" ui-sref="app.login"></a>
     <a class="button-login-with-facebook pull-left" href="#"></a>
 </div>
-<div class="header__user" ng-if="false">
+<div class="header__user" ng-if="globals.currentUser">
     <div class="btn-group dropdown">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Xin chào, vominhquoc
             <span class="caret"></span></button>
@@ -11,7 +11,7 @@
             <li><a ui-sref="app.changepassword">Thông tin tài khoản</a></li>
             <li><a ui-sref="app.changepassword">Đổi mật khẩu</a></li>
             <li class="divider"></li>
-            <li><a ui-sref="app.changepassword">Thoát</a></li>
+            <li><a ui-sref="app.changepassword" ng-click="logout()">Thoát</a></li>
         </ul>
     </div>
     <button type="button" class="btn btn-primary">Tủ phim</button>

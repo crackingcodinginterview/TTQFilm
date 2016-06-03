@@ -1,0 +1,26 @@
+.template-form{
+    padding: 40px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.template-form__label{
+    font-weight: bold;
+    color: #dddddd;
+}
+
+.template-form__input-text{
+    background-color: #333333;
+    border-color: #000;
+    color: #b8b8b8;
+}
+
+.template-form__input-submit{
+    color: #cccccc;
+    background: linear-gradient(#474747, #404040);
+}
+
+.template-form__input-submit:hover{
+    color: #ffffff;
+    background: linear-gradient(#5b5b5b, #494949);
+}

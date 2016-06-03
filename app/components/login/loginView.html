@@ -1,12 +1,12 @@
 <div class="login">
-    <form class="login__form-login form-horizontal"
+    <form class="template-form form-horizontal"
           name="loginForm"
           novalidate>
         <div class="form-group">
-            <label class="login__form-login__label col-sm-2 control-label" for="">Tài Khoản</label>
+            <label class="template-form__label col-sm-2 control-label" for="">Tài Khoản</label>
             <div class="col-sm-6">
                 <input type="text"
-                       class="login__form-login__input-text form-control"
+                       class="template-form__input-text form-control"
                        placeholder="Nhập tài khoản"
                        name="username"
                        ng-model="user.username"
@@ -14,7 +14,7 @@
                 >
             </div>
             <div class="col-sm-4">
-                <a class="login__form-login__button-login-with-facebook button-login-with-facebook" href="#"></a>
+                <a class="button-login-with-facebook" href="#"></a>
             </div>
             <div class="col-sm-offset-2 col-sm-10">
                 <div class="help-block" ng-messages="loginForm.username.$error">
@@ -23,10 +23,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="login__form-login__label col-sm-2 control-label" for="">Mật Khẩu</label>
+            <label class="template-form__label col-sm-2 control-label" for="">Mật Khẩu</label>
             <div class="col-sm-6">
                 <input type="password"
-                       class="login__form-login__input-text form-control"
+                       class="template-form__input-text form-control"
                        placeholder="Nhập mật khẩu truy cập"
                        name="password"
                        ng-model="user.password"
@@ -41,8 +41,8 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
-                <button type="submit" class="login__form-login__button-login btn btn-primary">Đăng Nhập</button>
-                <button type="submit" class="login__form-login__button-forgot-password btn" ui-sref="app.forgotpassword">Quên Mật Khẩu</button>
+                <button type="submit" class="template-form__input-submit btn">Đăng Nhập</button>
+                <button type="submit" class="template-form__input-submit btn" ui-sref="app.forgotpassword">Quên Mật Khẩu</button>
             </div>
         </div>
     </form>

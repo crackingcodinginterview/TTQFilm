@@ -20,7 +20,8 @@
                         templateUrl : 'app/shared/sidebar/sidebarView.html'
                     },
                     'subview4' : {
-                        templateUrl : 'app/components/headeruser/headeruserView.html'
+                        templateUrl : 'app/components/headeruser/headeruserView.html',
+                        controller : 'headeruserController'
                     }
                 },
                 data : { pageTitle: 'PHIM MỚI' }
@@ -86,16 +87,14 @@
                 },
                 data : { pageTitle: 'QUÊN MẬT KHẨU' }
             });
-    })
-    app.run([ '$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
-            // $rootScope.$state = $state;
-            // $rootScope.$stateParams = $stateParams;
-            // console.log('test');
+    });
+    app.run(function ($rootScope, $state, $stateParams, $cookies) {
+            $rootScope.globals = $cookies.getObject('globals') || {};
+            console.log(firebase.auth().currentUser);
             $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
                 $rootScope.toState = toState;
                 $rootScope.toStateParams = toStateParams;
-                console.log('test');
                 // if (principal.isIdentityResolved()) authorization.authorize();
             });
-        }]);
+        });
 }());

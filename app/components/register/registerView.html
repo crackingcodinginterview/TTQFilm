@@ -1,13 +1,13 @@
 <div class="register">
-    <form class="register__form-register form-horizontal"
+    <form class="template-form form-horizontal"
           role="form"
           name="registerForm"
     >
         <div class="form-group">
-            <label class="register__form-register__label col-sm-3 control-label" for="">Tài Khoản</label>
+            <label class="template-form__label col-sm-3 control-label" for="">Tài Khoản</label>
             <div class="col-sm-6">
                 <input type="email"
-                       class="register__form-register__input-text form-control"
+                       class="template-form__input-text form-control"
                        placeholder="Nhập tên tài khoản"
                        name="username"
                        ng-model="user.username"
@@ -23,10 +23,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="register__form-register__label col-sm-3 control-label" for="">Mật Khẩu</label>
+            <label class="template-form__label col-sm-3 control-label" for="">Mật Khẩu</label>
             <div class="col-sm-6">
                 <input type="password"
-                       class="register__form-register__input-text form-control"
+                       class="template-form__input-text form-control"
                        placeholder="Nhập mật khẩu truy cập"
                        name="password"
                        ng-model="user.password"
@@ -43,10 +43,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="register__form-register__label col-sm-3 control-label" for="">Nhập Lại Mật Khẩu</label>
+            <label class="template-form__label col-sm-3 control-label" for="">Nhập Lại Mật Khẩu</label>
             <div class="col-sm-6">
                 <input type="password"
-                       class="register__form-register__input-text form-control"
+                       class="template-form__input-text form-control"
                        placeholder="Nhập lại mật khẩu"
                        name="repeatPassword"
                        ng-model="user.repeatPassword"
@@ -64,10 +64,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="register__form-register__label col-sm-3 control-label" for="">Họ tên</label>
+            <label class="template-form__label col-sm-3 control-label" for="">Họ tên</label>
             <div class="col-sm-6">
                 <input type="text"
-                       class="register__form-register__input-text form-control"
+                       class="template-form__input-text form-control"
                        placeholder="Nhập họ tên"
                        name="name"
                        ng-model="user.name"
@@ -81,10 +81,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="register__form-register__label col-sm-3 control-label" for="">Email</label>
+            <label class="template-form__label col-sm-3 control-label" for="">Email</label>
             <div class="col-sm-6">
                 <input type="email"
-                       class="register__form-register__input-text form-control"
+                       class="template-form__input-text form-control"
                        placeholder="Nhập email"
                        name="email"
                        ng-model="user.email"
@@ -99,8 +99,8 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8">
-                <button type="submit" class="register__form-register__button-login btn btn-primary" ladda="true">Đăng Ký</button>
-                <button type="reset" class="register__form-register__button-login btn btn-danger">Hủy</button>
+                <button type="submit" class="template-form__input-submit btn" ladda="true">Đăng Ký</button>
+                <button type="reset" class="template-form__input-submit btn">Hủy</button>
             </div>
         </div>
     </form>

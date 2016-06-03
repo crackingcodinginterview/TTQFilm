@@ -8,7 +8,7 @@
 
             autoHideScrollbar: false,
             // setHeight: 500,
-            // scrollInertia: 500,
+            //scrollInertia: 1000,
             axis: 'y',
             advanced: {
                 updateOnContentResize: true
@@ -17,7 +17,6 @@
                 scrollAmount: 'auto', // scroll amount when button pressed
                 enable: true // enable scrolling buttons by default
             },
-            theme: 'dark'
         };
     });
 }());

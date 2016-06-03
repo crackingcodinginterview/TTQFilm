@@ -10,6 +10,8 @@
             'ui-notification',
             'ngMessages',
             'angular-ladda',
-            'angularSpinner'
+            'angularSpinner',
+            'firebase',
+            'ngCookies'
         ]);
 }());

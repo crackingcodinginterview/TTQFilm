@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="assets/css/changepassword.css">
+    <link rel="stylesheet" href="assets/css/forgotpassword.css">
+    <link rel="stylesheet" href="assets/css/templateform.css">
     <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="assets/css/starrating.css">
     <link rel="stylesheet" href="assets/css/listtopmovieitemthumb.css">
@@ -30,18 +33,28 @@
     <script src="bower_components/flexslider/jquery.flexslider-min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+
     <script src="bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-breadcrumb/dist/angular-breadcrumb.min.js"></script>
+
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script src="app/app.module.js"></script>
     <script src="app/app.scrollbar.js"></script>
     <script src="app/shared/starrating/starratingDirective.js"></script>
     <script src="app/shared/loadslider/loadsliderDirective.js"></script>
-    <script src="app/shared/widget/listtopmovieitemthumbDirective.js"></script>
+    <script src="app/shared/listtopmovieitemthumb/listtopmovieitemthumbDirective.js"></script>
     <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
     <script src="app/app.notification.js"></script>
+
+    <script src="app/components/headeruser/headeruserController.js"></script>
+    <script src="app/app.firebase.js"></script>
+    <script src="app/fsp/factories/userService.js"></script>
+    <script src="app/fsp/factories/authenticationService.js"></script>
     <script src="app/components/login/loginController.js"></script>
     <script src="app/components/home/homeController.js"></script>
     <script src="app/app.routes.js"></script>
@@ -50,5 +63,6 @@
     <script src="bower_components/ladda/dist/ladda.min.js"></script>
     <script src="bower_components/angular-ladda/src/angular-ladda.js"></script>
     <script src="app/app.angularladda.js"></script>
+
 </body>
 </html>
