@@ -1,7 +1,7 @@
 <div class="header__user" ng-if="!globals.currentUser">
     <a class="button-register pull-left" ui-sref="app.register"></a>
     <a class="button-login pull-left" ui-sref="app.login"></a>
-    <a class="button-login-with-facebook pull-left" href="#"></a>
+    <a class="button-login-with-facebook pull-left" href="#" ng-click="loginWithFacebook()"></a>
 </div>
 <div class="header__user" ng-if="globals.currentUser">
     <div class="btn-group dropdown">

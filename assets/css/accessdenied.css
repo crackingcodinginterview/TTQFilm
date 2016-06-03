@@ -1,0 +1,12 @@
+.accessdenied{
+    height: 500px;
+    background-color: #181818;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.accessdenied__label{
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff0000;
+}

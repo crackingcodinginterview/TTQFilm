@@ -6,6 +6,7 @@
     app.factory('UserService', function(){
         var service = {};
         service.login = login;
+        service.loginWithFacebook = loginWithFacebook;
         service.logout = logout;
         service.createUser = createUser;
         service.updatePassword = updatePassword;
@@ -39,6 +40,18 @@
                 }
             )
         };
+        function loginWithFacebook(){
+            var provider = new firebase.auth.FacebookAuthProvider();
+            firebase.auth().signInWithRedirect(provider);
+            return firebase.auth().getRedirectResult().then(
+                function(response) {
+                    return {success : true, message  : 'Đăng nhập thành công.'};
+                },
+                function(response){
+                    return {success : false, message : 'Có lỗi xảy ra.'};
+                }
+            );
+        };
         function logout(){
             return firebase.auth().signOut().then(
                 function(){
@@ -53,7 +66,6 @@
             return firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(
                 function(response){
                     response.updateProfile({displayName: user.name});
-                    logout();
                     return {success : true, message : 'Đăng kí tài khoản thành công.'};
                 },
                 function(response){
@@ -87,7 +99,6 @@
             return currentUser.updatePassword(newPassword).then(
                 function(){
                     return {success : true, message : 'Đổi mật khẩu thành công'};
-                    currentUser.reauthenticate()
                 },
                 function(error){
                     var message = '';

@@ -3,7 +3,7 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.controller('changepasswordController', function($scope, UserService, $rootScope, Notification){
+    app.controller('changepasswordController', function($scope, AuthenticationService, Notification){
         $scope.user = {};
         $scope.isWaiting = false;
 
@@ -15,8 +15,7 @@
         $scope.changePassword = function(){
             $scope.isWaiting = true;
             if(firstCheck($scope.user)){
-                var currentUser = $rootScope.globals.currentUser;
-                UserService.updatePassword(currentUser, $scope.user.password).then(
+                AuthenticationService.updatePassword($scope.user.password).then(
                     function(response){
                         if(response.success){
                             Notification.primary(response.message);
