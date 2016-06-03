@@ -1,31 +1,53 @@
 /**
  * Created by Administrator on 30/05/2016.
  */
-(function(){
+ (function(){
     var app = angular.module('movieApp');
     app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
-        $urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise('/');
         $stateProvider
-            .state('app', {
-                url : "/",
-                ncyBreadcrumb: {
-                    label: 'PHIM MỚI',
+        .state('app', {
+            url : '/',
+            ncyBreadcrumb: {
+                label: 'PHIM MỚI',
+            },
+            views : {
+                'subview2' : {
+                    templateUrl : 'app/components/home/homeView.html',
+                    controller : 'ListFilmController'
+                },
+                'subview3' : {
+                    templateUrl : 'app/shared/sidebar/sidebarView.html'
+                },
+                'subview4' : {
+                    templateUrl : 'app/components/headeruser/headeruserView.html',
+                    controller : 'headeruserController'
+                }
+            },
+            data : { pageTitle: 'PHIM MỚI' }
+        })
+            //State Xem phim
+            .state('app.watchfilm',{
+                url:'xemphim',
+                params: {
+                    phimdetail: {}
+                },
+                ncyBreadcrumb:{
+                    label: 'XEM PHIM'
                 },
                 views : {
-                    'subview2' : {
-                        templateUrl : 'app/components/home/homeView.html',
-                        controller : 'ListFilmController'
+                    'subview1@' : {
+                        template: '<ncy-breadcrumb></ncy-breadcrumb>'
                     },
-                    'subview3' : {
-                        templateUrl : 'app/shared/sidebar/sidebarView.html'
-                    },
-                    'subview4' : {
-                        templateUrl : 'app/components/headeruser/headeruserView.html',
-                        controller : 'headeruserController'
+                    'subview2@' : {
+                        templateUrl: 'app/components/watchfilm/watchfilmView.html',
+                        controller: 'watchfilmController'
+
                     }
                 },
-                data : { pageTitle: 'PHIM MỚI' }
+                data : { pageTitle: 'XEM PHIM' }
             })
+
             .state('app.login', {
                 url : 'dangnhap',
                 ncyBreadcrumb: {
@@ -89,17 +111,17 @@
                 },
                 data : { pageTitle: 'QUÊN MẬT KHẨU' }
             });
-    });
-    app.run(function ($rootScope, $state, $stateParams, $cookies) {
-            firebase.auth().onAuthStateChanged(function(response){
-               $rootScope.globals = {
-                   currentUser : response,
-               };
-                $rootScope.$apply();
-            });
-            $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
-                $rootScope.toState = toState;
-                $rootScope.toStateParams = toStateParams;
-            });
         });
+    app.run(function ($rootScope, $state, $stateParams, $cookies) {
+        firebase.auth().onAuthStateChanged(function(response){
+         $rootScope.globals = {
+             currentUser : response,
+         };
+         $rootScope.$apply();
+     });
+        $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
+            $rootScope.toState = toState;
+            $rootScope.toStateParams = toStateParams;
+        });
+    });
 }());
