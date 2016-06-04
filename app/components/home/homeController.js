@@ -8,11 +8,11 @@
 		sc.phimhoathinh = {};
 
 		sc.getPhim = function (){
-			$http.get('https://api.myjson.com/bins/4wq9a').then(function(response){
+			$http.get('https://api.myjson.com/bins/1kq1i').then(function(response){
 				sc.phimhanhdong = response.data;
 			});	
 
-			$http.get('https://api.myjson.com/bins/2vusu').then(function(response){
+			$http.get('https://api.myjson.com/bins/2vvkm').then(function(response){
 				sc.phimhoathinh = response.data;
 			});
 		};

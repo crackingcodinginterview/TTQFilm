@@ -17,7 +17,6 @@
 		   			animationLoop: true,
 		   			itemWidth: 125,
 		   			animationSpeed: 1200,
-		   			slideshowSpeed: 7000,
 		   			controlNav: false,
 		   			itemMargin: 5,
 		   		});

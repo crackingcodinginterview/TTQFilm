@@ -1,78 +1,88 @@
 <div class="watchfilm">
-	<div class="row">
-		<div class="col-md-6 col-sm-6 col-xs-6 watchfilm-picture">
-			<img class="img-responsive" src="{{film.Picture}}"/>
-			<ul class="btn-watchfilm-group">
-				<li class="btn-watchfilm"><button class="btn btn-success">Download</button></li>
-				<li class="btn-watchfilm"><button class="btn btn-primary">Trailer</button></li>
-				<li class="btn-watchfilm"><button class="btn btn-danger">Xem Phim</button></li>
-			</ul>
-		</div>
-
-		<div class="col-md-6 col-sm-6 col-xs-6 watchfilm-moviedetail">
-			<h1 class="watchfilm-movietitle">
-				<span class="watchfilm-movietitle-1">{{film.Name_Vi}}</span>
-				<span class="watchfilm-movietitle-2">{{film.Name_En}}</span>
-				<span class="watchfilm-movietitle-year">{{film.Year}}</span>
-			</h1>
-
-			<div class="watchfilm-filminfo" ng-scrollbars>
-				<dl>
-					<dt class="watchfilm-filminfo-dt">Trạng thái: </dt>
-					<dd class="watchfilm-filminfo-dl dl-stt">Hoàn tất</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Điểm IMDb: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Views}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Đạo diễn: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Director}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Quốc gia: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Nation}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Năm: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Year}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Ngày ra rạp: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Publish_Date}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Thời lượng: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Duration}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Chất lượng: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Quality}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Độ phân giải: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Resolution}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Ngôn ngữ: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Language}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Thể loại: </dt>
-					<dd ng-repeat="type in film.Types" class="watchfilm-filminfo-dl" ng-if="$index < film.Types.length - 1">{{type}}, </dd>
-					<dd class="watchfilm-filminfo-dl" >{{film.Types[film.Types.length - 1]}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Công ty sản xuất: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.CompanyList}}</dd>
-					<br></br>
-					<dt class="watchfilm-filminfo-dt">Lượt xem: </dt>
-					<dd class="watchfilm-filminfo-dl">{{film.Views}}</dd>
-					<br></br>
-				</dl>
+	<div class="watchfilm-filmdetail">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6 watchfilm-picture">
+				<img class="img-responsive" src="{{film.Picture}}"/>
+				<ul class="btn-watchfilm-group">
+					<li class="btn-watchfilm"><button class="btn btn-success">Download</button></li>
+					<li class="btn-watchfilm"><button class="btn btn-primary">Trailer</button></li>
+					<li class="btn-watchfilm"><button class="btn btn-danger" ng-click="Watch()">Xem Phim</button></li>
+				</ul>
 			</div>
-			<div class="watchfilm-filmrate">
-				<p>Đánh giá phim</p>
-				<p star-rating rating-value="7" data-max="10"></p>
+
+			<div class="col-md-6 col-sm-6 col-xs-6 watchfilm-moviedetail">
+				<h1 class="watchfilm-movietitle">
+					<span class="watchfilm-movietitle-1">{{film.Name_Vi}}</span>
+					<span class="watchfilm-movietitle-2">{{film.Name_En}}</span>
+					<span class="watchfilm-movietitle-year">{{film.Year}}</span>
+				</h1>
+
+				<div class="watchfilm-filminfo" ng-scrollbars>
+					<dl>
+						<dt class="watchfilm-filminfo-dt">Trạng thái: </dt>
+						<dd class="watchfilm-filminfo-dl dl-stt">Hoàn tất</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Điểm IMDb: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.Views}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Đạo diễn: </dt>
+						<dd class="watchfilm-filminfo-dl dl-decor">{{film.Director}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Quốc gia: </dt>
+						<dd class="watchfilm-filminfo-dl dl-decor">{{film.Nation}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Năm: </dt>
+						<dd class="watchfilm-filminfo-dl dl-decor">{{film.Year}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Ngày ra rạp: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.Publish_Date}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Thời lượng: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.Duration}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Chất lượng: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.Quality}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Độ phân giải: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.Resolution}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Ngôn ngữ: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.Language}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Thể loại: </dt>
+						<dd ng-repeat="type in film.Types" class="watchfilm-filminfo-dl dl-decor" ng-if="$index < film.Types.length - 1">{{type}}, </dd>
+						<dd class="watchfilm-filminfo-dl dl-decor">{{film.Types[film.Types.length - 1]}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Công ty sản xuất: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.CompanyList}}</dd>
+						<br></br>
+						<dt class="watchfilm-filminfo-dt">Lượt xem: </dt>
+						<dd class="watchfilm-filminfo-dl">{{film.Views}}</dd>
+						<br></br>
+					</dl>
+				</div>
+				<div class="watchfilm-filmrate">
+					<p>Đánh giá phim</p>
+					<p star-rating rating-value="7" data-max="10"></p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="actor-list">
+				<p>Diễn Viên</p>
+				<slider-actor class="actor-slider" animation-type="slide" list-actor="film.Actors"></slider-actor>
+			</div>
+		</div>
+	</div>
 
-
-<div class="row">
-	<div class="col-md-12 col-sm-12 col-xs-12">
-		<div class="actor-list">
-			<slider-actor class="actor-slider" animation-type="slide" list-actor="film.Actors"></slider-actor>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="film-content">
+				<span class="film-content-title">Nội dung phim</span>
+				<span class="film-description">{{film.Description}}</span>
+			</div>
 		</div>
 	</div>
 </div>

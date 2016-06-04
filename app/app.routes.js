@@ -36,7 +36,7 @@
                     filmdetail: null
                 },
                 ncyBreadcrumb:{
-                    label: 'XEM PHIM / {{film.Name_Vi}}'
+                    label: '{{film.Name_Vi}}'
                 },
                 views : {
                     'subview1@' : {
@@ -46,6 +46,31 @@
                     'subview2@' : {
                         templateUrl: 'app/components/watchfilm/watchfilmView.html',
                         controller: 'watchfilmController'
+                    }
+                },
+                data : {
+                    pageTitle: 'XEM PHIM',
+                    role : ['GUESS', 'USER', 'ADMIN'],
+                }
+            })
+
+            //State xem phim
+            .state('app.filmwatching',{
+                url:'xemphim/{filmname}',
+                params:{
+                    filminfo: null
+                },
+                ncyBreadcrumb:{
+                    label: '{{film.Name_Vi}} / XEM PHIM'
+                },
+                views : {
+                    'subview1@' : {
+                        template: '<ncy-breadcrumb></ncy-breadcrumb>',
+                        controller: 'filmController'
+                    },
+                    'subview2@' : {
+                        templateUrl: 'app/components/watchfilm/filmView.html',
+                        controller: 'filmController'
                     }
                 },
                 data : {
@@ -148,18 +173,18 @@
                 }
             });
         });
-     app.run(function ($rootScope, $state, $stateParams, AuthenticationService) {
-         $rootScope.globals = {};
-         AuthenticationService.waitForUser();
-         firebase.auth().onAuthStateChanged(function(response){
-             AuthenticationService.setCredential(response);
-         });
-         $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
-             $rootScope.toState = toState;
-             $rootScope.toStateParams = toStateParams;
-             if ($rootScope.globals.role !== undefined) {
-                 AuthenticationService.authorize();
-             }
-         });
-     });
+app.run(function ($rootScope, $state, $stateParams, AuthenticationService) {
+   $rootScope.globals = {};
+   AuthenticationService.waitForUser();
+   firebase.auth().onAuthStateChanged(function(response){
+       AuthenticationService.setCredential(response);
+   });
+   $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
+       $rootScope.toState = toState;
+       $rootScope.toStateParams = toStateParams;
+       if ($rootScope.globals.role !== undefined) {
+           AuthenticationService.authorize();
+       }
+   });
+});
 }());

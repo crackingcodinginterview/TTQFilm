@@ -12,10 +12,10 @@
 
 .btn-watchfilm-group{
 	position: absolute;
-	padding-top: 25px;
+	padding-top: 20px;
 	bottom: 0;
 	width: 96.45%;
-	height: 15vh;
+	height: 70px;
 	background: rgba(0,0,0,0.8);
 	text-align: center;
 }
@@ -97,6 +97,9 @@
 	color: red;
 }
 
+.dl-decor{
+	color: #2cd4f0;
+}
 .watchfilm-filmrate{
 	height: 100px;
 	width: 100%;
@@ -130,14 +133,93 @@
 
 .actor-list{
 	background: rgb(34,34,34);
-	margin-top: 32px;
-	padding: 25px;
+	margin-top: 30px;
+	padding: 20px;
+	border: 1px solid black;
 }
 
 .actor-slider .flexslider{
 	width: 100%;
+	background: rgb(34,34,34);
 }
 
-.actor-slider .flexslider ul li img{
-	margin-right: 15px;
+.actor-slider .flexslider ul li{
+	padding-right: 20px;
+	margin-right: 0 !important;
+	background: rgb(34,34,34);
+}
+
+.actor-list p{
+	color: rgb(218, 203, 70);
+	display: block;
+	font-family: Arial, sans-serif;
+	font-size: 18px;
+	font-size-adjust: none;
+	font-style: normal;
+	font-language-override: normal;
+	font-kerning: auto;
+	font-synthesis: weight style;
+	font-variant: normal;
+	font-variant-alternates: normal;
+	font-weight: bold;
+	line-height: 25px;
+	box-sizing: border-box;
+	font-feature-settings: normal;
+	font-variant-caps: normal;
+	font-variant-position: normal;
+	padding-top: 0px !important;
+	margin-bottom: 5px;
+}
+
+.actor-info span{
+	margin-top: 5px;
+	font-size: 12px;
+	font-family: Arial, sans-serif;
+}
+
+.actor-info-name{
+	color: #2cd4f0;
+	display: inline-block;
+}
+
+.actor-info-nameinfilm{
+	color: #bbbbbb;
+	display: inline-block;
+}
+
+.film-content{
+	padding: 20px;
+	width: 100%;
+	background: rgb(34,34,34);
+	margin-top: 25px;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+.film-content-title{
+	color: rgb(218, 203, 70);
+	display: block;
+	font-family: Arial, sans-serif;
+	font-size: 18px;
+	font-size-adjust: none;
+	font-style: normal;
+	font-language-override: normal;
+	font-kerning: auto;
+	font-synthesis: weight style;
+	font-variant: normal;
+	font-variant-alternates: normal;
+	font-weight: bold;
+	line-height: 25px;
+	box-sizing: border-box;
+	font-feature-settings: normal;
+	font-variant-caps: normal;
+	font-variant-position: normal;
+	padding-top: 0px !important;
+	margin-bottom: 5px;
+}
+
+.film-description{
+	display: inline;
+	color: white;
+	font-size: 13px;
 }

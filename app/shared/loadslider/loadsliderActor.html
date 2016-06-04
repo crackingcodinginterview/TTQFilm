@@ -2,6 +2,10 @@
 	<ul class="slides">
 		<li ng-repeat="actor in listActor">
 			<img class="img-responsive" ng-src="{{actor.Picture}}">
+			<div class="actor-info">
+				<span class="actor-info-name">{{actor.Name}}</span>
+				<span class="actor-info-nameinfilm">{{actor.Name_In_Film}}</span>
+			</div>
 		</li>
 	</ul>
 </div>
