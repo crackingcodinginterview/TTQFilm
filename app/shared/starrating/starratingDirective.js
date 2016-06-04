@@ -30,6 +30,10 @@
                         });
                     };
 
+                    scope.over = function(index){
+                        scope.ratingValue = index + 1;
+                    }
+
                     scope.$watch('ratingValue',
                         function(oldVal, newVal) {
                             if (newVal) {

@@ -1,23 +1,27 @@
 .watchfilm{
 	background: url(../img/item_bg.gif);
-	width: 85%;
-	padding: 10px;
-	margin-left: 30px;
+	width: 100%;
+	padding: 20px;
 }
 
 .watchfilm-picture{
 	position: relative;
-	text-align: center;
+	padding-right: 0px;
 }
+
 
 .btn-watchfilm-group{
 	position: absolute;
-	padding-left: 40px;
-	padding-top: 14px;
+	padding-top: 25px;
 	bottom: 0;
-	width: 92%;
-	height: 60px;
+	width: 96.45%;
+	height: 15vh;
 	background: rgba(0,0,0,0.8);
+	text-align: center;
+}
+
+.btn-watchfilm{
+	display: inline-block;
 }
 
 .watchfilm-movietitle-1{
@@ -52,14 +56,88 @@
 }
 
 .watchfilm-filminfo{
+	padding-top:5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
 	margin-top: 20px;
-	height: 240px;
-	width: 80%;
+	height: 300px;
+	width: 100%;
 	background: rgb(34,34,34);
+	border: 1px solid black;
 }
 
-.watchfilm-filminfo ul li{
-	margin-top: 8px;
+.watchfilm-filminfo br{
+	box-sizing: border-box;
+	color: rgb(187, 187, 187);
+	font-size: 12px;
+	line-height: 6px;
+}
+
+.watchfilm-filminfo-dt{
+	box-sizing: border-box;
+	color: rgb(187, 187, 187);
+	display: inline;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 10px;
+}
+
+.watchfilm-filminfo-dl
+{
+	display: inline;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	margin-left: 2px;
 	color: white;
-	font-size: 14px;
+}
+
+.dl-stt{
+	color: red;
+}
+
+.watchfilm-filmrate{
+	height: 100px;
+	width: 100%;
+	background: rgb(34,34,34);
+	margin-top: 10vh;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+
+.watchfilm-filmrate p{
+	color: rgb(218, 203, 70);
+	display: block;
+	font-family: Arial, sans-serif;
+	font-size: 24px;
+	font-size-adjust: none;
+	font-style: normal;
+	font-language-override: normal;
+	font-kerning: auto;
+	font-synthesis: weight style;
+	font-variant: normal;
+	font-variant-alternates: normal;
+	font-weight: 900px;
+	line-height: 25px;
+	box-sizing: border-box;
+	font-feature-settings: normal;
+	font-variant-caps: normal;
+	font-variant-position: normal;
+	margin-top: 12px;
+	margin-left: 12px;
+}
+
+.actor-list{
+	background: rgb(34,34,34);
+	margin-top: 32px;
+	padding: 25px;
+}
+
+.actor-slider .flexslider{
+	width: 100%;
+}
+
+.actor-slider .flexslider ul li img{
+	margin-right: 15px;
 }
