@@ -7,6 +7,5 @@
 		$scope.film = $state.params.filminfo;
 
 		$state.get('app.filmwatching').data.pageTitle = "Xem phim " + $scope.film.Name_Vi;
-	})
-
+	});
 }());

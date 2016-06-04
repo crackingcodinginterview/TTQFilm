@@ -1,3 +1,53 @@
 <div class="filmview">
-	<p>{{film.Name_Vi}}</p>
+	<div class="row">
+		<div class="col-md-4 col-sm-4 col-sx-6">
+			<div class="filmview-filmdetail">
+				<img class="img-responsive" src="{{film.Picture}}"/>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-6 col-sx-10">
+			<span class="filmview-filmname watchfilm-movietitle-1">Xem phim {{film.Name_Vi}}</span>
+			<div class="filmview-description">
+				<div class="filmview-description-short">
+					<p class="filmview-description-short-content" style="color: white; font-size: 13px;">{{film.Description}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-sx-12 filmview-devide"></div>
+	</div>
+
+	<div class="row">
+		<div class="filmview-playfilm col-md-12 col-sm-12 col-sx-12">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="watchfilm-filmrate col-md-12 col-sm-12 col-sx-12">
+			<p>Đánh giá phim</p>
+			<p star-rating rating-value="7" data-max="10"></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="watchfilm-keyword">
+				<h3 class="watchfilm-keyword-title">Từ khoá</h3>
+				<h4 style="color: white;">Some key word......</h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="watchfilm-comment-content">
+				<h1 class="watchfilm-comment-content-stt">Bình luận về phim</h1>
+				<hr style="width: 100%; color: white; margin-bottom: 30px;"></hr>
+				<div class="watchfilm-comment">
+				</div>
+				<hr style="width: 100%; color: white; margin-bottom: 30px;"></hr>
+			</div>
+		</div>
+	</div>
 </div>
