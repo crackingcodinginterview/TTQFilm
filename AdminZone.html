@@ -107,6 +107,22 @@
 		
 		<div id="test2" class="col s12">
 			<h5>Trang Upload Phim:</h5>
+			<form action="#">
+				<div class="file-field input-field">
+					<div class="btn">
+						<span>Chose Film</span>
+						<input type="file" custom-on-change="uploadFile">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+				<div class="progress">
+				<div class="determinate" ng-style="MyStyle"></div>
+				</div>
+				<a class="btn" ng-class="{'disabled': !isReadyUpload}" ng-click="uploadFilm()">Upload</a>
+				<span>{{Status}}</span>
+			</form>
 		</div>
 	</div>
 

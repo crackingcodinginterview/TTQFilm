@@ -118,4 +118,55 @@ app.controller('mainCtr', ['$scope', '$firebaseObject', '$timeout', '$filter', f
 			ref.child(sc.userList[index].uid).update({role: role});
 		}
 	}
+
+	sc.Upload = {};
+	
+	sc.uploadFile = function(event){
+		var files = event.target.files;
+		console.log(files);
+		sc.Upload.file = files[0];
+		sc.isReadyUpload = true;
+		sc.$evalAsync();
+	};
+
+	
+
+	sc.uploadFilm = function () {
+		sc.upload(sc.Upload.file);
+	}
+
+	sc.upload = function (file) {
+		var storageRef = firebase.storage().ref();
+		//storageRef.child(sc.Upload.file.name);
+
+		sc.Status = "Prepairing...";
+		var Task = storageRef.child('films/' + file.name).put(file)
+		Task.on('state_changed', function(snapshot){
+			console.log(snapshot)
+			sc.MyStyle = {width: (snapshot.b/snapshot.h)*100 + '%'};
+			sc.$evalAsync();
+			console.log(sc.MyStyle);
+			sc.Status = "Uploading..." + (snapshot.b/snapshot.h)*100 + '%';
+		}, function(error) {
+			console.log(error);
+			sc.Status = "Upload Error";
+		}, function() {
+			console.log(Task.snapshot.downloadURL);
+			sc.Status = "Done! Link: " + Task.snapshot.downloadURL;
+		});
+	}
+	
+
+	sc.MyStyle = {width: '0' + '%'};
+
 }])
+
+app.directive('customOnChange', function() {
+	return {
+		restrict: 'A',
+		link: function (scope, element, attrs) {
+			var onChangeHandler = scope.$eval(attrs.customOnChange);
+			element.bind('change', onChangeHandler);
+		}
+	};
+});
