@@ -12,11 +12,17 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var app = angular.module('mainApp', ['ngFx', 'ngAnimate']);
+var app = angular.module('mainApp', ['ngFx', 'ngAnimate', 'firebase']);
 
-app.controller('mainCtr', ['$scope', function($scope){
+app.controller('mainCtr', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
 	window.sc = $scope;
 	sc.user = {};
+	sc.userList = [];
+
+	var ref = firebase.database().ref().child("user");
+	var syncObject = $firebaseObject(ref);
+
+	syncObject.$bindTo($scope, "user");
 
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
@@ -34,10 +40,14 @@ app.controller('mainCtr', ['$scope', function($scope){
 		  sc.error = error;
 		  // ...
 		});
-	} 
+	}
+
+	sc.showUserList = function () {
+		sc.userList = Object.keys(sc.user).map(function (key) {return sc.user[key]});	
+	}
 
 }])
 
- $(document).ready(function(){
-    $('ul.tabs').tabs();
-  });
+$(document).ready(function(){
+	$('ul.tabs').tabs();
+});
