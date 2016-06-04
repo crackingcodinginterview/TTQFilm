@@ -3,7 +3,7 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.factory('UserService', function(){
+    app.factory('UserService', function(DatabaseService){
         var service = {};
         service.login = login;
         service.loginWithFacebook = loginWithFacebook;
@@ -66,6 +66,8 @@
             return firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(
                 function(response){
                     response.updateProfile({displayName: user.name});
+                    console.log(response);
+                    DatabaseService.createUserDatabase(response, user.name, "user");
                     return {success : true, message : 'Đăng kí tài khoản thành công.'};
                 },
                 function(response){
