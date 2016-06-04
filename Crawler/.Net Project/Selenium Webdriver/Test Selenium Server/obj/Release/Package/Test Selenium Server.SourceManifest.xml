@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\ADMIN\Dropbox\Tài Liệu\Năm III\HKII\LTWeb\Git\dack_ptudw\Crawler\.Net Project\Selenium Webdriver\Test Selenium Server\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\ADMIN\Dropbox\Tài Liệu\Năm III\HKII\LTWeb\Git\dack_ptudw\Crawler\.Net Project\Selenium Webdriver\Test Selenium Server\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\ADMIN\Dropbox\Tài Liệu\Năm III\HKII\LTWeb\Git\dack_ptudw\Crawler\.Net Project\Selenium Webdriver\Test Selenium Server\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>
