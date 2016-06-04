@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Working with Firebase 3.0</title>
+</head>
+<body ng-controller="mainCtr">
+	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<script>
+  // Initialize Firebase
+  var config = {
+  	apiKey: "AIzaSyABmwpvdLmJDqdkZF7F7pVFsANqfF48qR4",
+  	authDomain: "dack-ptudw-be6ac.firebaseapp.com",
+  	databaseURL: "https://dack-ptudw-be6ac.firebaseio.com",
+  	storageBucket: "dack-ptudw-be6ac.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
+</body>
+</html>

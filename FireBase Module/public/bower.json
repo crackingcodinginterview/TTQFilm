@@ -1,0 +1,21 @@
+{
+  "name": "FireBase Module",
+  "authors": [
+    "milotiger <black.thanhtri@gmail.com>"
+  ],
+  "description": "Test Module to work with Firebase 3.0",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "^3.0.3",
+    "angular": "^1.5.6"
+  }
+}
