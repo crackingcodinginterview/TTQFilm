@@ -8,8 +8,17 @@
 		<div class="col-md-8 col-sm-6 col-sx-10">
 			<span class="filmview-filmname watchfilm-movietitle-1">Xem phim {{film.Name_Vi}}</span>
 			<div class="filmview-description">
-				<div class="filmview-description-short">
-					<p class="filmview-description-short-content" style="color: white; font-size: 13px;">{{film.Description}}</p>
+				<div class="filmview-description-short"
+					hm-read-more
+					hm-text="{{film.Description}}"
+					hm-limit="150"
+					hm-more-text="Read More"
+					hm-less-text="Read Less"
+					hm-dots-class="toggle-dots-white"
+					hm-link-class="toggle-link-blue"
+					ng-click="ReadMore()">
+					<!-- <div ng-bind-html="film.Description" class="filmview-description-short-content">
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -20,6 +29,7 @@
 
 	<div class="row">
 		<div class="filmview-playfilm col-md-12 col-sm-12 col-sx-12">
+			<video controls="controls" name="Video Name" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"></video>
 		</div>
 	</div>
 

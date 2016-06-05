@@ -8,10 +8,13 @@
             'ncy-angular-breadcrumb',
             'ngScrollbars',
             'ui-notification',
+            'ngAnimate',
             'ngMessages',
             'angular-ladda',
             'angularSpinner',
             'firebase',
-            'blockUI'
+            'blockUI',
+            'ngSanitize',
+            'hm.readmore'
         ]);
 }());

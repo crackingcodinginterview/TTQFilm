@@ -14,6 +14,11 @@
                     onRatingSelected : '&'
                 },
                 link : function(scope, elem, attrs) {
+
+                    scope.canUpdate = false;
+                    scope.defaultValue = scope.ratingValue;
+                    scope.finalRating = scope.ratingValue;
+
                     var updateStars = function() {
                         scope.stars = [];
                         for ( var i = 0; i < scope.max; i++) {
@@ -23,15 +28,27 @@
                         }
                     };
 
+
                     scope.toggle = function(index) {
                         scope.ratingValue = index + 1;
                         scope.onRatingSelected({
                             rating : index + 1
                         });
+                        scope.finalRating = scope.ratingValue;
+                        canUpdate = true;
                     };
 
                     scope.over = function(index){
                         scope.ratingValue = index + 1;
+                        canUpdate = false;
+                    }
+
+                    scope.leave = function(){
+                        if(canUpdate == false)
+                        {
+                            scope.ratingValue = scope.defaultValue;
+                        }
+                        scope.ratingValue = scope.finalRating;
                     }
 
                     scope.$watch('ratingValue',
