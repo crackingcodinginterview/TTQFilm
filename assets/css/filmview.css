@@ -6,7 +6,7 @@
 
 .filmview img{
 	width: 90%;
-	margin-left: 20px;
+	margin-bottom: 5px;
 }
 
 .filmview-description{
@@ -47,7 +47,7 @@
 
 .filmview-devide{
 	background-color: rgba(0,0,0,0.6);
-	height: 140px;
+	height: 90px;
 	margin-top: 30px;
 }
 
@@ -55,8 +55,12 @@
 	background-color: rgba(0,0,0,0.6);
 	height: 450px;
 	margin-top: 30px;
+	padding-top: 16px;
 	text-align: center;
-	padding: 25px;
+}
+
+.filmview-playfilm video{
+	width: 92%;
 }
 
 

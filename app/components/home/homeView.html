@@ -1,15 +1,15 @@
 <div class="home">
-	<load-slider class="mainSlider" animation-type="fade" list-film="phimhanhdong"></load-slider>
+	<load-slider class="mainSlider" animation-type="fade" list-film="films.Type.Action"></load-slider>
 
 	<p class="home-title">Phim đề cử</p>
-	<load-slider class="secondSlider" animation-type="slide" list-film="phimhanhdong"></load-slider>
+	<load-slider class="secondSlider" animation-type="slide" list-film="films.Type.Cartoon"></load-slider>
 
 
 
 
-	<p class= "home-title">Phim chiếu rạp mới</p>
+	<p class= "home-title">Phim Hoạt Hình</p>
 	<ul class ="listfilm">
-		<li ng-repeat="film in phimhoathinh">
+		<li ng-repeat="film in films.Type.Cartoon">
 			<div class="film-item">
 				<a ui-sref="app.watchfilm({filmdetail : film})">	
 					<img class="img-responsive film-picture" src="{{film.Picture}}"/>
@@ -25,9 +25,9 @@
 
 
 
-	<p class="home-title">Phim Hot</p>
+	<p class="home-title">Phim Hành Động</p>
 	<ul class ="listfilm">
-		<li ng-repeat="film in phimhanhdong">
+		<li ng-repeat="film in films.Type.Action">
 			<div class="film-item">
 				<a ui-sref="app.watchfilm({filmdetail : film})">	
 					<img class="img-responsive film-picture" src="{{film.Picture}}"/>

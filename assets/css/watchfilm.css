@@ -13,6 +13,7 @@
 
 .watchfilm-picture img{
 	width: 90%;
+	margin-left: 15px;
 }
 
 .btn-watchfilm-group{
@@ -23,6 +24,7 @@
 	height: 12vh;
 	background: rgba(0,0,0,0.8);
 	text-align: center;
+	margin-left: 15px;
 }
 
 .btn-watchfilm{

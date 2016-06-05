@@ -1,23 +1,23 @@
 <div class="filmview">
 	<div class="row">
-		<div class="col-md-4 col-sm-4 col-sx-6">
+		<div class="col-md-3 col-sm-4 col-xs-9">
 			<div class="filmview-filmdetail">
 				<img class="img-responsive" src="{{film.Picture}}"/>
 			</div>
 		</div>
-		<div class="col-md-8 col-sm-6 col-sx-10">
+		<div class="col-md-9 col-sm-6 col-xs-10">
 			<span class="filmview-filmname watchfilm-movietitle-1">Xem phim {{film.Name_Vi}}</span>
 			<div class="filmview-description">
 				<div class="filmview-description-short"
-					hm-read-more
-					hm-text="{{film.Description}}"
-					hm-limit="150"
-					hm-more-text="Read More"
-					hm-less-text="Read Less"
-					hm-dots-class="toggle-dots-white"
-					hm-link-class="toggle-link-blue"
-					ng-click="ReadMore()">
-					<!-- <div ng-bind-html="film.Description" class="filmview-description-short-content">
+				hm-read-more
+				hm-text="{{film.Description}}"
+				hm-limit="150"
+				hm-more-text="Read More"
+				hm-less-text="Read Less"
+				hm-dots-class="toggle-dots-white"
+				hm-link-class="toggle-link-blue"
+				ng-click="ReadMore()">
+						<!-- <div ng-bind-html="film.Description" class="filmview-description-short-content">
 					</div> -->
 				</div>
 			</div>
@@ -28,13 +28,13 @@
 	</div>
 
 	<div class="row">
-		<div class="filmview-playfilm col-md-12 col-sm-12 col-sx-12">
-			<video controls="controls" name="Video Name" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"></video>
+		<div class="filmview-playfilm col-md-12 col-sm-12 col-xs-12">
+			<video controls="controls" name="Video Name" src="https://r4---sn-npo7zn7s.googlevideo.com/videoplayback?requiressl=yes&id=d974ddde404623f2&itag=22&source=webdrive&app=explorer&ip=2400:6180:0:d0::46a:4001&ipbits=32&expire=1465137412&sparams=requiressl%2Cid%2Citag%2Csource%2Cip%2Cipbits%2Cexpire&signature=32C307DAE5A40C1DC0A26ABE0D028158FB0662BA.223318A4AF6E7550AEC05C4F5D7BAEAE04FF21ED&key=ck2&mm=31&mn=sn-npo7zn7s&ms=au&mt=1465122707&mv=m&nh=IgpwcjAyLnNpbjAzKgkxMjcuMC4wLjE&pl=48,35?title=[VuiGhe.Net] Dragon Ball Super - Tap 46 (720p)"></video>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="watchfilm-filmrate col-md-12 col-sm-12 col-sx-12">
+		<div class="watchfilm-filmrate col-md-12 col-sm-12 col-xs-12">
 			<p>Đánh giá phim</p>
 			<p star-rating rating-value="7" data-max="10"></p>
 		</div>
@@ -49,15 +49,5 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-12 col-sm-12 col-xs-12">
-			<div class="watchfilm-comment-content">
-				<h1 class="watchfilm-comment-content-stt">Bình luận về phim</h1>
-				<hr style="width: 100%; color: white; margin-bottom: 30px;"></hr>
-				<div class="watchfilm-comment">
-				</div>
-				<hr style="width: 100%; color: white; margin-bottom: 30px;"></hr>
-			</div>
-		</div>
-	</div>
+	<ng-include src="'app/components/template/comment.html'"></ng-include>
 </div>

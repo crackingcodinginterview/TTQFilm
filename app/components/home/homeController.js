@@ -1,22 +1,12 @@
 (function(){
 	var app = angular.module('movieApp');
 
-	app.controller('ListFilmController', function ($scope,$http) {
+	app.controller('ListFilmController', function ($scope,FilmService) {
 		window.sc = $scope;
 		sc.isLoading = true;
-		sc.phimhanhdong = {};
-		sc.phimhoathinh = {};
 
-		sc.getPhim = function (){
-			$http.get('https://api.myjson.com/bins/1kq1i').then(function(response){
-				sc.phimhanhdong = response.data;
-			});	
+		var filmObject = FilmService.getFilms();
 
-			$http.get('https://api.myjson.com/bins/2vvkm').then(function(response){
-				sc.phimhoathinh = response.data;
-			});
-		};
-
-		sc.getPhim();
+		filmObject.$bindTo(sc, "films");
 	});
 }());
