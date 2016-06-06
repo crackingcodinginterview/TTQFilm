@@ -1,96 +1,86 @@
-/**
-* mainApp Module
-*
-* Description
-*/
+(function () {
+	
+	var app = angular.module('mainApp');
 
-var config = {
-	apiKey: "AIzaSyABmwpvdLmJDqdkZF7F7pVFsANqfF48qR4",
-	authDomain: "dack-ptudw-be6ac.firebaseapp.com",
-	databaseURL: "https://dack-ptudw-be6ac.firebaseio.com",
-	storageBucket: "dack-ptudw-be6ac.appspot.com",
-};
-firebase.initializeApp(config);
+	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService){
+		window.sc = $scope;
+		sc.user = {};
+		sc.isUsersLoaded = false;
 
-var app = angular.module('mainApp', ['ngFx', 'ngAnimate', 'firebase']);
+		var ref = firebase.database().ref().child("user");
+		var userObject = $firebaseObject(ref);
 
-app.controller('mainCtr', ['$scope', '$firebaseObject', '$timeout', '$filter', function($scope, $firebaseObject, $timeout, $filter){
-	window.sc = $scope;
-	sc.user = {};
+		userObject.$bindTo($scope, "user");
 
-	var ref = firebase.database().ref().child("user");
-	var userObject = $firebaseObject(ref);
-
-	userObject.$bindTo($scope, "user");
-
-	userObject.$loaded().then(function () {
-		console.log("Load done");
-		sc.refreshList();
-	});
-
-	firebase.auth().onAuthStateChanged(function(user) {
-		if (user) {
-			console.log(user);
-			sc.user = user;
-		} else {
-			console.log("Sign out!");
-		}
-	});
-
-	sc.coverArray = function () {
-		return Object.keys(userObject).map(function (key) {return userObject[key]});
-	}
-
-	sc.refreshList = function () {
-		sc.userList = sc.coverArray();
-		sc.$evalAsync();
-	}
-
-	ref.on("value", function (snapshot) {
-		console.log("Data changed!");
-		console.log(userObject);
-		console.log(sc.user)
-		console.log(snapshot);
-		$timeout(function() {
+		userObject.$loaded().then(function () {
+			console.log("Load done");
+			sc.isUsersLoaded = true;
 			sc.refreshList();
-			console.log('update with timeout fired')
-		}, 100);
-		
-	})
+		});
 
-	sc.search = {};
+		firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+				console.log(user);
+				sc.user = user;
+			} else {
+				console.log("Sign out!");
+			}
+		});
 
-	$scope.getMyCtrlScope = function() {
-		return $scope;   
-	}
+		sc.coverArray = function () {
+			return Object.keys(userObject).map(function (key) {return userObject[key]});
+		}
 
-	sc.SelectedUser = [];
+		sc.refreshList = function () {
+			sc.userList = sc.coverArray();
+			sc.$evalAsync();
+		}
 
-	sc.Check = function (user, value) {
-		if (value === true)
-			sc.SelectedUser.push(user);
-		else
-			sc.removeUserFromList(user, sc.SelectedUser);
-	}
+		ref.on("value", function (snapshot) {
+			console.log("Data changed!");
+			console.log(userObject);
+			console.log(sc.user)
+			console.log(snapshot);
+			$timeout(function() {
+				sc.refreshList();
+				console.log('update with timeout fired')
+			}, 100);
 
-	sc.removeUserFromList = function (user, List) {
-		var index = List.indexOf(user);
-		if (index != -1) 
-			List.splice(index, 1);
-	}
+		})
 
-	sc.Action = {};
+		sc.search = {};
 
-	sc.changeAction = function (value, action) {
-		if (value === true)
-			sc.Action = action;
-	}
+		$scope.getMyCtrlScope = function() {
+			return $scope;   
+		}
 
-	sc.doAction = function () {
-		sc.Action();
-	}
+		sc.SelectedUser = [];
 
-	sc.deleteUser = function () {
+		sc.Check = function (user, value) {
+			if (value === true)
+				sc.SelectedUser.push(user);
+			else
+				sc.removeUserFromList(user, sc.SelectedUser);
+		}
+
+		sc.removeUserFromList = function (user, List) {
+			var index = List.indexOf(user);
+			if (index != -1) 
+				List.splice(index, 1);
+		}
+
+		sc.Action = {};
+
+		sc.changeAction = function (value, action) {
+			if (value === true)
+				sc.Action = action;
+		}
+
+		sc.doAction = function () {
+			sc.Action();
+		}
+
+		sc.deleteUser = function () {
 		//Todo
 	}
 
@@ -129,10 +119,23 @@ app.controller('mainCtr', ['$scope', '$firebaseObject', '$timeout', '$filter', f
 		sc.$evalAsync();
 	};
 
-	
+	sc.ts = storageService;
 
 	sc.uploadFilm = function () {
-		sc.upload(sc.Upload.file);
+		storageService.uploadFile($scope, 'films', sc.Upload.file);
+
+		sc.$on('updateUploadProgress' + sc.Upload.file.name, function (event, data) {
+			console.log(data);
+			sc.MyStyle = {width: data.progress + '%'};
+			sc.Status = "Uploading " + data.progress + '%';
+			sc.$evalAsync();
+		});
+
+		sc.$on('uploadDone' + sc.Upload.file.name, function (event, data) {
+			console.log('Done');
+			sc.Status = "Upload Done!";
+			sc.$evalAsync();
+		});
 	}
 
 	sc.upload = function (file) {
@@ -159,14 +162,17 @@ app.controller('mainCtr', ['$scope', '$firebaseObject', '$timeout', '$filter', f
 
 	sc.MyStyle = {width: '0' + '%'};
 
-}])
-
-app.directive('customOnChange', function() {
-	return {
-		restrict: 'A',
-		link: function (scope, element, attrs) {
-			var onChangeHandler = scope.$eval(attrs.customOnChange);
-			element.bind('change', onChangeHandler);
-		}
-	};
 });
+
+	app.directive('customOnChange', function() {
+		return {
+			restrict: 'A',
+			link: function (scope, element, attrs) {
+				var onChangeHandler = scope.$eval(attrs.customOnChange);
+				element.bind('change', onChangeHandler);
+			}
+		};
+	})
+
+
+})();
