@@ -1,68 +1,149 @@
-<div class="customnavbar">
+<div class="navbar navbar-default navbar-static-top customnavbar">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="customnavbar__listcategory">
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">PHIM MỚI</a>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">THỂ LOẠI</a>
-                        <div class="customnavbar__listcategory__item__subcontainer">
-                            <ul class="customnavbar__listcategory__item__subcontainer__dropdown">
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hành Động</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hài Hước</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Cổ Trang</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Chính Kịch</a></li>
-                            </ul>
-                            <ul class="customnavbar__listcategory__item__subcontainer__dropdown">
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Viễn Tưởng</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Võ Thuật</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Thần Thoại</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Thể Thao</a></li>
-                            </ul>
-                            <ul class="customnavbar__listcategory__item__subcontainer__dropdown">
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Chiến Tranh</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Kinh Dị</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Tân Lý</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Gia Đình</a></li>
-                            </ul>
-                            <ul class="customnavbar__listcategory__item__subcontainer__dropdown">
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hình Sự</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hồi Hộp</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Tài Liệu</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Hoạt Hình</a></li>
-                            </ul>
-                            <ul class="customnavbar__listcategory__item__subcontainer__dropdown">
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Phiêu Lưu</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Bí Ẩn</a></li>
-                                <li class="customnavbar__listcategory__item__subcontainer__dropdown__item"><a class="customnavbar__listcategory__item__subcontainer__dropdown__item__link" href="#">Phim Tình Cảm</a></li>
-                            </ul>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="customnavbar__listcategory nav navbar-nav">
+                <li class="customnavbar__listcategory__item">
+                    <a class="customnavbar__listcategory__item__title" href="#">PHIM MỚI</a>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">THỂ LOẠI <b class="caret"></b></a>
+                    <ul class="customnavbar__listcategory__item__megamenu dropdown-menu">
+                        <div class="container">
+                            <div class="row">
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim hành động</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim hài hước</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim cổ trang</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim chính kịch</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-2">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim viễn tưởng</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim võ thuật</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim thần thoại</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim thể thao</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-2">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim chiến tranh</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim kinh dị</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim tâm lí</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim gia đình</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-2">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim hình sự</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim hồi hộp</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim tài liệu</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim hoạt hình</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim phiêu lưu</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim bí ẩn</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim tình cảm</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">None...</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">QUỐC GIA</a>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">PHIM LẺ</a>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">PHIM BỘ</a>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">PHIM KINH ĐIỂN</a>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">PHIM CHIẾU RẠP</a>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">TRAILER</a>
-                    </li>
-                    <li class="customnavbar__listcategory__item">
-                        <a class="customnavbar__listcategory__item__title" href="#">TOP 10 IMDB 2015</a>
-                    </li>
-                </ul>
-            </div>
+                    </ul>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">QUỐC GIA <b class="caret"></b></a>
+                    <ul class="customnavbar__listcategory__item__megamenu dropdown-menu">
+                        <div class="container">
+                            <div class="row">
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Việt Nam</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Nhật Bản</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Pháp</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Canada</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Trung Quốc</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Hồng Kông</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Đài Loan</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Quốc Gia Khác</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Mỹ</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Ấn Độ</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Úc</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">None...</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Hàn Quốc</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Thái Lan</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Anh</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">None...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">PHIM LẺ <b class="caret"></b></a>
+                    <ul class="customnavbar__listcategory__item__megamenu dropdown-menu">
+                        <div class="container">
+                            <div class="row">
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2016</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2012</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2015</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2011</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2014</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2010</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2013</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim lẻ 2009</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">PHIM BỘ <b class="caret"></b></a>
+                    <ul class="customnavbar__listcategory__item__megamenu dropdown-menu">
+                        <div class="container">
+                            <div class="row">
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-4">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim bộ Hàn Quốc</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim bộ Hồng Kông</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-4">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim bộ Trung Quốc</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim bộ Đài Loan</a></li>
+                                </ul>
+                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-4">
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim bộ Thái Lan</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="">Phim bộ Mỹ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">PHIM KINH ĐIỂN</a>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">PHIM CHIẾU RẠP</a>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">TRAILER</a>
+                </li>
+                <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
+                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">TOP 10 IMDB</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

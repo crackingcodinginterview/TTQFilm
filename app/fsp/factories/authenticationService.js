@@ -70,7 +70,7 @@
                     ? 'ADMIN' : 'USER',
             };
             $rootScope.$apply();
-            authorize();
+            service.authorize();
         };
         function clearCredential(){
             return UserService.logout().then(

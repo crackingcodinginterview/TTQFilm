@@ -61,6 +61,7 @@
                     filminfo: null
                 },
                 ncyBreadcrumb:{
+                    parent : 'app.watchfilm',
                     label: '{{film.Name_Vi}} / XEM PHIM'
                 },
                 views : {
@@ -139,7 +140,8 @@
             .state('app.forgotpassword', {
                 url : 'laymatkhaumoi',
                 ncyBreadcrumb: {
-                    label: 'QUÊN MẬT KHẨU'
+                    label: 'QUÊN MẬT KHẨU',
+                    parent : 'app.login'
                 },
                 views : {
                     'subview1@' : {
@@ -173,12 +175,12 @@
                 }
             });
         });
-app.run(function ($rootScope, $state, $stateParams, AuthenticationService) {
+app.run(function ($rootScope, $state, $stateParams, AuthenticationService, $firebaseObject) {
    $rootScope.globals = {};
-   AuthenticationService.waitForUser();
-   firebase.auth().onAuthStateChanged(function(response){
-       AuthenticationService.setCredential(response);
-   });
+   //AuthenticationService.waitForUser();
+   // firebase.auth().onAuthStateChanged(function(response){
+   //     AuthenticationService.setCredential(response);
+   // });
    $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
        $rootScope.toState = toState;
        $rootScope.toStateParams = toStateParams;

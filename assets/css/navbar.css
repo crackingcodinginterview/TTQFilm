@@ -1,0 +1,64 @@
+.customnavbar{
+    background-color: #323031 !important;
+}
+
+.customnavbar__listcategory{
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.customnavbar__listcategory__item{
+    display: inline-block;
+}
+
+.customnavbar__listcategory__item__title{
+    display: block;
+    color: #fff !important;
+}
+
+.customnavbar__listcategory__item:hover{
+    background-color: #292929;
+}
+
+.customnavbar__listcategory__item:hover .customnavbar__listcategory__item__title{
+    color: #dacb46 !important;
+}
+
+.customnavbar__listcategory__item__menularge{
+    position: static !important;
+}
+
+.customnavbar__listcategory__item__megamenu{
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: none;
+    font-size: 15px;
+    font-weight: normal;
+    z-index: 1000;
+}
+
+.customnavbar__listcategory__item__megamenu__dropdown{
+    display: inline-block;
+    background-color: #292929;
+}
+
+.customnavbar__listcategory__item__megamenu__dropdown__item{
+    display: block;
+}
+
+.customnavbar__listcategory__item__megamenu__dropdown__item__link{
+    display: block;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+
+.customnavbar__listcategory__item__megamenu__dropdown__item__link:hover{
+    background-color: #000;
+}
+
+.dropdown-toggle:active, .open .dropdown-toggle {background: #292929 !important; color:#dacb46 !important;}

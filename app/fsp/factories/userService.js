@@ -42,15 +42,27 @@
         };
         function loginWithFacebook(){
             var provider = new firebase.auth.FacebookAuthProvider();
-            firebase.auth().signInWithRedirect(provider);
-            return firebase.auth().getRedirectResult().then(
+            provider.addScope('email');
+            firebase.auth().signInWithPopup(provider).then(
                 function(response) {
+                    console.log('check1');
                     return {success : true, message  : 'Đăng nhập thành công.'};
                 },
                 function(response){
+                    console.log('check2');
                     return {success : false, message : 'Có lỗi xảy ra.'};
                 }
             );
+            // return firebase.auth().getRedirectResult().then(
+            //     function(response) {
+            //         console.log('check1');
+            //         return {success : true, message  : 'Đăng nhập thành công.'};
+            //     },
+            //     function(response){
+            //         console.log('check2');
+            //         return {success : false, message : 'Có lỗi xảy ra.'};
+            //     }
+            // );
         };
         function logout(){
             return firebase.auth().signOut().then(
