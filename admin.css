@@ -2,3 +2,12 @@ body{
 	background-color: #3D3D3D;
 	color: #fdfdfd;
 }
+
+#upload-file-container {
+   width: 100%;
+}
+
+#upload-file-container input {
+   filter: alpha(opacity=0);
+   opacity: 0;
+}

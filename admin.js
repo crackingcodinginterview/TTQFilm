@@ -81,88 +81,91 @@
 		}
 
 		sc.deleteUser = function () {
-		//Todo
-	}
 
-	sc.changeToUser = function () {
-		sc.changeTo('user');
-	}
-
-	sc.changeToAdmin = function () {
-		sc.changeTo('admin');
-	}
-
-	sc.changeTo = function (role) {
-		for (var i = sc.SelectedUser.length - 1; i >= 0; i--) {
-			sc.changeUserRole(sc.SelectedUser[i], role)
 		}
-		sc.SelectedUser = [];
-		sc.$evalAsync();
-	}
 
-	sc.changeUserRole = function (user, role) {
-		var index = sc.userList.indexOf(user);
-		if (index != -1)
-		{
-			sc.userList[index].role = role;
-			ref.child(sc.userList[index].uid).update({role: role});
+		sc.changeToUser = function () {
+			sc.changeTo('user');
 		}
-	}
 
-	sc.Upload = {};
-	
-	sc.uploadFile = function(event){
-		var files = event.target.files;
-		console.log(files);
-		sc.Upload.file = files[0];
-		sc.isReadyUpload = true;
-		sc.$evalAsync();
-	};
+		sc.changeToAdmin = function () {
+			sc.changeTo('admin');
+		}
 
-	sc.ts = storageService;
-
-	sc.uploadFilm = function () {
-		storageService.uploadFile($scope, 'films', sc.Upload.file);
-
-		sc.$on('updateUploadProgress' + sc.Upload.file.name, function (event, data) {
-			console.log(data);
-			sc.MyStyle = {width: data.progress + '%'};
-			sc.Status = "Uploading " + data.progress + '%';
+		sc.changeTo = function (role) {
+			for (var i = sc.SelectedUser.length - 1; i >= 0; i--) {
+				sc.changeUserRole(sc.SelectedUser[i], role)
+			}
+			sc.SelectedUser = [];
 			sc.$evalAsync();
-		});
+		}
 
-		sc.$on('uploadDone' + sc.Upload.file.name, function (event, data) {
-			console.log('Done');
-			sc.Status = "Upload Done!";
+		sc.changeUserRole = function (user, role) {
+			var index = sc.userList.indexOf(user);
+			if (index != -1)
+			{
+				sc.userList[index].role = role;
+				ref.child(sc.userList[index].uid).update({role: role});
+			}
+		}
+
+		sc.Upload = {};
+
+		sc.chooseFilm = function(event){
+			var files = event.target.files;
+			console.log(files);
+			sc.Upload.file = files[0];
+			sc.isReadyUpload = true;
 			sc.$evalAsync();
-		});
-	}
+		};
 
-	sc.upload = function (file) {
-		var storageRef = firebase.storage().ref();
-		//storageRef.child(sc.Upload.file.name);
+		sc.ts = storageService;
 
-		sc.Status = "Prepairing...";
-		var Task = storageRef.child('films/' + file.name).put(file)
-		Task.on('state_changed', function(snapshot){
-			console.log(snapshot)
-			sc.MyStyle = {width: (snapshot.b/snapshot.h)*100 + '%'};
-			sc.$evalAsync();
-			console.log(sc.MyStyle);
-			sc.Status = "Uploading..." + (snapshot.b/snapshot.h)*100 + '%';
-		}, function(error) {
-			console.log(error);
-			sc.Status = "Upload Error";
-		}, function() {
-			console.log(Task.snapshot.downloadURL);
-			sc.Status = "Done! Link: " + Task.snapshot.downloadURL;
-		});
-	}
-	
+		sc.uploadFilm = function () {
+			storageService.uploadFile($scope, 'films', sc.Upload.file);
 
-	sc.MyStyle = {width: '0' + '%'};
+			sc.$on('updateUploadProgress' + sc.Upload.file.name, function (event, data) {
+				console.log(data);
+				sc.MyStyle = {width: data.progress + '%'};
+				sc.Status = "Uploading " + data.progress + '%';
+				sc.$evalAsync();
+			});
 
-});
+			sc.$on('uploadDone' + sc.Upload.file.name, function (event, data) {
+				console.log('Done');
+				sc.Status = "Upload Done!";
+				sc.upload.Source = data.url;
+				sc.$evalAsync();
+			});
+		}
+
+		sc.MyStyle = {width: '0' + '%'};
+
+		sc.upload = {};
+
+		sc.upload.Picture = "https://cdn3.iconfinder.com/data/icons/pictofoundry-pro-vector-set/512/UploadPhotos-512.png";
+		sc.isPictureLoaded = true;
+		sc.uploadPicture = function (event) {
+			var files = event.target.files;
+			console.log(files);
+			storageService.uploadFile($scope, 'image', files[0]);
+			sc.isPictureLoaded = false;
+
+			sc.$on('updateUploadProgress' + files[0].name, function (event, data) {
+				console.log(data);
+				sc.$evalAsync();
+			});
+
+			sc.$on('uploadDone' + files[0].name, function (event, data) {
+				console.log('Done');
+				console.log(data.url);
+				sc.upload.Picture = data.url;
+				sc.$evalAsync();
+				sc.isPictureLoaded = true;
+			});
+		}
+
+	});
 
 	app.directive('customOnChange', function() {
 		return {
@@ -173,6 +176,17 @@
 			}
 		};
 	})
+
+
+
+	$(document).ready(function() {
+		$('select').material_select();
+		$('.datepicker').pickadate({
+			selectMonths: true, 
+			selectYears: 15 
+		});
+	});
+
 
 
 })();
