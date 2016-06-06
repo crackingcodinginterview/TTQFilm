@@ -7,6 +7,7 @@
 
 		var filmObject = FilmService.getFilms();
 
+		// Load list film to sc.films
 		filmObject.$bindTo(sc, "films");
 	});
 }());

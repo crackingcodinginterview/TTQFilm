@@ -25,10 +25,29 @@
                 }
             },
             data : {
-                pageTitle: 'PHIM MỚI',
+                pageTitle: 'Phim mới | Phim hay | Xem phim nhanh',
                 role : ['GUESS', 'USER', 'ADMIN'],
             }
         })
+
+            //State hiển thị phim của các loại
+            .state('app.filmtype',{
+                url:'theloai/{filmtype}',
+                params: {
+                    listfilm : null
+                },
+                views : {
+                    'subview2@':{
+                        templateUrl: 'app/components/filmtype/filmtypeView.html',
+                        controller: 'filmtypeController'
+                    }
+                },
+                data:{
+                    pageTitle: 'Thể loại',
+                    role: ['GUESS','USER','ADMIN'],
+                }
+            })
+
             //State xem thông tin chi tiết của phim
             .state('app.watchfilm',{
                 url:'xemphim',

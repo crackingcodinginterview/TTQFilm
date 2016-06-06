@@ -104,8 +104,17 @@
 	color: red;
 }
 
+.dl-score{
+	background: #E3B71E;
+	color: #000;
+	padding: 3px;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
 .dl-decor{
 	color: #2cd4f0;
+	font-weight: bold;
 }
 .watchfilm-filmrate{
 	height: 100px;
@@ -241,10 +250,10 @@
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	line-height: 1.1;
 	font-size: 18px;
-    font-weight: bold;
-    color: #dacb46;
-    text-transform: uppercase;
-    margin-top: 5px;
+	font-weight: bold;
+	color: #dacb46;
+	text-transform: uppercase;
+	margin-top: 5px;
 }
 
 .watchfilm-formoney{

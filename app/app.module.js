@@ -15,6 +15,7 @@
             'firebase',
             'blockUI',
             'ngSanitize',
-            'hm.readmore'
+            'hm.readmore',
+            'ng-jwplayer'
         ]);
 }());
