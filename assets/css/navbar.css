@@ -4,8 +4,6 @@
 
 .customnavbar__listcategory{
     font-weight: bold;
-    display: block;
-    text-align: center;
 }
 
 .customnavbar__listcategory__item{
@@ -54,7 +52,7 @@
     display: block;
     width: 100%;
     padding: 10px 0 10px 0;
-    text-align: center;
+
 }
 
 .customnavbar__listcategory__item__megamenu__dropdown__item__link:hover{
@@ -62,3 +60,12 @@
 }
 
 .dropdown-toggle:active, .open .dropdown-toggle {background: #292929 !important; color:#dacb46 !important;}
+
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    float: none;
+}
