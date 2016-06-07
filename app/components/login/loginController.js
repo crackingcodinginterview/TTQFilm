@@ -12,7 +12,6 @@
                 function (response) {
                     if (response.success) {
                         Notification.primary(response.message);
-                        console.log(response);
                         AuthenticationService.setCredential(response.accountInfo);
                         $state.go('app');
                     }

@@ -17,10 +17,8 @@
             if(firstCheck($scope.user)){
                 AuthenticationService.updatePassword($scope.user.password).then(
                     function(response){
-                        if(response.success) {
-                            AuthenticationService.setCredential();
+                        if(response.success)
                             Notification.primary(response.message);
-                        }
                         else
                             Notification.error(response.message);
                         $scope.isWaiting = false;
