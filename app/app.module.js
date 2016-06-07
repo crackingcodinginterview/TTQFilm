@@ -19,6 +19,7 @@
             'ng-jwplayer',
             'ui.bootstrap',
             'ngCookies',
-            'LocalStorageModule'
+            'LocalStorageModule',
+            'ngFx'
         ]);
 }());

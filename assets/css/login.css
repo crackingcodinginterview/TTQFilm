@@ -1,3 +1,7 @@
 .login{
     background-color: #181818;
 }
+
+.testtest.ng-enter{
+    animation: fadeIn 0.45s both ease-in;
+}
