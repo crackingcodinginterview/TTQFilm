@@ -11,3 +11,16 @@ body{
    filter: alpha(opacity=0);
    opacity: 0;
 }
+
+label{
+	color: #C8E6C9 !important;
+}
+
+.modal{
+	background-color: #B0BEC5;
+	color: #004D40 !important;
+}
+
+.modal .label{
+	color: #004D40 !important;
+}
