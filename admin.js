@@ -72,7 +72,6 @@
 
 		sc.doAction = function () {
 			sc.Action();
-			Materialize.toast("Action Done!");
 		}
 
 
