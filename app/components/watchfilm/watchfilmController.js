@@ -18,7 +18,8 @@
 		// $state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi;
 
 		sc.Watch = function(){
-			$state.go('app.filmwatching',{filminfo : sc.film, filmname : sc.film.Name_Vi});
+			var filmname = sc.film.Name_Vi.replace(/ /gi, "-");
+			$state.go('app.filmwatching',{filminfo : sc.film, filmname : filmname});
 		}
 	});
 }());
