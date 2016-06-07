@@ -2,7 +2,7 @@
 	
 	var app = angular.module('movieApp');
 
-	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService, DatabaseService, $cookies){
+	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService, DatabaseService, $cookies, AdminService){
 		window.sc = $scope;
 		sc.user = {};
 		sc.isUsersLoaded = false;
@@ -40,14 +40,10 @@
 
 		ref.on("value", function (snapshot) {
 			console.log("Data changed!");
-			console.log(userObject);
-			console.log(sc.user)
-			console.log(snapshot);
 			$timeout(function() {
 				sc.refreshList();
 				console.log('update with timeout fired')
 			}, 100);
-
 		})
 
 		sc.search = {};
@@ -71,10 +67,12 @@
 				List.splice(index, 1);
 		}
 
+
 		sc.Action = {};
 
 		sc.doAction = function () {
 			sc.Action();
+			Materialize.toast("Action Done!");
 		}
 
 
@@ -151,6 +149,7 @@
 				sc.Status = "Upload Done!";
 				sc.upload.Source = data.url;
 				sc.$evalAsync();
+				Materialize.toast('Film Uploaded!');
 			});
 		};
 
@@ -176,6 +175,7 @@
 				sc.upload.Picture = data.url;
 				sc.isPictureLoaded = true;
 				sc.$evalAsync();
+				Materialize.toast("Picture upload done!");
 			});
 		};
 
@@ -206,6 +206,7 @@
 				sc.actor.Picture = data.url;
 				sc.isActorPictureLoaded = true;
 				sc.$evalAsync();
+				Materialize.toast("Actor's Picture Upload Done!")
 			});
 		};
 
@@ -229,33 +230,19 @@
 			}, 100);
 		}
 
+		sc.isDatabaseUploaded = true;
 		sc.uploadFilmToDatabase = function () {
+			sc.isDatabaseUploaded = false;
 			console.log(sc.upload);
-			DatabaseService.uploadFilmDatabase(sc.upload, "films/adminUpload");
+			DatabaseService.uploadFilmDatabase(sc.upload, "adminUpload").then(
+				function (res) {
+					console.log(res);
+					sc.isDatabaseUploaded = true;
+				});
 		}
 
-	});
-
-app.directive('customOnChange', function() {
-	return {
-		restrict: 'A',
-		link: function (scope, element, attrs) {
-			var onChangeHandler = scope.$eval(attrs.customOnChange);
-			element.bind('change', onChangeHandler);
+		sc.prepairElements = function () {
+			AdminService.prepairElements();
 		}
-	};
-})
-
-
-
-$(document).ready(function() {
-	$('select').material_select();
-	$('.datepicker').pickadate({
-		selectMonths: true, 
-		selectYears: 15 
 	});
-});
-
-
-
 })();
