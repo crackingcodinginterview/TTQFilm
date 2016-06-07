@@ -1,7 +1,7 @@
 (function () {
 	var app = angular.module('movieApp');
 
-	app.run(function (blockUI, $cookies, $interval) {
+	app.run(function (blockUI, $cookies, $interval, $rootScope) {
 		if ($cookies.getObject('user') == undefined)
 		{
 			blockUI.start("You are not log in!");
@@ -31,6 +31,7 @@
 				console.log('valid cookie');
 				blockUI.stop();
 			}
+			$rootScope.$evalAsync();
 		},5000);
 
 	});
