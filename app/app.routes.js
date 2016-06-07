@@ -55,7 +55,7 @@
                     filmdetail: null
                 },
                 ncyBreadcrumb:{
-                    label: '{{globals.currentFilm.Name_Vi}}'
+                    label: '{{globals.currentFilm.Name_Vi | uppercase}}'
                 },
                 views : {
                     'subview1@' : {
@@ -68,7 +68,7 @@
                     }
                 },
                 data : {
-                    pageTitle: '...',
+                    pageTitle: '',
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             })
@@ -94,7 +94,7 @@
                     }
                 },
                 data : {
-                    pageTitle: '...',
+                    pageTitle: '',
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             })
@@ -106,7 +106,7 @@
                 },
                 views : {
                     'subview1@' : {
-                        template : '<div ncy-breadcrumb></div>',
+                        template : '<ncy-breadcrumb></ncy-breadcrumb>',
                     },
                     'subview2@' : {
                         templateUrl : 'app/components/login/loginView.html',
