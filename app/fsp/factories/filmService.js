@@ -5,6 +5,10 @@
 		service.getFilms = getFilms;
 		service.getActionFilms = getActionFilms;
 		service.getCartoonFilms = getCartoonFilms;
+		service.getDramaFilms = getDramaFilms;
+		service.getFunnyFilms = getFunnyFilms;
+		service.getSeriesFilms = getSeriesFilms;
+
 		service.SearchFilm = SearchFilm;
 		service.getCurrentFilm = getCurrentFilm;
 		service.setCurrentFilm = setCurrentFilm;
@@ -17,7 +21,7 @@
 			return $firebaseObject(listFilmsRef.child("FilmsList"));
 		}
 
-		//get 10 action films
+		//get 15 action films
 		function getActionFilms(){
 			var result = [];
       		var FilmsRef = firebase.database().ref().child("FilmsList").child("Type").child("Action");
@@ -27,11 +31,39 @@
       		return result;
 		}
 
-		//get 10 cartoon films
+		//get 15 cartoon films
 		function getCartoonFilms(){
 			var result = [];
       		var FilmsRef = firebase.database().ref().child("FilmsList").child("Type").child("Cartoon");
       		FilmsRef.orderByPriority().limitToLast(15).on("child_added",function(snapshot){
+      			result.push(snapshot.val());
+      		});
+      		return result;
+		}
+
+		//get 10 films
+		function getDramaFilms(){
+			var result = [];
+      		var FilmsRef = firebase.database().ref().child("FilmsList").child("Type").child("Drama");
+      		FilmsRef.orderByPriority().limitToLast(10).on("child_added",function(snapshot){
+      			result.push(snapshot.val());
+      		});
+      		return result;
+		}
+
+		function getFunnyFilms(){
+			var result = [];
+      		var FilmsRef = firebase.database().ref().child("FilmsList").child("Type").child("Funny");
+      		FilmsRef.orderByPriority().limitToLast(10).on("child_added",function(snapshot){
+      			result.push(snapshot.val());
+      		});
+      		return result;
+		}		
+
+		function getSeriesFilms(){
+			var result = [];
+      		var FilmsRef = firebase.database().ref().child("FilmsList").child("Series");
+      		FilmsRef.orderByPriority().limitToLast(10).on("child_added",function(snapshot){
       			result.push(snapshot.val());
       		});
       		return result;
