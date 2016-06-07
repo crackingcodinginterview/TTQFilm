@@ -8,7 +8,7 @@
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Xin chào, {{globals.accountInfo.info.displayName}}
             <span class="caret"></span></button>
         <ul class="dropdown-menu">
-            <li><a ui-sref="app.changepassword" ng-if="globals.accountInfo.role === 'ADMIN'">Đến trang admin</a></li>
+            <li><a href="AdminZone.html" ng-if="globals.accountInfo.role === 'ADMIN'">Đến trang admin</a></li>
             <li><a ui-sref="app.changepassword">Đổi mật khẩu</a></li>
             <li class="divider"></li>
             <li><a href="#" ng-click="signOut()">Thoát</a></li>

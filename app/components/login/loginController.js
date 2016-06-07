@@ -6,7 +6,7 @@
     app.controller('loginController', function($scope, Notification, AuthenticationService, $state){
         $scope.user = {};
 
-        $scope.login = function() {
+        $scope.signInWithEmailAndPassword = function() {
             $scope.isWaiting = true;
             AuthenticationService.signInWithEmailAndPassword($scope.user).then(
                 function (response) {
@@ -22,12 +22,13 @@
             );
         };
 
-        $scope.loginWithFacebook = function(){
-            AuthenticationService.loginWithFacebook().then(
+        $scope.signInWithFacebook = function(){
+            AuthenticationService.signInWithFacebook().then(
                 function(response){
                     if(response.success){
-                        $state.go('app');
                         Notification.primary(response.message);
+                        AuthenticationService.setCredential(response.accountInfo);
+                        $state.go('app');
                     }
                     else
                         Notification.error(response.message);

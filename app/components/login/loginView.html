@@ -1,7 +1,7 @@
 <div class="login">
     <form class="template-form form-horizontal"
           name="loginForm"
-          ng-submit="loginForm.$valid && login()"
+          ng-submit="loginForm.$valid && signInWithEmailAndPassword()"
           novalidate>
         <div class="form-group">
             <label class="template-form__label col-sm-2 control-label" for="">Email</label>
@@ -15,7 +15,7 @@
                 >
             </div>
             <div class="col-sm-4">
-                <a class="button-login-with-facebook" href="#" ng-click="loginWithFacebook()"></a>
+                <a class="button-login-with-facebook" href="#" ng-click="signInWithFacebook()"></a>
             </div>
             <div class="col-sm-offset-2 col-sm-10">
                 <div class="help-block" ng-messages="loginForm.email.$error">
