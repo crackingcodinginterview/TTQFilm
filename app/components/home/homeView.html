@@ -7,9 +7,17 @@
 
 
 
-	<p class= "home-title">Phim Hoạt Hình</p>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-10">
+			<p class= "home-title">Phim Hoạt Hình Mới Cập Nhật</p>
+		</div>
+		<div class="col-md-2 col-md-offset-4 goListFilm">
+			<a ui-sref="app.filmtype({listfilm : films.Type.Cartoon, filmtypename:'Phim Hoạt Hình'})">Xem tất cả</a>
+		</div>
+	</div>
+
 	<ul class ="listfilm">
-		<li ng-repeat="film in films.Type.Cartoon">
+		<li ng-repeat="film in cartoonfilms">
 			<div class="film-item">
 				<a ui-sref="app.watchfilm({filmdetail : film})">	
 					<img class="img-responsive film-picture" src="{{film.Picture}}"/>
@@ -25,9 +33,17 @@
 
 
 
-	<p class="home-title">Phim Hành Động</p>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-10">
+			<p class= "home-title">Phim Hành Động Mới Cập Nhật</p>
+		</div>
+		<div class="col-md-2 col-md-offset-4 goListFilm">
+			<a ui-sref="app.filmtype({listfilm : films.Type.Action, filmtypename:'Phim Hành Động'})">Xem tất cả</a>
+		</div>
+	</div>
+
 	<ul class ="listfilm">
-		<li ng-repeat="film in films.Type.Action">
+		<li ng-repeat="film in actionfilms">
 			<div class="film-item">
 				<a ui-sref="app.watchfilm({filmdetail : film})">	
 					<img class="img-responsive film-picture" src="{{film.Picture}}"/>

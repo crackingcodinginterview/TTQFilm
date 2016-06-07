@@ -34,6 +34,7 @@
     "Materialize": "materialize#^0.97.6",
     "ngFx": "ng-fx#^1.1.0",
     "gsap": "^1.18.5",
-    "angularfire": "^2.0.1"
+    "angularfire": "^2.0.1",
+    "angular-local-storage": "^0.2.7"
   }
 }

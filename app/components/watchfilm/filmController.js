@@ -1,12 +1,20 @@
 (function(){
 	var app = angular.module('movieApp');
 
-	app.controller('filmController', function($state,$scope,$log,$sce){
+	app.controller('filmController', function($state,$scope,$log,$sce,FilmService){
+
 		$scope.film = {};
+
 
 		$scope.film = $state.params.filminfo;
 
-		$state.get('app.filmwatching').data.pageTitle = "Xem phim " + $scope.film.Name_Vi;
+		if($scope.film == null){
+			$scope.film = FilmService.getCurrentFilm();
+		}
+
+		FilmService.setCurrentFilm($scope.film);
+
+		$state.get('app.filmwatching').data.pageTitle = $scope.film.Name_Vi;
 
 		$scope.ReadMore = function(){
 			$state.go('app.watchfilm',{filmdetail : $scope.film});

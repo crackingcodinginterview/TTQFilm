@@ -32,14 +32,14 @@
 
             //State hiển thị phim của các loại
             .state('app.filmtype',{
-                url:'theloai/{filmtype}',
+                url:'theloai/{filmtypename}',
                 params: {
-                    listfilm : null
+                    listfilm : null,
                 },
                 views : {
                     'subview2@':{
                         templateUrl: 'app/components/filmtype/filmtypeView.html',
-                        controller: 'filmtypeController'
+                        controller: 'FilmTypeController'
                     }
                 },
                 data:{
@@ -68,7 +68,7 @@
                     }
                 },
                 data : {
-                    pageTitle: 'XEM PHIM',
+                    pageTitle: '...',
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             })
@@ -80,7 +80,8 @@
                     filminfo: null
                 },
                 ncyBreadcrumb:{
-                    label: '{{film.Name_Vi}} / XEM PHIM'
+                    parent: 'app.watchfilm',
+                    label: 'XEM PHIM'
                 },
                 views : {
                     'subview1@' : {
@@ -93,7 +94,7 @@
                     }
                 },
                 data : {
-                    pageTitle: 'XEM PHIM',
+                    pageTitle: '...',
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             })
