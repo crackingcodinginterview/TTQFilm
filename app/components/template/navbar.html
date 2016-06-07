@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top customnavbar">
+<div class="navbar navbar-default navbar-static-top customnavbar" ng-controller="NavbarFilmTypeController">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -11,6 +11,7 @@
         <div class="navbar-collapse collapse">
             <ul class="customnavbar__listcategory nav navbar-nav">
                 <li class="customnavbar__listcategory__item">
+                    <!-- ui-sref="app.filmtype({listfilm : allfilms.AdminUpLoad, filmtypename:'Phim Mới'})" -->
                     <a class="customnavbar__listcategory__item__title" href="#">PHIM MỚI</a>
                 </li>
                 <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
@@ -19,35 +20,34 @@
                         <div class="container">
                             <div class="row">
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3 nopadding">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim hành động</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim hài hước</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim cổ trang</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim chính kịch</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Action, filmtypename:'Phim Hành Động'})">Phim hành động</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Funny, filmtypename:'Phim Hài Hước'})">Phim hài hước</a></li>
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-2 nopadding">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim viễn tưởng</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim võ thuật</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Drama, filmtypename:'Phim Chính Kịch'})">Phim chính kịch</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Fiction, filmtypename:'Phim Viễn Tưởng'})">Phim viễn tưởng</a></li>
+                                   <!--  <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim võ thuật</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim thần thoại</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim thể thao</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim thể thao</a></li> -->
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-2 nopadding">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim chiến tranh</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim kinh dị</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim tâm lí</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim gia đình</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.War, filmtypename:'Phim Chiến Tranh'})">Phim chiến tranh</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Horor, filmtypename:'Phim Kinh Dị'})">Phim kinh dị</a></li>
+                                   <!--  <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim tâm lí</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim gia đình</a></li> -->
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-2 nopadding">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim hình sự</a></li>
+                                   <!--  <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim hình sự</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim hồi hộp</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim tài liệu</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim hoạt hình</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim tài liệu</a></li> -->
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Cartoon, filmtypename:'Phim Hoạt Hình'})">Phim hoạt hình</a></li>
                                 </ul>
-                                <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3 nopadding">
+                                <!-- <ul class="customnavbar__listcategory__item__megamenu__dropdown col-sm-3 nopadding">
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim phiêu lưu</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim bí ẩn</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim tình cảm</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">None...</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </ul>
@@ -59,18 +59,18 @@
                             <div class="row">
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown nopadding col-sm-3">
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Việt Nam</a></li>
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Nhật Bản</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Country.JP, filmtypename:'Phim Nhật Bản'})">Nhật Bản</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Pháp</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Canada</a></li>
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown nopadding col-sm-3">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Trung Quốc</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Country.CN, filmtypename:'Phim Trung Quốc'})">Trung Quốc</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Hồng Kông</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Đài Loan</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Quốc Gia Khác</a></li>
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown nopadding col-sm-3">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Mỹ</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Country.US, filmtypename:'Phim Mỹ'})">Mỹ</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Ấn Độ</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Úc</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">None...</a></li>
@@ -91,15 +91,15 @@
                         <div class="container">
                             <div class="row">
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown nopadding col-sm-3">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim lẻ 2016</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Funny, filmtypename:'Phim Lẻ 2016'})">Phim lẻ 2016</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim lẻ 2012</a></li>
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown nopadding col-sm-3">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim lẻ 2015</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Funny, filmtypename:'Phim Lẻ 2015'})">Phim lẻ 2015</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim lẻ 2011</a></li>
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown nopadding col-sm-3">
-                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim lẻ 2014</a></li>
+                                    <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" ui-sref="app.filmtype({listfilm : allfilms.Type.Funny, filmtypename:'Phim Lẻ 2014'})">Phim lẻ 2014</a></li>
                                     <li class="customnavbar__listcategory__item__megamenu__dropdown__item"><a class="customnavbar__listcategory__item__megamenu__dropdown__item__link" href="#">Phim lẻ 2010</a></li>
                                 </ul>
                                 <ul class="customnavbar__listcategory__item__megamenu__dropdown nopadding col-sm-3">
@@ -111,7 +111,7 @@
                     </ul>
                 </li>
                 <li class="customnavbar__listcategory__item customnavbar__listcategory__item__menularge dropdown">
-                    <a href="#" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">PHIM BỘ <b class="caret"></b></a>
+                    <a ui-sref="app.filmtype({listfilm : allfilms.Series, filmtypename:'Phim Bộ'})" class="customnavbar__listcategory__item__title dropdown-toggle" data-toggle="dropdown">PHIM BỘ <b class="caret"></b></a>
                     <ul class="customnavbar__listcategory__item__megamenu dropdown-menu">
                         <div class="container">
                             <div class="row">

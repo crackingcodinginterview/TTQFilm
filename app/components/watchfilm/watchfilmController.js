@@ -9,16 +9,14 @@
 		sc.film = $state.params.filmdetail;
 
 		if(sc.film == null)
-		{
-			sc.film = FilmService.getCurrentFilm();	
-		}
+			sc.film = FilmService.getCurrentFilm();
 
 		FilmService.setCurrentFilm(sc.film);
 
-		// $state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi;
-
+		$state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi.toUpperCase();
+		// console.log($state.get('app.watchfilm').data.pageTitle);
 		sc.Watch = function(){
-			var filmname = sc.film.Name_Vi.replace(/ /gi, "-");
+			var filmname = sc.film.Name_En.toLowerCase().replace(/[^a-zA-Z0-9]/gi, "-");
 			$state.go('app.filmwatching',{filminfo : sc.film, filmname : filmname});
 		}
 	});

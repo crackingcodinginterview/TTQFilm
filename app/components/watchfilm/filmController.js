@@ -8,17 +8,19 @@
 
 		$scope.film = $state.params.filminfo;
 
+		$scope.filmLink = $state.href($state.current.name, $state.params, {absolute: true});
+
 		if($scope.film == null){
 			$scope.film = FilmService.getCurrentFilm();
 		}
 
 		FilmService.setCurrentFilm($scope.film);
 
-		// $state.get('app.filmwatching').data.pageTitle = $scope.film.Name_Vi;
+		$state.get('app.filmwatching').data.pageTitle = $scope.film.Name_Vi.toUpperCase();
 
 		$scope.ReadMore = function(){
 			$state.go('app.watchfilm',{filmdetail : $scope.film});
-		}
+		};
 
 		$scope.options = {
 			type: 'mp4',
