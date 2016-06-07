@@ -45,11 +45,11 @@
         function updatePassword(newPassword){
             return UserService.updatePassword($rootScope.globals.accountInfo.info, newPassword).then(
                 function(response){
-                    $rootScope.globals.accountInfo.info.password = newPassword;
-                    setCredential($rootScope.globals.accountInfo);
-                },
-                function(error){
-                    return error;
+                    if(response.success){
+                        $rootScope.globals.accountInfo.info.password = newPassword;
+                        setCredential($rootScope.globals.accountInfo);
+                    }
+                    return response;
                 }
             )
         }
