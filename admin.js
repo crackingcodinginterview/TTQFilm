@@ -2,7 +2,7 @@
 	
 	var app = angular.module('movieApp');
 
-	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService, DatabaseService, $cookies, AdminService){
+	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService, DatabaseService, $cookies, AdminService, blockUI){
 		window.sc = $scope;
 		sc.user = {};
 		sc.isUsersLoaded = false;

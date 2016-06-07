@@ -4,6 +4,7 @@
 			'ngFx', 
 			'ngAnimate', 
 			'firebase',
-			'ngCookies'
+			'ngCookies',
+			'blockUI'
 		]);
 })();
