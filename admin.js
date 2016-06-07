@@ -2,11 +2,11 @@
 	
 	var app = angular.module('movieApp');
 
-	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService, DatabaseService, $cookies, AdminService, blockUI){
+	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService, DatabaseService, AdminService, $interval){
 		window.sc = $scope;
+		window.interval = $interval;
 		sc.user = {};
 		sc.isUsersLoaded = false;
-		window.ck = $cookies;
 
 		var ref = firebase.database().ref().child("user");
 		var userObject = $firebaseObject(ref);
