@@ -1,6 +1,6 @@
 (function () {
 	var app = angular.module('movieApp');
-	
+
 	app.factory('DatabaseService',function($firebaseObject){
 		var service = {};
 		service.createUserDatabase = createUserDatabase;
@@ -9,6 +9,7 @@
 		service.getUser = getUser;
 		return service;
 
+		//Thanh Tri & Minh Quoc
 		function createUserDatabase(user) {
 			firebase.database().ref("user/" + user.uid).set({
 				uid: user.uid,
@@ -19,17 +20,31 @@
 			})
 		};
 
-		function uploadFilmDatabase(data) {
+		//Thanh Tri
+		function uploadFilmDatabase(data, path) {
 			console.log(data);
+			var ref = firebase.database().ref('FilmsList');
+			var FilmsObject = $firebaseObject(ref);
+			var FilmsData = {};
+			return FilmsObject.$loaded().then(
+				function(response){
+					console.log(FilmsObject);
+					if (FilmsObject.AdminUpload === undefined)
+						FilmsObject.AdminUpload = [];
+					FilmsObject.AdminUpload.push(data);
+					console.log(FilmsObject);
+					FilmsObject.$save();
+					return FilmsObject.AdminUpload;
+				});
 		}
 		function getUser(uid){
 			var ref = firebase.database().ref('user').child(uid);
-			var userRef = $firebaseObject(ref);
+			// var userRef = $firebaseObject(ref);
 			return userRef.$loaded().then(
 				function(response){
 					return response;
 				}
-			);
+				);
 		};
 
 		function isUidExist(uid){
@@ -37,7 +52,7 @@
 				function(response){
 					return response.hasChild(uid);
 				}
-			);
+				);
 		};
 	});
 }());

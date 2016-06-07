@@ -1,0 +1,36 @@
+	<div id="addActorModal" class="modal modal-fixed-footer">
+		<div class="modal-content ">
+			<h4>Add Actor/Actress</h4>
+			<div class="row">
+				<div class="col s8">
+					<div class="input-field col s12">
+						<input id="actor.Name" type="text" class="validate" ng-model="actor.Name">
+						<label for="actor.Name">Name</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="actor.Name_In_Film" type="text" class="validate" ng-model="actor.Name_In_Film">
+						<label for="actor.Name_In_Film">Name in Film</label>
+					</div>
+				</div>
+				<div class="col s4">
+					<div class="card">
+						<div class="card-image">
+							<img ng-src="{{actor.Picture}}">
+						</div>
+						<div class="card-action">
+							<div id="upload-file-container" class="btn">
+								<input type="file" name="photo" custom-on-change="uploadActorPicture" accept="image/*" />
+							</div>
+						</div>
+					</div>
+					<div class="progress" ng-show="!isActorPictureLoaded">
+						<div class="indeterminate"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a class="btn modal-action waves-effect waves-green btn-flat" ng-class="{'disabled': !actorCheckDone()}" ng-click="submitActor()">Add</a>
+			<a class="btn modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+		</div>
+	</div>
