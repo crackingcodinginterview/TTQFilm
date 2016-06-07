@@ -11,11 +11,9 @@
 
 		//get 10 action films by priority
 		sc.actionfilms = FilmService.getActionFilms();
-		sc.actionfilmName = "Phim Hành Động";
 
 		//get 10 cartoon films by priority
 		sc.cartoonfilms = FilmService.getCartoonFilms();
-		sc.cartoonfilmName = "Phim Hoạt Hình";
 
 	});
 }());
