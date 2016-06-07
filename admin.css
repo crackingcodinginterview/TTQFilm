@@ -24,3 +24,15 @@ label{
 .modal .label{
 	color: #004D40 !important;
 }
+
+.tabs{
+	position: fixed;
+	background-color: #78909C;
+	top: 0;
+	left:0;
+	z-index: 100;
+}
+
+.btn{
+	overflow: hidden;
+}

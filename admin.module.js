@@ -1,8 +1,9 @@
 (function () {
-	var app = angular.module('mainApp', 
+	var app = angular.module('movieApp', 
 		[
 			'ngFx', 
 			'ngAnimate', 
-			'firebase'
+			'firebase',
+			'ngCookies'
 		]);
 })();

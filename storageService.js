@@ -1,5 +1,5 @@
 (function () {
-	var app = angular.module('mainApp');
+	var app = angular.module('movieApp');
 
 	app.factory('storageService', function(){
 		var service = {};

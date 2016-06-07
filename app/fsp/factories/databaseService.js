@@ -3,6 +3,7 @@
 	app.factory('DatabaseService',function(){
 		var service = {};
 		service.createUserDatabase = createUserDatabase;
+		service.uploadFilmDatabase = uploadFilmDatabase;
 		return service;
 
 		function createUserDatabase(user, displayName, role) {
@@ -15,5 +16,9 @@
 				role: role
 			})
 		};
+
+		function uploadFilmDatabase(data) {
+			console.log(data);
+		}
 	});
 }());

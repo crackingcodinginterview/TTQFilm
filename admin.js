@@ -1,11 +1,12 @@
 (function () {
 	
-	var app = angular.module('mainApp');
+	var app = angular.module('movieApp');
 
-	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService){
+	app.controller('mainCtr', function($scope, $firebaseObject, $timeout, $filter, storageService, DatabaseService, $cookies){
 		window.sc = $scope;
 		sc.user = {};
 		sc.isUsersLoaded = false;
+		window.ck = $cookies;
 
 		var ref = firebase.database().ref().child("user");
 		var userObject = $firebaseObject(ref);
@@ -131,32 +132,27 @@
 		sc.Upload = {};
 
 		sc.chooseFilm = function(event){
-			var files = event.target.files;
-			console.log(files);
-			sc.Upload.file = files[0];
+			var file = event.target.files[0];
+			console.log(file);
 			sc.isReadyUpload = true;
 			sc.$evalAsync();
-		};
 
-		sc.ts = storageService;
+			storageService.uploadFile($scope, 'films', file);
 
-		sc.uploadFilm = function () {
-			storageService.uploadFile($scope, 'films', sc.Upload.file);
-
-			sc.$on('updateUploadProgress' + sc.Upload.file.name, function (event, data) {
+			sc.$on('updateUploadProgress' + file.name, function (event, data) {
 				console.log(data);
 				sc.MyStyle = {width: data.progress + '%'};
 				sc.Status = "Uploading " + data.progress + '%';
 				sc.$evalAsync();
 			});
 
-			sc.$on('uploadDone' + sc.Upload.file.name, function (event, data) {
+			sc.$on('uploadDone' + file.name, function (event, data) {
 				console.log('Done');
 				sc.Status = "Upload Done!";
 				sc.upload.Source = data.url;
 				sc.$evalAsync();
 			});
-		}
+		};
 
 		sc.MyStyle = {width: '0' + '%'};
 
@@ -231,6 +227,11 @@
 			$timeout(function() {
 				Materialize.updateTextFields();
 			}, 100);
+		}
+
+		sc.uploadFilmToDatabase = function () {
+			console.log(sc.upload);
+			DatabaseService.uploadFilmDatabase(sc.upload, "films/adminUpload");
 		}
 
 	});
