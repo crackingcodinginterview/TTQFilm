@@ -17,8 +17,6 @@
 				hm-dots-class="toggle-dots-white"
 				hm-link-class="toggle-link-blue"
 				ng-click="ReadMore()">
-						<!-- <div ng-bind-html="film.Description" class="filmview-description-short-content">
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -50,5 +48,10 @@
 		</div>
 	</div>
 
-	<ng-include src="'app/components/template/comment.html'"></ng-include>
+	<!--<ng-include src="'app/components/template/comment.html'"></ng-include>-->
+	<div id="fb-comment-box" dyn-fb-comment-box
+		 page-href="http://localhost:63342/DACK/temp/dack_ptudw/index.html#/xemphim"
+		 numposts="5"
+		 colorscheme="dark">
+	</div>
 </div>

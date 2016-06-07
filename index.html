@@ -42,6 +42,23 @@
     <ng-include src="'app/components/template/maincontent.html'"></ng-include>
     <ng-include src="'app/components/template/footer.html'"></ng-include>
 
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '873127219464255',
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- load flexSlider -->
     <script src="bower_components/flexslider/jquery.flexslider-min.js"></script>
@@ -77,6 +94,7 @@
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
     
     <script src="app/app.module.js"></script>
+    <script type="text/javascript" src="app/shared/facebookcomment/facebookcommentDirective.js"></script>
     <script src="app/app.scrollbar.js"></script>
     <script src="app/shared/starrating/starratingDirective.js"></script>
     <script src="app/shared/loadslider/loadsliderDirective.js"></script>

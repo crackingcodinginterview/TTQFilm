@@ -15,7 +15,7 @@
 
 		FilmService.setCurrentFilm(sc.film);
 
-		$state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi;
+		// $state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi;
 
 		sc.Watch = function(){
 			$state.go('app.filmwatching',{filminfo : sc.film, filmname : sc.film.Name_Vi});

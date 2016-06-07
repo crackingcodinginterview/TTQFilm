@@ -14,7 +14,7 @@
 
 		FilmService.setCurrentFilm($scope.film);
 
-		$state.get('app.filmwatching').data.pageTitle = $scope.film.Name_Vi;
+		// $state.get('app.filmwatching').data.pageTitle = $scope.film.Name_Vi;
 
 		$scope.ReadMore = function(){
 			$state.go('app.watchfilm',{filmdetail : $scope.film});
