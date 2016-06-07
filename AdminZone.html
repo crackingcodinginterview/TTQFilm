@@ -68,6 +68,9 @@
 						</tr>
 					</tbody>
 				</table>
+				<div class="progress" ng-show="!isUsersLoaded">
+					<div class="indeterminate"></div>
+				</div>
 			</div>
 			<div class="col s4 row">
 				<h5 class="col 12">Selected Users</h5>
@@ -108,20 +111,106 @@
 		<div id="test2" class="col s12">
 			<h5>Trang Upload Phim:</h5>
 			<form action="#">
-				<div class="file-field input-field">
-					<div class="btn">
-						<span>Chose Film</span>
-						<input type="file" custom-on-change="uploadFile">
+				<div class="row">
+					<div class="file-field input-field col s6">
+						<div class="btn">
+							<span>Choose Film</span>
+							<input type="file" custom-on-change="chooseFilm">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
 					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate" type="text">
+					<div class="col s6" style="margin-top: 15px;">
+						<a class="btn" ng-class="{'disabled': !isReadyUpload}" ng-click="uploadFilm()">Upload</a>
+						<span>{{Status}}</span>
+						<div class="progress">
+							<div class="determinate" ng-style="MyStyle"></div>
+						</div>
 					</div>
 				</div>
-				<div class="progress">
-				<div class="determinate" ng-style="MyStyle"></div>
+				<div class="row">
+					<div class="col s9">
+						<div class="input-field col s12">
+							<input id="name_vn" type="text" class="validate" ng-model="upload.Name_Vi">
+							<label for="name_vn">Vietnamese Name</label>
+						</div>
+						<div class="input-field col s12">
+							<input id="name_en" type="text" class="validate" ng-model="upload.Name_En">
+							<label for="name_en">English Name</label>
+						</div>
+						<div class="row">
+							<div class="input-field col s3">
+								<input id="Director" type="text" class="validate" ng-model="upload.Director">
+								<label for="Director">Director</label>
+							</div>
+							<div class="input-field col s3">
+								<input id="Nation" type="text" class="validate" ng-model="upload.Nation">
+								<label for="Nation">Nation</label>
+							</div>
+							<div class="input-field col s3">
+								<label for="publishdate">Publish Date</label>
+								<input type="date" ng-model="Date" id="publishdate" class="datepicker">
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<textarea id="desciption" class="materialize-textarea" ng-model="upload.Description"></textarea>
+								<label for="desciption">Description</label>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class="col s3">
+						<div class="card">
+							<div class="card-image">
+								<img ng-src="{{upload.Picture}}">
+							</div>
+							<div class="card-action">
+								<div id="upload-file-container" class="btn">
+									<input type="file" name="photo" custom-on-change="uploadPicture"/>
+								</div>
+
+							</div>
+						</div>
+						<div class="progress" ng-show="!isPictureLoaded">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="input-field col s3">
+						<input id="name_vn" type="text" class="validate" ng-model="upload.name_vn">
+						<label for="name_vn">Duration</label>
+					</div>
+					<div class="input-field col s3">
+						<select multiple ng-model="upload.types">
+							<option value="" disabled selected>Choose type</option>
+							<option value="Action">Action</option>
+							<option value="Cartoon">Cartoon</option>
+							<option value="Fiction">Fiction</option>
+						</select>
+						<label>Film Types</label>
+					</div>
+					<div class="input-field col s3">
+						<select ng-model="upload.Quality">
+							<option value="" disabled selected>Choose quality</option>
+							<option value="CAM">CAM</option>
+							<option value="HD 720p">HD 720p</option>
+							<option value="HD 1080p">HD 1080p</option>
+						</select>
+						<label>Film Quality</label>
+					</div>
+					<div class="input-field col s3">
+						<select ng-model="upload.Language">
+							<option value="" disabled selected>Choose Language</option>
+							<option value="Vietsub">Vietsub</option>
+							<option value="Thuyết minh">Embeded</option>
+						</select>
+						<label>Language</label>
+					</div>
 				</div>
-				<a class="btn" ng-class="{'disabled': !isReadyUpload}" ng-click="uploadFilm()">Upload</a>
-				<span>{{Status}}</span>
 			</form>
 		</div>
 	</div>
@@ -133,6 +222,9 @@
 	<script type="text/javascript" src="./bower_components/ngFx/dist/ngFx.js"></script>
 	<script type="text/javascript" src="./bower_components/firebase/firebase.js"></script>
 	<script type="text/javascript" src="./bower_components/angularfire/dist/angularfire.js"></script>
+	<script type="text/javascript" src="./admin.module.js"></script>
+	<script type="text/javascript" src="./app.firebase.js"></script>
+	<script type="text/javascript" src="./storageService.js"></script>
 	<script type="text/javascript" src="./admin.js"></script>
 	<script type="text/javascript" src="./bower_components/Materialize/dist/js/materialize.js"></script>
 </body>
