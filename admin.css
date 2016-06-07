@@ -36,3 +36,11 @@ label{
 .btn{
 	overflow: hidden;
 }
+
+#actorCount{
+	color: #fdfdfd;
+}
+
+.include.ng-enter{
+	animation: fadeInDown 1s;
+}
