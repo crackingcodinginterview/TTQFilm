@@ -3,8 +3,6 @@
  * Created by David Karchmer on 9/11/15.
  */
 (function() {
-    'use strict';
-
     angular
         .module('ng-jwplayer', [])
         .constant('jwplayer', jwplayer);
@@ -13,8 +11,6 @@
 /* global jwplayer */
 
 (function () {
-    'use strict';
-
     angular
         .module('ng-jwplayer')
         .service('jwplayerService', JWPlayerService);
@@ -52,7 +48,6 @@
 })();
 
 (function() {
-    'use strict';
 
     angular
         .module('ng-jwplayer')

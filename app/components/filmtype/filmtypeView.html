@@ -1,0 +1,29 @@
+<div class="filmtype">
+	<p class= "home-title">{{typename}}</p>
+	<hr style="{width: 100%;}"></hr>
+
+
+	<ul class="listfilmtype">
+		<li ng-repeat="film in listfilm | filter:search | offset: (currentPage - 1) * itemsPerPage | limitTo:itemsPerPage">
+			<div class="film-item">
+				<a ui-sref="app.watchfilm({filmdetail : film})">
+					<img class="img-responsive film-picture-typefilm" ng-src="{{film.Picture}}"/>
+				</a>
+				<div class="content">
+					<a class="content-film-namevi-slider" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_Vi}}</a>
+					<a class="content-film-nameen-slider" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_En}}</a>
+					<span ui-sref="app.watchfilm({filmdetail : film})" class="content-film-duration">{{film.Duration}}</span>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+	<div class="div-pagination">
+		<uib-pagination 
+	        total-items="totalItems" 
+	        items-per-page= "itemsPerPage"
+	        ng-model="currentPage" 
+	        class="pagination-lg">
+	    </uib-pagination>
+    </div>
+</div>

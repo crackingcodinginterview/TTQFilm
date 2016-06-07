@@ -47,20 +47,15 @@
 
 .filmview-devide{
 	background-color: rgba(0,0,0,0.6);
-	height: 90px;
+	height: 65px;
 	margin-top: 30px;
 }
 
 .filmview-playfilm{
 	background-color: rgba(0,0,0,0.6);
-	height: 450px;
 	margin-top: 30px;
-	padding-top: 16px;
+	padding: 15px;
 	text-align: center;
-}
-
-.filmview-playfilm video{
-	width: 92%;
 }
 
 

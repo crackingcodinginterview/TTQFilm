@@ -16,6 +16,9 @@
             'blockUI',
             'ngSanitize',
             'hm.readmore',
-            'ngCookies'
+            'ng-jwplayer',
+            'ui.bootstrap',
+            'ngCookies',
+            'LocalStorageModule'
         ]);
 }());

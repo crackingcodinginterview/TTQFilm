@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('movieApp');
 
-	app.controller('watchfilmController', function($scope, $state){
+	app.controller('watchfilmController', function($scope, $state, FilmService){
 
 		window.sc = $scope;
 		sc.film = {};
@@ -10,8 +10,10 @@
 
 		if(sc.film == null)
 		{
-			$state.go('app');
+			sc.film = FilmService.getCurrentFilm();	
 		}
+
+		FilmService.setCurrentFilm(sc.film);
 
 		$state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi;
 

@@ -3,7 +3,7 @@
 		<li ng-repeat="film in listFilm">
 			<div class="film-item film-item-slider">
 				<a ui-sref="app.watchfilm({filmdetail : film})">
-					<img class="img-responsive film-picture" ng-src="{{film.Picture}}">
+					<img class="img-responsive film-picture" ng-src="{{film.Picture}}"/>
 				</a>
 				<div class="content">
 					<a class="content-film-namevi-slider" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_Vi}}</a>

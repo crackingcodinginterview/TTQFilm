@@ -25,10 +25,29 @@
                     }
                 },
                 data : {
-                    pageTitle: 'PHIM MỚI',
+                    pageTitle: 'Phim mới | Phim hay | Xem phim nhanh',
                     role : ['GUESS', 'USER', 'ADMIN'],
+                }   
+            })
+
+            //State hiển thị phim của các loại
+            .state('app.filmtype',{
+                url:'theloai/{filmtypename}',
+                params: {
+                    listfilm : null,
+                },
+                views : {
+                    'subview2@':{
+                        templateUrl: 'app/components/filmtype/filmtypeView.html',
+                        controller: 'FilmTypeController'
+                    }
+                },
+                data:{
+                    pageTitle: 'Thể loại',
+                    role: ['GUESS','USER','ADMIN'],
                 }
             })
+
             //State xem thông tin chi tiết của phim
             .state('app.watchfilm',{
                 url:'xemphim',
@@ -36,7 +55,7 @@
                     filmdetail: null
                 },
                 ncyBreadcrumb:{
-                    label: '{{film.Name_Vi}}'
+                    label: '{{globals.currentFilm.Name_Vi}}'
                 },
                 views : {
                     'subview1@' : {
@@ -49,7 +68,7 @@
                     }
                 },
                 data : {
-                    pageTitle: 'XEM PHIM',
+                    pageTitle: '...',
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             })
@@ -61,8 +80,8 @@
                     filminfo: null
                 },
                 ncyBreadcrumb:{
-                    parent : 'app.watchfilm',
-                    label: '{{film.Name_Vi}} / XEM PHIM'
+                    parent: 'app.watchfilm',
+                    label: 'XEM PHIM'
                 },
                 views : {
                     'subview1@' : {
@@ -75,7 +94,7 @@
                     }
                 },
                 data : {
-                    pageTitle: 'XEM PHIM',
+                    pageTitle: '...',
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             })
@@ -175,8 +194,9 @@
                 }
             });
     });
-    app.run(function ($rootScope, $state, $stateParams, AuthenticationService) {
+    app.run(function ($rootScope, $state, $stateParams, AuthenticationService,FilmService) {
         AuthenticationService.getLastCredential();
+        FilmService.getLastCurrentFilm();
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
