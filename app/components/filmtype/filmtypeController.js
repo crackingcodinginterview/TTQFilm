@@ -18,8 +18,6 @@
     	$scope.itemsPerPage = 15;
     	$scope.totalItems = $scope.listfilm.length;
 
-    	console.log($scope.totalItems);
-
 
 		// console.log($scope.listcartoonfilm);
 
