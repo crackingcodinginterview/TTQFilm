@@ -14,6 +14,7 @@
 
 		userObject.$loaded().then(function () {
 			console.log("Load done");
+			console.log(userObject);
 			sc.isUsersLoaded = true;
 			sc.refreshList();
 		});
@@ -71,26 +72,35 @@
 
 		sc.Action = {};
 
-		sc.changeAction = function (value, action) {
-			if (value === true)
-				sc.Action = action;
-		}
-
 		sc.doAction = function () {
 			sc.Action();
 		}
 
-		sc.deleteUser = function () {
-
-		}
 
 		sc.changeToUser = function () {
-			sc.changeTo('user');
+			sc.changeTo('USER');
 		}
 
 		sc.changeToAdmin = function () {
-			sc.changeTo('admin');
+			sc.changeTo('ADMIN');
 		}
+
+		sc.blockUser = function () {
+			for (var i = sc.SelectedUser.length - 1; i >= 0; i--) {
+				sc.changeStatus(sc.SelectedUser[i], "BLOCKED")
+			}
+			sc.SelectedUser = [];
+			sc.$evalAsync();
+		}
+
+		sc.unblockUser = function () {
+			for (var i = sc.SelectedUser.length - 1; i >= 0; i--) {
+				sc.changeStatus(sc.SelectedUser[i], "ACTIVE")
+			}
+			sc.SelectedUser = [];
+			sc.$evalAsync();
+		}
+
 
 		sc.changeTo = function (role) {
 			for (var i = sc.SelectedUser.length - 1; i >= 0; i--) {
@@ -106,6 +116,15 @@
 			{
 				sc.userList[index].role = role;
 				ref.child(sc.userList[index].uid).update({role: role});
+			}
+		}
+
+		sc.changeStatus = function (user, status) {
+			var index = sc.userList.indexOf(user);
+			if (index != -1)
+			{
+				sc.userList[index].status = status;
+				ref.child(sc.userList[index].uid).update({status: status});
 			}
 		}
 
@@ -150,42 +169,91 @@
 			console.log(files);
 			storageService.uploadFile($scope, 'image', files[0]);
 			sc.isPictureLoaded = false;
-
+			sc.$evalAsync();
 			sc.$on('updateUploadProgress' + files[0].name, function (event, data) {
 				console.log(data);
-				sc.$evalAsync();
 			});
 
 			sc.$on('uploadDone' + files[0].name, function (event, data) {
 				console.log('Done');
 				console.log(data.url);
 				sc.upload.Picture = data.url;
-				sc.$evalAsync();
 				sc.isPictureLoaded = true;
+				sc.$evalAsync();
 			});
+		};
+
+		//Add actor//
+		sc.openModal = function openModal(modalId) {
+			$('#' + modalId).openModal();
+			sc.actor = {};
+			console.log('#' + modalId + 'opened');
+			sc.actor.Picture = "http://www.freeiconspng.com/uploads/go-back--gallery-for--contact-person-icon-png-21.png";
+		}
+
+		sc.isActorPictureLoaded = true;
+		sc.uploadActorPicture = function (event) {
+			sc.isActorPictureLoaded = false;
+			sc.$evalAsync();
+			var file = event.target.files[0];
+			console.log(file);
+
+			storageService.uploadFile($scope, 'image', file);
+
+			sc.$on('updateUploadProgress' + file.name, function (event, data) {
+				console.log(data);
+			});
+
+			sc.$on('uploadDone' + file.name, function (event, data) {
+				console.log('Done');
+				console.log(data.url);
+				sc.actor.Picture = data.url;
+				sc.isActorPictureLoaded = true;
+				sc.$evalAsync();
+			});
+		};
+
+		sc.actorCheckDone = function () {
+			if (sc.actor == undefined)
+				return false;
+			return sc.actor.Name != undefined && sc.actor.Name_In_Film != undefined && sc.actor.Name != "" && sc.actor.Name_In_Film != "";
+		}
+
+		sc.submitActor = function () {
+			if (sc.actorCheckDone())
+				$('#addActorModal').closeModal();
+
+			if (sc.upload.Actor == undefined)
+				sc.upload.Actor = [];
+
+			sc.upload.Actor.push(sc.actor);
+			console.log(sc.upload);
+			$timeout(function() {
+				Materialize.updateTextFields();
+			}, 100);
 		}
 
 	});
 
-	app.directive('customOnChange', function() {
-		return {
-			restrict: 'A',
-			link: function (scope, element, attrs) {
-				var onChangeHandler = scope.$eval(attrs.customOnChange);
-				element.bind('change', onChangeHandler);
-			}
-		};
-	})
+app.directive('customOnChange', function() {
+	return {
+		restrict: 'A',
+		link: function (scope, element, attrs) {
+			var onChangeHandler = scope.$eval(attrs.customOnChange);
+			element.bind('change', onChangeHandler);
+		}
+	};
+})
 
 
 
-	$(document).ready(function() {
-		$('select').material_select();
-		$('.datepicker').pickadate({
-			selectMonths: true, 
-			selectYears: 15 
-		});
+$(document).ready(function() {
+	$('select').material_select();
+	$('.datepicker').pickadate({
+		selectMonths: true, 
+		selectYears: 15 
 	});
+});
 
 
 
