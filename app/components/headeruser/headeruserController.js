@@ -3,29 +3,28 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.controller('headeruserController', function($scope, AuthenticationService, Notification){
-        $scope.logout = function(){
-            AuthenticationService.clearCredential().then(
+    app.controller('headeruserController', function($scope, AuthenticationService, Notification, $state){
+        $scope.signOut = function(){
+            AuthenticationService.signOut().then(
                 function(response){
-                    if(response.success){
+                    if(response.success)
                         Notification.primary(response.message);
-                    }
-                    else{
+                    else
                         Notification.error(response.message);
-                    }
                 }
             );
         };
 
-        $scope.loginWithFacebook = function(){
-            AuthenticationService.loginWithFacebook().then(
+        $scope.signInWithFacebook = function(){
+            AuthenticationService.signInWithFacebook().then(
                 function(response){
                     if(response.success){
                         Notification.primary(response.message);
+                        AuthenticationService.setCredential(response.accountInfo);
+                        $state.go('app');
                     }
-                    else{
+                    else
                         Notification.error(response.message);
-                    }
                 }
             )
         };

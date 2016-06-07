@@ -1,34 +1,34 @@
 /**
  * Created by Administrator on 30/05/2016.
  */
- (function(){
+(function(){
     var app = angular.module('movieApp');
     app.config(function($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('/');
         $stateProvider
-        .state('app', {
-            url : '/',
-            ncyBreadcrumb: {
-                label: 'PHIM MỚI',
-            },
-            views : {
-                'subview2' : {
-                    templateUrl : 'app/components/home/homeView.html',
-                    controller : 'ListFilmController'
+            .state('app', {
+                url : '/',
+                ncyBreadcrumb: {
+                    label: 'PHIM MỚI',
                 },
-                'subview3' : {
-                    templateUrl : 'app/shared/sidebar/sidebarView.html'
+                views : {
+                    'subview2' : {
+                        templateUrl : 'app/components/home/homeView.html',
+                        controller : 'ListFilmController'
+                    },
+                    'subview3' : {
+                        templateUrl : 'app/shared/sidebar/sidebarView.html'
+                    },
+                    'subview4' : {
+                        templateUrl : 'app/components/headeruser/headeruserView.html',
+                        controller : 'headeruserController'
+                    }
                 },
-                'subview4' : {
-                    templateUrl : 'app/components/headeruser/headeruserView.html',
-                    controller : 'headeruserController'
+                data : {
+                    pageTitle: 'PHIM MỚI',
+                    role : ['GUESS', 'USER', 'ADMIN'],
                 }
-            },
-            data : {
-                pageTitle: 'PHIM MỚI',
-                role : ['GUESS', 'USER', 'ADMIN'],
-            }
-        })
+            })
             //State xem thông tin chi tiết của phim
             .state('app.watchfilm',{
                 url:'xemphim',
@@ -174,19 +174,13 @@
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             });
+    });
+    app.run(function ($rootScope, $state, $stateParams, AuthenticationService) {
+        AuthenticationService.getLastCredential();
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
+            $rootScope.toState = toState;
+            $rootScope.toStateParams = toStateParams;
+            AuthenticationService.authorize();
         });
-app.run(function ($rootScope, $state, $stateParams, AuthenticationService, $firebaseObject) {
-   $rootScope.globals = {};
-   //AuthenticationService.waitForUser();
-   // firebase.auth().onAuthStateChanged(function(response){
-   //     AuthenticationService.setCredential(response);
-   // });
-   $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
-       $rootScope.toState = toState;
-       $rootScope.toStateParams = toStateParams;
-       if ($rootScope.globals.role !== undefined) {
-           AuthenticationService.authorize();
-       }
-   });
-});
+    });
 }());

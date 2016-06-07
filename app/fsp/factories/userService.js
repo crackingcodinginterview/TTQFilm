@@ -1,25 +1,50 @@
 /**
  * Created by Administrator on 02/06/2016.
  */
-(function(){
+(function() {
     var app = angular.module('movieApp');
-    app.factory('UserService', function(DatabaseService){
+    app.factory('UserService', function (DatabaseService, $firebaseObject) {
         var service = {};
-        service.login = login;
-        service.loginWithFacebook = loginWithFacebook;
-        service.logout = logout;
-        service.createUser = createUser;
+        service.signInWithEmailAndPassword = signInWithEmailAndPassword;
+        service.signInWithFacebook = signInWithFacebook;
+        service.signOut = signOut;
+        service.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
         service.updatePassword = updatePassword;
         return service;
 
-        function login(user){
+        function getUserRole(uid){
+            var ref = firebase.database().ref('user').child(uid);
+            var userRef = $firebaseObject(ref);
+            return userRef.$loaded().then(
+                function(response){
+                    return response;
+                }
+            );
+        };
+        function signInWithEmailAndPassword(user) {
             return firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(
-                function(response){
-                    return {success : true, message : 'Đăng nhập thành công.'};
+                function (response) {
+                    return getUserRole(response.uid).then(
+                        function (response1) {
+                            return {
+                                success: true,
+                                message: 'Đăng nhập thành công.',
+                                accountInfo: {
+                                    type: 'EMAIL',
+                                    role: response1.role.toUpperCase(),
+                                    info: {
+                                        displayName: response1.name,
+                                        email: user.email,
+                                        password: user.password
+                                    }
+                                }
+                            };
+                        }
+                    )
                 },
-                function(response){
+                function (response) {
                     var message = '';
-                    switch (response.code){
+                    switch (response.code) {
                         case 'auth/invalid-email':
                             message = 'Email không hợp lệ.';
                             break;
@@ -36,55 +61,53 @@
                             message = 'Mật khẩu không đúng.';
                             break;
                     }
-                    return {success : false, message : message};
+                    return {success: false, message: message};
                 }
             )
         };
-        function loginWithFacebook(){
+        function signInWithFacebook() {
             var provider = new firebase.auth.FacebookAuthProvider();
-            provider.addScope('email');
-            firebase.auth().signInWithPopup(provider).then(
-                function(response) {
-                    console.log('check1');
-                    return {success : true, message  : 'Đăng nhập thành công.'};
+            return firebase.auth().signInWithPopup(provider).then(
+                function (response) {
+                    return {
+                        success: true,
+                        message: 'Đăng nhập thành công.',
+                        accountInfo: {
+                            type: 'FACEBOOK',
+                            role: 'USER',
+                            info: {
+                                displayName: response.user.displayName,
+                            }
+                        }
+                    };
                 },
-                function(response){
-                    console.log('check2');
-                    return {success : false, message : 'Có lỗi xảy ra.'};
+                function (response) {
+                    return {success: false, message: 'Có lỗi xảy ra.'};
                 }
             );
-            // return firebase.auth().getRedirectResult().then(
-            //     function(response) {
-            //         console.log('check1');
-            //         return {success : true, message  : 'Đăng nhập thành công.'};
-            //     },
-            //     function(response){
-            //         console.log('check2');
-            //         return {success : false, message : 'Có lỗi xảy ra.'};
-            //     }
-            // );
         };
-        function logout(){
+        function signOut() {
             return firebase.auth().signOut().then(
-                function(){
-                    return {success : true, message : 'Đăng xuất thành công.'}
+                function () {
+                    return {success: true, message: 'Đăng xuất thành công.'}
                 },
-                function(error){
-                    return {success : false, message : 'Vui lòng kiểm tra lại đường truyền.'}
+                function (error) {
+                    return {success: false, message: 'Vui lòng kiểm tra lại đường truyền.'}
                 }
             );
         }
-        function createUser(user){
+
+        function createUserWithEmailAndPassword(user) {
             return firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(
-                function(response){
+                function (response) {
                     response.updateProfile({displayName: user.name});
-                    console.log(response);
+                    firebase.auth().signOut();
                     DatabaseService.createUserDatabase(response, user.name, "user");
-                    return {success : true, message : 'Đăng kí tài khoản thành công.'};
+                    return {success: true, message: 'Đăng kí tài khoản thành công.'};
                 },
-                function(response){
+                function (response) {
                     var message = '';
-                    switch (response.code){
+                    switch (response.code) {
                         case 'auth/email-already-in-use':
                             message = 'Email này đã được sử dụng.';
                             break;
@@ -105,33 +128,36 @@
                             message = 'Vui lòng kiểm tra lại đường truyền.';
                             break;
                     }
-                    return {success : false, message : message};
+                    return {success: false, message: message};
                 }
             );
         };
-        function updatePassword(currentUser, newPassword){
-            return currentUser.updatePassword(newPassword).then(
-                function(){
-                    return {success : true, message : 'Đổi mật khẩu thành công'};
-                },
-                function(error){
-                    var message = '';
-                    switch (error.code){
-                        case 'auth/weak-password':
-                            message  = 'Mật khẩu quá yếu.';
-                            break;
-
-                        case 'auth/requires-recent-login':
-                            message = 'Vui lòng đăng nhập lại.';
-                            break;
-
-                        default:
-                            message = 'Vui lòng kiểm tra lại đường truyền.';
-                            break;
-                    }
-                    return {success : false, message : message};
-                }
-            )
-        };
+        function updatePassword(user, newPassword) {
+        }
     });
 }());
+
+
+
+// return firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(
+//     function(response){
+//     currentUser.updatePassword(newPassword).then(
+//
+//         function(error){
+//             var message = '';
+//             switch (error.code){
+//                 case 'auth/weak-password':
+//                     message  = 'Mật khẩu quá yếu.';
+//                     break;
+//
+//                 case 'auth/requires-recent-login':
+//                     message = 'Vui lòng đăng nhập lại.';
+//                     break;
+//
+//                 default:
+//                     message = 'Vui lòng kiểm tra lại đường truyền.';
+//                     break;
+//             }
+//             return {success : false, message : message};
+//         }
+//     ),
