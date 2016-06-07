@@ -18,7 +18,7 @@
 		<li ng-repeat="film in cartoonfilms">
 			<div class="film-item">
 				<a ui-sref="app.watchfilm({filmdetail : film})">	
-					<img class="img-responsive film-picture" src="{{film.Picture}}"/>
+					<img class="film-picture" src="{{film.Picture}}"/>
 				</a>
 				<div class="content">
 					<a class="content-film-namevi" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_Vi}}</a>
@@ -44,7 +44,7 @@
 		<li ng-repeat="film in actionfilms">
 			<div class="film-item">
 				<a ui-sref="app.watchfilm({filmdetail : film})">	
-					<img class="img-responsive film-picture" src="{{film.Picture}}"/>
+					<img class="film-picture" src="{{film.Picture}}"/>
 				</a>
 				<div class="content">
 					<a class="content-film-namevi" ui-sref="app.watchfilm({filmdetail : film})">{{film.Name_Vi}}</a>
