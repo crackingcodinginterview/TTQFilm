@@ -2,3 +2,37 @@ body{
 	background-color: #3D3D3D;
 	color: #fdfdfd;
 }
+
+#upload-file-container {
+   width: 100%;
+}
+
+#upload-file-container input {
+   filter: alpha(opacity=0);
+   opacity: 0;
+}
+
+label{
+	color: #C8E6C9 !important;
+}
+
+.modal{
+	background-color: #B0BEC5;
+	color: #004D40 !important;
+}
+
+.modal .label{
+	color: #004D40 !important;
+}
+
+.tabs{
+	position: fixed;
+	background-color: #78909C;
+	top: 0;
+	left:0;
+	z-index: 100;
+}
+
+.btn{
+	overflow: hidden;
+}

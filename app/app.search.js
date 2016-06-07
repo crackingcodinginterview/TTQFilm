@@ -6,7 +6,5 @@
         $scope.Find = function(){
             $scope.filmresult = FilmService.SearchFilm($scope.query);
         }
-
-
     });
 }());

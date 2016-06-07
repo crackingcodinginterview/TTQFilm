@@ -8,6 +8,7 @@
 		service.SearchFilm = SearchFilm;
 		service.getCurrentFilm = getCurrentFilm;
 		service.setCurrentFilm = setCurrentFilm;
+		service.getLastCurrentFilm = getLastCurrentFilm;
 
 		return service;
 		//get all films

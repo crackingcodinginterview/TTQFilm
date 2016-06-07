@@ -3,84 +3,64 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.factory('AuthenticationService', function(UserService, $rootScope, $state, $interval, blockUI){
+    app.factory('AuthenticationService', function(UserService, $rootScope, $state, $cookies){
         var service = {};
-        service.login = login;
-        service.waitForUser = waitForUser;
+        service.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
         service.authorize = authorize;
+        service.getLastCredential = getLastCredential;
         service.setCredential = setCredential;
-        service.clearCredential = clearCredential;
-        service.loginWithFacebook = loginWithFacebook;
+        service.signOut = signOut;
+        service.signInWithFacebook = signInWithFacebook;
         service.updatePassword = updatePassword;
+        service.signInWithEmailAndPassword = signInWithEmailAndPassword;
         return service;
 
-        function updatePassword(newPassword){
-            return UserService.updatePassword($rootScope.globals.currentUser, newPassword).then(
-                function(response){
-                    return response;
-                },
-                function(response){
-                    return response;
-                }
-            );
-        }
         function authorize(){
             var roles = $rootScope.toState.data.role;
-            var role = $rootScope.globals.role;
+            var role = $rootScope.globals.accountInfo.role;
             if(roles.indexOf(role) === -1) {
                 $state.go('app.accessdenied');
             }
-        }
-        function login(user){
-            return UserService.login(user).then(
-                function(response){
-                    return response;
-                },
-                function(response){
-                    return response;
-                }
-            );
         };
-        function waitForUser(){
-            blockUI.start();
-            var stop = $interval(
-                function(){
-                    if($rootScope.globals.role !== undefined){
-                        blockUI.stop();
-                        authorize();
-                        $interval.cancel(stop);
+        function getLastCredential(){
+            $rootScope.globals = $cookies.getObject('user') || {
+                    accountInfo : {
+                        role : 'GUESS'
                     }
-                }, 50
-            );
+                };
         };
-        function loginWithFacebook(){
-            return UserService.loginWithFacebook().then(
-                function(response){
-                    return response;
-                },
-                function(response){
-                    return response;
-                }
-            );
-        }
-        function setCredential(currentUser){
+        function setCredential(accountInfo){
             $rootScope.globals = {
-                currentUser : currentUser,
-                role : currentUser === null ? 'GUESS' : currentUser.email != null && currentUser.email.indexOf('@admin') !== -1
-                    ? 'ADMIN' : 'USER',
+                accountInfo : accountInfo
             };
-            $rootScope.$apply();
-            authorize();
+            $cookies.putObject('user', $rootScope.globals);
         };
-        function clearCredential(){
-            return UserService.logout().then(
+        function signOut(){
+            $cookies.remove('user');
+            $rootScope.globals.accountInfo = {
+                role : 'GUESS',
+            };
+            return UserService.signOut();
+        };
+        function updatePassword(newPassword){
+            return UserService.updatePassword($rootScope.globals.accountInfo.info, newPassword).then(
                 function(response){
-                    return response;
-                },
-                function(response){
+                    if(response.success){
+                        $rootScope.globals.accountInfo.info.password = newPassword;
+                        setCredential($rootScope.globals.accountInfo);
+                    }
                     return response;
                 }
-            );
+            )
+        }
+        function createUserWithEmailAndPassword(user){
+            return UserService.createUserWithEmailAndPassword(user);
+        };
+        function signInWithEmailAndPassword(user){
+            return UserService.signInWithEmailAndPassword(user);
+        };
+        function signInWithFacebook(){
+            return UserService.signInWithFacebook();
         };
     });
 }());

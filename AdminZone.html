@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="mainApp">
+<html lang="en" ng-app="movieApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Admin Zone</title>
@@ -25,7 +25,7 @@
 				<table>
 					<thead>
 						<tr>
-							<th data-field="id">User ID</th>
+							<th data-field="id">User Status</th>
 							<th data-field="email">Email</th>
 							<th data-field="displayName">Display Name</th>
 							<th data-field="role">Role</th>
@@ -40,6 +40,7 @@
 								<div class="input-field col s12">
 									<input id="searchEmail" type="text" class="validate" ng-model="search.email">
 									<label for="searchEmail">Search by Email</label>
+									
 								</div>
 							</td>
 							<td>
@@ -50,16 +51,21 @@
 							</td>
 							<td>
 								<div class="input-field col s12">
-									<input id="searchRole" type="text" class="validate" ng-model="search.role">
-									<label for="searchRole">Search by Role</label>
+									<select ng-model="search.role">
+										<option value="">All</option>
+										<option value="admin">Admin</option>
+										<option value="user">User</option>
+										<option value="blocked">Blocked</option>
+									</select>
+									<label>Search by Role</label>
 								</div>
 							</td>
 						</tr>
-						<tr ng-repeat="user in userList | filter: {name: search.name, role: search.role, email: search.email, uid : '!!'}" class="fx-fade-up fx-ease-sine">
+						<tr ng-repeat="user in userList | filter: {name: search.name, role: search.role, email: search.email, status : '!!'}" class="fx-fade-up fx-ease-sine">
 							<td >
 								<p>
 									<input type="checkbox" id="{{user.uid}}" ng-change="$parent.Check(user, value)" ng-model="value"/>
-									<label for="{{user.uid}}">{{user.uid}}</label>
+									<label for="{{user.uid}}">{{user.status}}</label>
 								</p>
 							</td>
 							<td>{{user.email}}</td>
@@ -68,6 +74,9 @@
 						</tr>
 					</tbody>
 				</table>
+				<div class="progress" ng-show="!isUsersLoaded">
+					<div class="indeterminate"></div>
+				</div>
 			</div>
 			<div class="col s4 row">
 				<h5 class="col 12">Selected Users</h5>
@@ -87,16 +96,20 @@
 				</table>
 				<form action="#">
 					<p>
-						<input class="with-gap" name="group1" type="radio" id="delUser" ng-model="Action" ng-value="deleteUser"/>
-						<label for="delUser">Delete User(s)</label>
-					</p>
-					<p>
 						<input class="with-gap" name="group1" type="radio" id="toAdmin" ng-model="Action" ng-value="changeToAdmin"/>
 						<label for="toAdmin">Change Role To Admin</label>
 					</p>
 					<p>
 						<input class="with-gap" name="group1" type="radio" id="toUser" ng-model="Action" ng-value="changeToUser"/>
 						<label for="toUser">Change Role To User</label>
+					</p>
+					<p>
+						<input class="with-gap" name="group1" type="radio" id="blockUser" ng-model="Action" ng-value="blockUser"/>
+						<label for="blockUser">Block User(s)</label>
+					</p>
+					<p>
+						<input class="with-gap" name="group1" type="radio" id="unblockUser" ng-model="Action" ng-value="unblockUser"/>
+						<label for="unblockUser">unBlock User(s)</label>
 					</p>
 					<p>
 						<a class="waves-effect waves-light btn" ng-click="doAction()">Do Action</a>
@@ -108,21 +121,163 @@
 		<div id="test2" class="col s12">
 			<h5>Trang Upload Phim:</h5>
 			<form action="#">
-				<div class="file-field input-field">
-					<div class="btn">
-						<span>Chose Film</span>
-						<input type="file" custom-on-change="uploadFile">
+				<div class="row">
+					<div class="file-field input-field col s10">
+						<div class="btn">
+							<span>Choose Film</span>
+							<input type="file" custom-on-change="chooseFilm">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text">
+						</div>
+						<div class="row">
+							<div class="progress col s10">
+								<div class="determinate" ng-style="MyStyle"></div>
+							</div>
+							<div class="col s2">{{Status}}</div>
+						</div>
 					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate" type="text">
+					<div class="col s2 input-field">
+						<a class="btn">OR Upload JSON</a>
 					</div>
 				</div>
-				<div class="progress">
-				<div class="determinate" ng-style="MyStyle"></div>
+				<div class="row">
+					<div class="col s9">
+						<div class="input-field col s12">
+							<input id="name_vn" type="text" class="validate" ng-model="upload.Name_Vi">
+							<label for="name_vn">Vietnamese Name</label>
+						</div>
+						<div class="input-field col s12">
+							<input id="name_en" type="text" class="validate" ng-model="upload.Name_En">
+							<label for="name_en">English Name</label>
+						</div>
+						<div class="row">
+							<div class="input-field col s3">
+								<input id="Director" type="text" class="validate" ng-model="upload.Director">
+								<label for="Director">Director</label>
+							</div>
+							<div class="input-field col s3">
+								<input id="Nation" type="text" class="validate" ng-model="upload.Nation">
+								<label for="Nation">Nation</label>
+							</div>
+							<div class="input-field col s3">
+								<label for="publishdate">Publish Date</label>
+								<input type="text" ng-model="upload.Publish_Date" id="publishdate" class="datepicker">
+							</div>
+							<div class="input-field col s3" ng-click="openModal('addActorModal')">
+								<input disabled ng-model="upload.Actor" id="disabled" type="text" class="validate">
+								<label for="disabled">Add Actors/Actresses</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s3">
+								<input id="Duration" type="text" class="validate" ng-model="upload.Duration">
+								<label for="Duration">Duration</label>
+							</div>
+							<div class="input-field col s3">
+								<select multiple ng-model="upload.Types">
+									<option value="" disabled selected>Choose types</option>
+									<option value="Action">Action</option>
+									<option value="Cartoon">Cartoon</option>
+									<option value="Fiction">Fiction</option>
+								</select>
+								<label>Film Types</label>
+							</div>
+							<div class="input-field col s3">
+								<select ng-model="upload.Quality">
+									<option value="" disabled selected>Choose quality</option>
+									<option value="CAM">CAM</option>
+									<option value="HD 720p">HD 720p</option>
+									<option value="HD 1080p">HD 1080p</option>
+								</select>
+								<label>Film Quality</label>
+							</div>
+							<div class="input-field col s3">
+								<select ng-model="upload.Language">
+									<option value="" disabled selected>Choose Language</option>
+									<option value="Vietsub">Vietsub</option>
+									<option value="Thuyết minh">Embeded</option>
+								</select>
+								<label>Language</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s9">
+								<input id="CompanyList" type="text" class="validate" ng-model="upload.CompanyList">
+								<label for="CompanyList">CompanyList</label>
+							</div>
+							<div class="input-field col s3">
+								<input id="Rating" type="text" class="validate" ng-model="upload.Rating">
+								<label for="Rating">Rating</label>
+							</div>
+						</div>
+					</div>
+					<div class="col s3">
+						<div class="card">
+							<div class="card-image">
+								<img ng-src="{{upload.Picture}}">
+							</div>
+							<div class="card-action">
+								<div id="upload-file-container" class="btn">
+									<input type="file" name="photo" custom-on-change="uploadPicture"/>
+								</div>
+							</div>
+						</div>
+						<div class="progress" ng-show="!isPictureLoaded">
+							<div class="indeterminate"></div>
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="input-field col s9">
+						<textarea id="desciption" class="materialize-textarea" ng-model="upload.Description"></textarea>
+						<label for="desciption">Description</label>
+					</div>
+					<div class="input-field col s3">
+						<a class="btn" style="width: 100%; overflow: hidden" ng-click="uploadFilmToDatabase()">Upload Film to Database</a>
+					</div>
+
 				</div>
-				<a class="btn" ng-class="{'disabled': !isReadyUpload}" ng-click="uploadFilm()">Upload</a>
-				<span>{{Status}}</span>
+				
 			</form>
+		</div>
+	</div>
+
+	<!--Modals-->
+	<div id="addActorModal" class="modal modal-fixed-footer">
+		<div class="modal-content ">
+			<h4>Add Actor/Actress</h4>
+			<div class="row">
+				<div class="col s8">
+					<div class="input-field col s12">
+						<input id="actor.Name" type="text" class="validate" ng-model="actor.Name">
+						<label for="actor.Name">Name</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="actor.Name_In_Film" type="text" class="validate" ng-model="actor.Name_In_Film">
+						<label for="actor.Name_In_Film">Name in Film</label>
+					</div>
+				</div>
+				<div class="col s4">
+					<div class="card">
+						<div class="card-image">
+							<img ng-src="{{actor.Picture}}">
+						</div>
+						<div class="card-action">
+							<div id="upload-file-container" class="btn">
+								<input type="file" name="photo" custom-on-change="uploadActorPicture"/>
+							</div>
+						</div>
+					</div>
+					<div class="progress" ng-show="!isActorPictureLoaded">
+						<div class="indeterminate"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a class="btn modal-action waves-effect waves-green btn-flat" ng-class="{'disabled': !actorCheckDone()}" ng-click="submitActor()">Add</a>
+			<a class="btn modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
 		</div>
 	</div>
 
@@ -133,6 +288,11 @@
 	<script type="text/javascript" src="./bower_components/ngFx/dist/ngFx.js"></script>
 	<script type="text/javascript" src="./bower_components/firebase/firebase.js"></script>
 	<script type="text/javascript" src="./bower_components/angularfire/dist/angularfire.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-cookies/angular-cookies.js"></script>
+	<script type="text/javascript" src="./admin.module.js"></script>
+	<script type="text/javascript" src="./app.firebase.js"></script>
+	<script type="text/javascript" src="./app/fsp/factories/databaseService.js"></script>
+	<script type="text/javascript" src="./storageService.js"></script>
 	<script type="text/javascript" src="./admin.js"></script>
 	<script type="text/javascript" src="./bower_components/Materialize/dist/js/materialize.js"></script>
 </body>

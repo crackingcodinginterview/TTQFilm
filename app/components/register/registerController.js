@@ -17,14 +17,12 @@
             $scope.isWaiting = true;
             if(firstCheck($scope.user)) {
                 $scope.isWaiting = true;
-                UserService.createUser($scope.user).then(
+                UserService.createUserWithEmailAndPassword($scope.user).then(
                     function(response){
-                        if(response.success){
+                        if(response.success)
                             Notification.primary(response.message);
-                        }
-                        else{
+                        else
                             Notification.error(response.message);
-                        }
                         $scope.isWaiting = false;
                     }
                 );

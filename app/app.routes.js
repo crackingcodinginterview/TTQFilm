@@ -1,34 +1,34 @@
 /**
  * Created by Administrator on 30/05/2016.
  */
- (function(){
+(function(){
     var app = angular.module('movieApp');
     app.config(function($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('/');
         $stateProvider
-        .state('app', {
-            url : '/',
-            ncyBreadcrumb: {
-                label: 'PHIM MỚI',
-            },
-            views : {
-                'subview2' : {
-                    templateUrl : 'app/components/home/homeView.html',
-                    controller : 'ListFilmController'
+            .state('app', {
+                url : '/',
+                ncyBreadcrumb: {
+                    label: 'PHIM MỚI',
                 },
-                'subview3' : {
-                    templateUrl : 'app/shared/sidebar/sidebarView.html'
+                views : {
+                    'subview2' : {
+                        templateUrl : 'app/components/home/homeView.html',
+                        controller : 'ListFilmController'
+                    },
+                    'subview3' : {
+                        templateUrl : 'app/shared/sidebar/sidebarView.html'
+                    },
+                    'subview4' : {
+                        templateUrl : 'app/components/headeruser/headeruserView.html',
+                        controller : 'headeruserController'
+                    }
                 },
-                'subview4' : {
-                    templateUrl : 'app/components/headeruser/headeruserView.html',
-                    controller : 'headeruserController'
-                }
-            },
-            data : {
-                pageTitle: 'Phim mới | Phim hay | Xem phim nhanh',
-                role : ['GUESS', 'USER', 'ADMIN'],
-            }
-        })
+                data : {
+                    pageTitle: 'Phim mới | Phim hay | Xem phim nhanh',
+                    role : ['GUESS', 'USER', 'ADMIN'],
+                }   
+            })
 
             //State hiển thị phim của các loại
             .state('app.filmtype',{
@@ -55,7 +55,7 @@
                     filmdetail: null
                 },
                 ncyBreadcrumb:{
-                    label: '{{film.Name_Vi}}'
+                    label: '{{globals.currentFilm.Name_Vi}}'
                 },
                 views : {
                     'subview1@' : {
@@ -159,7 +159,8 @@
             .state('app.forgotpassword', {
                 url : 'laymatkhaumoi',
                 ncyBreadcrumb: {
-                    label: 'QUÊN MẬT KHẨU'
+                    label: 'QUÊN MẬT KHẨU',
+                    parent : 'app.login'
                 },
                 views : {
                     'subview1@' : {
@@ -192,19 +193,14 @@
                     role : ['GUESS', 'USER', 'ADMIN'],
                 }
             });
+    });
+    app.run(function ($rootScope, $state, $stateParams, AuthenticationService,FilmService) {
+        AuthenticationService.getLastCredential();
+        FilmService.getLastCurrentFilm();
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
+            $rootScope.toState = toState;
+            $rootScope.toStateParams = toStateParams;
+            AuthenticationService.authorize();
         });
-app.run(function ($rootScope, $state, $stateParams, AuthenticationService) {
-   $rootScope.globals = {};
-   AuthenticationService.waitForUser();
-   firebase.auth().onAuthStateChanged(function(response){
-       AuthenticationService.setCredential(response);
-   });
-   $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
-       $rootScope.toState = toState;
-       $rootScope.toStateParams = toStateParams;
-       if ($rootScope.globals.role !== undefined) {
-           AuthenticationService.authorize();
-       }
-   });
-});
+    });
 }());

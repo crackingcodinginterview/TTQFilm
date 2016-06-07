@@ -3,22 +3,20 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.controller('loginController', function($scope, Notification, AuthenticationService, $state, $timeout){
+    app.controller('loginController', function($scope, Notification, AuthenticationService, $state){
         $scope.user = {};
 
         $scope.login = function() {
             $scope.isWaiting = true;
-            AuthenticationService.login($scope.user).then(
+            AuthenticationService.signInWithEmailAndPassword($scope.user).then(
                 function (response) {
                     if (response.success) {
                         Notification.primary(response.message);
-                        $timeout(function () {
-                            $state.go('app');
-                        }, 1000);
+                        AuthenticationService.setCredential(response.accountInfo);
+                        $state.go('app');
                     }
-                    else {
+                    else
                         Notification.error(response.message);
-                    }
                     $scope.isWaiting = false;
                 }
             );
@@ -31,9 +29,8 @@
                         $state.go('app');
                         Notification.primary(response.message);
                     }
-                    else{
+                    else
                         Notification.error(response.message);
-                    }
                 }
             )
         };

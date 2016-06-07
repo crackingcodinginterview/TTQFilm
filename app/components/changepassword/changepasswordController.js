@@ -12,17 +12,15 @@
                 return false;
             return true;
         };
-        $scope.changePassword = function(){
+        $scope.updatePassword = function(){
             $scope.isWaiting = true;
             if(firstCheck($scope.user)){
                 AuthenticationService.updatePassword($scope.user.password).then(
                     function(response){
-                        if(response.success){
+                        if(response.success)
                             Notification.primary(response.message);
-                        }
-                        else{
+                        else
                             Notification.error(response.message);
-                        }
                         $scope.isWaiting = false;
                     });
             }

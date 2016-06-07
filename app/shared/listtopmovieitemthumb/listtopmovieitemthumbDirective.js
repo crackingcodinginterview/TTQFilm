@@ -8,7 +8,7 @@
            restrict : 'E',
            templateUrl : 'app/shared/listtopmovieitemthumb/listtopmovieitemthumbView.html',
            scope : {
-
+              film:'@'
            },
            link : function(scope, element, attributes){
                // $(element).on('mouseenter', function(e) {

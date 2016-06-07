@@ -1,17 +1,18 @@
-<div class="header__user" ng-if="!globals.currentUser">
+<div class="header__user" ng-if="globals.accountInfo.role === 'GUESS'">
     <a class="button-register pull-left" ui-sref="app.register"></a>
     <a class="button-login pull-left" ui-sref="app.login"></a>
-    <a class="button-login-with-facebook pull-left" href="#" ng-click="loginWithFacebook()"></a>
+    <a class="button-login-with-facebook pull-left" href="#" ng-click="signInWithFacebook()"></a>
 </div>
-<div class="header__user" ng-if="globals.currentUser">
+<div class="header__user" ng-if="globals.accountInfo.role !== 'GUESS'">
     <div class="btn-group dropdown">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Xin chào, {{globals.currentUser.displayName}}
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Xin chào, {{globals.accountInfo.info.displayName}}
             <span class="caret"></span></button>
         <ul class="dropdown-menu">
+            <li><a ui-sref="app.changepassword" ng-if="globals.accountInfo.role === 'ADMIN'">Đến trang admin</a></li>
             <li><a ui-sref="app.changepassword">Đổi mật khẩu</a></li>
             <li class="divider"></li>
-            <li><a href="#" ng-click="logout()">Thoát</a></li>
+            <li><a href="#" ng-click="signOut()">Thoát</a></li>
         </ul>
     </div>
-    <button type="button" class="btn btn-primary">Tủ phim</button>
+    <button type="button" class="btn btn-primary" ng-show="false">Tủ phim</button>
 </div>
