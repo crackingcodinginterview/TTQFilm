@@ -23,7 +23,7 @@
 			console.log(data);
 		}
 		function getUser(uid){
-			var ref = firebase.database().ref('user').child(uid);
+			var ref = firebase.database().ref().child('user').child(uid);
 			var userRef = $firebaseObject(ref);
 			return userRef.$loaded().then(
 				function(response){
@@ -33,7 +33,7 @@
 		};
 
 		function isUidExist(uid){
-			return firebase.database().ref('user').once('value').then(
+			return firebase.database().ref().child('user').once('value').then(
 				function(response){
 					return response.hasChild(uid);
 				}
