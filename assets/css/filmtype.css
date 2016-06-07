@@ -27,7 +27,7 @@ ul.listfilmtype{
 		column-count:         2;
 	}
 }
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 	.listfilmtype {
 		-moz-column-count:    1;
 		-webkit-column-count: 1;
