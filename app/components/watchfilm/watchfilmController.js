@@ -16,7 +16,7 @@
 		$state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi.toUpperCase();
 		// console.log($state.get('app.watchfilm').data.pageTitle);
 		sc.Watch = function(){
-			var filmname = sc.film.Name_En.toLowerCase().replace(/[^a-zA-Z0-9]/gi, "-");
+			var filmname = sc.film.Name_En.toLowerCase().replace(/[^a-zA-Z0-9]+/gi, "-");
 			$state.go('app.filmwatching',{filminfo : sc.film, filmname : filmname});
 		}
 	});
