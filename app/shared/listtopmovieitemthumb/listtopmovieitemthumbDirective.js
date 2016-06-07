@@ -11,9 +11,7 @@
               filmShow: '='
            },
            link : function(scope, element, attributes){
-              scope.$watch('filmShow', function(newValue, oldValue, scope) {
-                console.log(film);
-              });
+              //scope.$watch('filmShow', function(newValue, oldValue, scope) {
                // $(element).on('mouseenter', function(e) {
                //      console.log(e.clientX, e.clientY);
                //     $(this).find('.list-top-movie-item__tool-tip').css(
