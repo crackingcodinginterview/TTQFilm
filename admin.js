@@ -148,7 +148,6 @@
 				sc.Status = "Upload Done!";
 				sc.upload.Source = data.url;
 				sc.$evalAsync();
-				Materialize.toast('Film Uploaded!');
 			});
 		};
 
@@ -174,7 +173,6 @@
 				sc.upload.Picture = data.url;
 				sc.isPictureLoaded = true;
 				sc.$evalAsync();
-				Materialize.toast("Picture upload done!");
 			});
 		};
 
@@ -205,7 +203,6 @@
 				sc.actor.Picture = data.url;
 				sc.isActorPictureLoaded = true;
 				sc.$evalAsync();
-				Materialize.toast("Actor's Picture Upload Done!")
 			});
 		};
 
@@ -219,20 +216,25 @@
 			if (sc.actorCheckDone())
 				$('#addActorModal').closeModal();
 
-			if (sc.upload.Actor == undefined)
-				sc.upload.Actor = [];
+			if (sc.upload.Actors == undefined)
+				sc.upload.Actors = [];
 
-			sc.upload.Actor.push(sc.actor);
+			sc.upload.Actors.push(sc.actor);
 			console.log(sc.upload);
-			$timeout(function() {
-				Materialize.updateTextFields();
-			}, 100);
+			AdminService.updateMaterialElement();
 		}
 
 		sc.isDatabaseUploaded = true;
 		sc.uploadFilmToDatabase = function () {
-			sc.isDatabaseUploaded = false;
 			console.log(sc.upload);
+			var check = AdminService.checkValidData(sc.upload);
+			if (check.valid == false)
+			{
+				console.log(check);
+				Materialize.toast(check.message);
+				return;
+			}
+			sc.isDatabaseUploaded = false;
 			DatabaseService.uploadFilmDatabase(sc.upload, "adminUpload").then(
 				function (res) {
 					console.log(res);
@@ -245,11 +247,17 @@
 			var file = event.target.files[0];
 			console.log(file);
 			var reader = new FileReader();
+			var Object = {};
+			reader.onloadend = function (evt) {
+				Object = JSON.parse(evt.target.result);
+				sc.upload = Object;
+				AdminService.updateMaterialElement();
+				AdminService.updateSelectElements(sc.upload);
+				sc.$evalAsync();
+				console.log(Object);
+			}
+
 			reader.readAsText(file);
-			console.log(reader);
-			console.log(reader.result);
-			var object = JSON.parse(reader.result);
-			console.log(object);
 		}
 
 		sc.prepairElements = function () {

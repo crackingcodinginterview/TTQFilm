@@ -45,7 +45,7 @@
 					<input type="text" ng-model="upload.Publish_Date" id="publishdate" class="datepicker">
 				</div>
 				<div class="input-field col s3" ng-click="openModal('addActorModal')">
-					<input disabled value="{{upload.Actor.length}} Actor(s)" id="actorCount" type="text" class="validate">
+					<input disabled value="{{upload.Actors.length}} Actor(s)" id="actorCount" type="text" class="validate">
 					<label for="actorCount">Add Actors/Actresses</label>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 					<label for="Duration">Duration</label>
 				</div>
 				<div class="input-field col s3">
-					<select multiple ng-model="upload.Types">
+					<select multiple ng-model="upload.Types" id="typesSelect">
 						<option value="" disabled selected>Choose types</option>
 						<option value="Action">Action</option>
 						<option value="Cartoon">Cartoon</option>
@@ -64,7 +64,7 @@
 					<label>Film Types</label>
 				</div>
 				<div class="input-field col s3">
-					<select ng-model="upload.Quality">
+					<select ng-model="upload.Quality" id="qualitySelect">
 						<option value="" disabled selected>Choose quality</option>
 						<option value="CAM">CAM</option>
 						<option value="HD 720p">HD 720p</option>
@@ -73,7 +73,7 @@
 					<label>Film Quality</label>
 				</div>
 				<div class="input-field col s3">
-					<select ng-model="upload.Language">
+					<select ng-model="upload.Language" id="languageSelect">
 						<option value="" disabled selected>Choose Language</option>
 						<option value="Vietsub">Vietsub</option>
 						<option value="Thuyết minh">Embeded</option>

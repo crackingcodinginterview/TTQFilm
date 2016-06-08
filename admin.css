@@ -49,3 +49,13 @@ label{
 	opacity: 1 !important;
 	background-color: #607D8B !important;
 }
+
+.toast{
+	background-color: #b71c1c;
+	color: #B2DFDB;
+	font-weight: bold;
+}
+
+.gapi-analytics-data-chart div div{
+	margin: 0 auto !important;
+}
