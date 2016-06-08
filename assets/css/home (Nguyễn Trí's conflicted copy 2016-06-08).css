@@ -1,0 +1,208 @@
+.flexslider{
+	margin-bottom: 0 !important;
+	border: 0 !important;
+}
+
+.home-title{
+	display: block;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 22px;
+	color: #dacb46;
+	text-shadow: 1px 1px 1px #1a1a1a;
+	text-transform : uppercase;
+}
+.mainSlider .flexslider{
+	width: 100%;
+}
+
+.mainSlider .flexslider .film-item{
+	margin: 0 auto !important;
+}
+
+.secondSlider .flexslider{
+	background: url(../img/item_bg.gif);
+}
+
+ul.listfilm{
+	width: 100% !important;
+	padding-left: 0;
+}
+
+@media (max-width: 1400px) {
+	.listfilm {
+		-moz-column-count:    5;
+		-webkit-column-count: 5;
+		column-count:         5;
+	}
+}
+@media (max-width: 1200px) {
+	.listfilm {
+		-moz-column-count:    5;
+		-webkit-column-count: 5;
+		column-count:         5;
+	}
+}
+@media (max-width: 1000px) {
+	.listfilm {
+		-moz-column-count:    4;
+		-webkit-column-count: 4;
+		column-count:         4;
+	}
+}
+@media (max-width: 800px) {
+	.listfilm {
+		-moz-column-count:    3;
+		-webkit-column-count: 3;
+		column-count:         3;
+	}
+}
+
+@media (max-width: 500px) {
+	.listfilm {
+		-moz-column-count:    2;
+		-webkit-column-count: 2;
+		column-count:         2;
+	}
+}
+
+@media (max-width: 300px) {
+	.listfilm {
+		-moz-column-count:    1;
+		-webkit-column-count: 1;
+		column-count:         1;
+	}
+}
+
+ul.listfilm li{
+	display: inline-block;
+	list-style-type: none;
+}
+
+
+.film-item{
+	margin-bottom: 5px;
+	margin-right: 5px;
+	position: relative;
+}
+
+.film-item.film-item-slider{
+	margin-top: 15px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+
+.film-item.film-item-slider .content{
+	margin-top: 5px;
+	width: 100%;
+}
+
+.mainSlider .flexslider .film-item.film-item-slider a img{
+	width: 100%;
+	height: 400px;
+}
+
+.secondSlider .flexslider{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top:0px;
+	padding-bottom: 0px;
+}
+
+
+.secondSlider .flexslider ul li img{
+	border: 2px solid black;
+}
+
+.film-item a img:hover{
+	opacity: 0.6;
+}
+
+.content{
+	height: 68px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.8);
+	position: absolute;
+	bottom: 0;
+	text-align: left;
+	padding: 5px;
+	cursor: pointer;
+}
+
+
+.content a:hover{
+	color: rgb(218, 203, 70) !important;
+}
+
+.content-film-namevi{
+	box-sizing: border-box;
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 18px;
+	overflow: hidden;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #2cd4f0 !important;
+}
+
+.content-film-namevi-slider{
+	box-sizing: border-box;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 18px;
+	overflow: hidden;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: #f0460d !important;
+}
+
+.content-film-nameen-slider{
+	display: block;
+	font-size: 13px;
+	overflow: hidden;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 5px;
+}
+
+.content-film-nameen{
+	display: block;
+	font-size: 12px;
+	overflow: hidden;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 2px;
+}
+
+.content-film-duration{
+	display: block;
+	font-size: 12px;
+	margin-top: 8px;
+	color: #b8b8b8 !important;
+}
+
+
+.film-picture{
+	width: 100%;
+	height: 210px;
+}
+
+.goListFilm{
+	margin-top: 34px !important;
+	text-align: right;
+	padding-right: 20px;
+}
+
+.goListFilm a:hover{
+	color: #dacb46;
+	cursor: pointer;
+}

@@ -17,7 +17,8 @@
 			</div>
 		</div>
 		<div class="col s2 input-field">
-			<a class="btn">OR Upload JSON</a>
+			<a class="btn" onclick="document.getElementById('chooseJSON').click();">OR JSON</a>
+			<input type="file" accept=".json" custom-on-change="chooseJSON" id='chooseJSON' ng-show="false">
 		</div>
 	</div>
 	<div class="row">
@@ -97,9 +98,8 @@
 					<img ng-src="{{upload.Picture}}">
 				</div>
 				<div class="card-action">
-					<div id="upload-file-container" class="btn">
-						<input type="file" name="photo" custom-on-change="uploadPicture" accept="image/*" />
-					</div>
+					<a class="btn" onclick="document.getElementById('choosePicture').click();">UPLOAD PICTURE</a>
+					<input type="file" ng-show="false" id="choosePicture" name="photo" custom-on-change="uploadPicture" accept="image/*" />
 				</div>
 			</div>
 			<div class="progress" ng-show="!isPictureLoaded">

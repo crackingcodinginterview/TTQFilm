@@ -16,21 +16,48 @@
 	<div class="row">
 		<div class="col s12">
 			<ul class="tabs">
-				<li class="tab col s3"><a href="#test1" class="active teal-text text-lighten-5">Quản Trị Web</a></li>
-				<li class="tab col s3"><a class=" teal-text text-lighten-5"  href="#test2">Upload Phim</a></li>
+				<li class="tab col s3"><a href="#tab1" class="active teal-text text-lighten-5">Quản Trị Web</a></li>
+				<li class="tab col s3"><a href="#tab2" class="active teal-text text-lighten-5">Google Analytic</a></li>
+				<li class="tab col s3"><a class=" teal-text text-lighten-5"  href="#tab3">Upload Phim</a></li>
 				<div class="indicator teal lighten-5" style="z-index:1"></div>
 			</ul>
 		</div>
-		<div class="row" id ="test1">
+		<div class="row" id ="tab1">
 			<ng-include src="'./admin.tabs.tab1.html'" onload="prepairElements()" class="include tab1"></ng-include>
 		</div>
+
+		<div class="row" id="tab2">
+			<div id="embed-api-auth-container"></div>
+			<div id="view-selector-container"></div>
+			<div id="active-users-container"></div>
+			<div id="chart-1-container"></div>
+			<div id="legend-1-container"></div>
+			<div id="chart-2-container"></div>
+			<div id="legend-2-container"></div>
+			<div id="chart-3-container"></div>
+			<div id="legend-3-container"></div>
+			<div id="chart-4-container"></div>
+			<div id="legend-4-container"></div>
+		</div>
 		
-		<div id="test2" class="col s12">
+		<div id="tab3" class="col s12">
 			<ng-include src="'./admin.tabs.tab2.html'" class="include tab2" onload="prepairElements()"></ng-include>
 		</div>
 	</div>
 
 	<ng-include src="'./admin.upload.actor.html'" onload="prepairElements()"></ng-include>
+
+	<script>
+		(function(w,d,s,g,js,fs){
+			g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+			js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+			js.src='https://apis.google.com/js/platform.js';
+			fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+		}(window,document,'script'));
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 
 	<script type="text/javascript" src="./bower_components/gsap/src/uncompressed/TweenMax.js"></script>
 	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
