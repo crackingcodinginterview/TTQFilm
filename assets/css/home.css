@@ -25,10 +25,6 @@
 	background: url(../img/item_bg.gif);
 }
 
-ul.listfilm li img{
-	width: 165px;
-}
-
 ul.listfilm{
 	width: 100% !important;
 	padding-left: 0;
@@ -202,6 +198,8 @@ ul.listfilm li{
 
 .goListFilm{
 	margin-top: 34px !important;
+	text-align: right;
+	padding-right: 20px;
 }
 
 .goListFilm a:hover{

@@ -3,8 +3,14 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.controller('headeruserController', function($scope, AuthenticationService, Notification, $state){
+    app.controller('headeruserController', function($scope, AuthenticationService, Notification, $state, GoogleAnalyticService){
         $scope.signOut = function(){
+            GoogleAnalyticService.send({
+                hitType: 'event',
+                eventCategory: 'Logout',
+                eventAction: 'None',
+                eventLabel: 'Phim Moi'
+            });
             AuthenticationService.signOut().then(
                 function(response){
                     if(response.success)
@@ -16,6 +22,12 @@
         };
 
         $scope.signInWithFacebook = function(){
+            GoogleAnalyticService.send({
+                hitType: 'event',
+                eventCategory: 'Login',
+                eventAction: 'Facebook',
+                eventLabel: 'Phim Moi'
+            });
             AuthenticationService.signInWithFacebook().then(
                 function(response){
                     if(response.success){

@@ -27,17 +27,9 @@
 		</div>
 
 		<div class="row" id="tab2">
-			<div id="embed-api-auth-container"></div>
-			<div id="view-selector-container"></div>
-			<div id="active-users-container"></div>
-			<div id="chart-1-container"></div>
-			<div id="legend-1-container"></div>
-			<div id="chart-2-container"></div>
-			<div id="legend-2-container"></div>
-			<div id="chart-3-container"></div>
-			<div id="legend-3-container"></div>
-			<div id="chart-4-container"></div>
-			<div id="legend-4-container"></div>
+			<section id="auth-button"></section>
+			<section id="view-selector"></section>
+			<section id="timeline"></section>
 		</div>
 		
 		<div id="tab3" class="col s12">
@@ -56,8 +48,51 @@
 		}(window,document,'script'));
 	</script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+	<script>
+		gapi.analytics.ready(function() {
+
+			var CLIENT_ID = '310847899228-k2i6ikqimo60t23fq32inu10qnmuujmh.apps.googleusercontent.com';
+
+			gapi.analytics.auth.authorize({
+				container: 'auth-button',
+				clientid: CLIENT_ID,
+			});
+
+
+			var viewSelector = new gapi.analytics.ViewSelector({
+				container: 'view-selector'
+			});
+
+
+			var timeline = new gapi.analytics.googleCharts.DataChart({
+				reportType: 'ga',
+				query: {
+					'dimensions': 'ga:date',
+					'metrics': 'ga:sessions',
+					'start-date': '5daysAgo',
+					'end-date': 'today',
+				},
+				chart: {
+					type: 'LINE',
+					container: 'timeline'
+				}
+			});
+
+
+			gapi.analytics.auth.on('success', function(response) {
+				viewSelector.execute();
+			});
+
+			viewSelector.on('change', function(ids) {
+				var newIds = {
+					query: {
+						ids: ids
+					}
+				}
+				timeline.set(newIds).execute();
+			});
+		});
+	</script>
 
 	<script type="text/javascript" src="./bower_components/gsap/src/uncompressed/TweenMax.js"></script>
 	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>

@@ -12,7 +12,7 @@
 
 		$scope.listfilm = $state.params.listfilm;
 
-		$scope.typename = $state.params.filmtypename;
+		$scope.type = $state.params.typename;
 
 		$scope.currentPage = 1;
     	$scope.itemsPerPage = 15;

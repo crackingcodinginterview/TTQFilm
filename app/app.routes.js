@@ -35,6 +35,7 @@
                 url:'theloai/{filmtypename}',
                 params: {
                     listfilm : null,
+                    typename : null
                 },
                 views : {
                     'subview2@':{
@@ -194,13 +195,11 @@
                 }
             });
     });
-    app.run(function ($rootScope, $state, $stateParams, AuthenticationService,FilmService,$location,$window) {
-        $window.ga('create', 'UA-78955508-1', 'auto');
+    app.run(function ($rootScope, $state, $stateParams, AuthenticationService, FilmService, GoogleAnalyticService) {
+        GoogleAnalyticService.init();
         AuthenticationService.getLastCredential();
         FilmService.getLastCurrentFilm();
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
-            $window.ga('send', 'pageview', { page : $location.path() });
-            // $window.ga('send', 'pageview', $location.path());
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
             AuthenticationService.authorize();
