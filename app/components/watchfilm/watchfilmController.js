@@ -3,21 +3,22 @@
 
 	app.controller('watchfilmController', function($scope, $state, FilmService){
 
-		window.sc = $scope;
-		sc.film = {};
+		//window.sc = $scope;
+		$scope.film = {};
 
-		sc.film = $state.params.filmdetail;
+		$scope.film = $state.params.filmdetail;
 
-		if(sc.film == null)
-			sc.film = FilmService.getCurrentFilm();
+		if($scope.film == null)
+			$scope.film = FilmService.getCurrentFilm();
 
-		FilmService.setCurrentFilm(sc.film);
+		FilmService.setCurrentFilm($scope.film);
 
-		$state.get('app.watchfilm').data.pageTitle = sc.film.Name_Vi.toUpperCase();
+		console.log($scope.film);
+		$state.get('app.watchfilm').data.pageTitle = $scope.film.Name_Vi.toUpperCase();
 		// console.log($state.get('app.watchfilm').data.pageTitle);
-		sc.Watch = function(){
-			var filmname = FilmService.convertURL(sc.film.Name_Vi);
-			$state.go('app.filmwatching',{filminfo : sc.film, filmname : filmname});
+		$scope.Watch = function(){
+			var filmname = FilmService.convertURL($scope.film.Name_Vi);
+			$state.go('app.filmwatching',{filminfo : $scope.film, filmname : filmname});
 		}
 	});
 }());

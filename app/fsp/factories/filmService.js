@@ -74,13 +74,13 @@
 		//set film in type action by Name_En
 		function SearchFilm(query)
 		{
+			var result = [];
 			var ref = firebase.database().ref().child("FilmsList").child("Type").child("Action");
-			//var films = $firebaseArray(ref);
-			//return films;
 			ref.orderByChild("Name_En").equalTo(query).on("child_added", function(snapshot) {
-  				console.log(snapshot.val());
+  				result.push(snapshot.val());
   			})
 			//console.log(films);
+			return result;
 		}
 
 		function setCurrentFilm(film){
