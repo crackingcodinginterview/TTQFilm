@@ -194,10 +194,12 @@
                 }
             });
     });
-    app.run(function ($rootScope, $state, $stateParams, AuthenticationService,FilmService) {
+    app.run(function ($rootScope, $state, $stateParams, AuthenticationService,FilmService,$location,$window) {
+        $window.ga('create', 'UA-78955508-1', 'auto');
         AuthenticationService.getLastCredential();
         FilmService.getLastCurrentFilm();
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
+            $window.ga('send', 'pageview', $location.path());
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
             AuthenticationService.authorize();
