@@ -16,21 +16,84 @@
 	<div class="row">
 		<div class="col s12">
 			<ul class="tabs">
-				<li class="tab col s3"><a href="#test1" class="active teal-text text-lighten-5">Quản Trị Web</a></li>
-				<li class="tab col s3"><a class=" teal-text text-lighten-5"  href="#test2">Upload Phim</a></li>
+				<li class="tab col s3"><a href="#tab1" class="active teal-text text-lighten-5">Quản Trị Web</a></li>
+				<li class="tab col s3"><a href="#tab2" class="active teal-text text-lighten-5">Google Analytic</a></li>
+				<li class="tab col s3"><a class=" teal-text text-lighten-5"  href="#tab3">Upload Phim</a></li>
 				<div class="indicator teal lighten-5" style="z-index:1"></div>
 			</ul>
 		</div>
-		<div class="row" id ="test1">
+		<div class="row" id ="tab1">
 			<ng-include src="'./admin.tabs.tab1.html'" onload="prepairElements()" class="include tab1"></ng-include>
 		</div>
+
+		<div class="row" id="tab2">
+			<section id="auth-button"></section>
+			<section id="view-selector"></section>
+			<section id="timeline"></section>
+		</div>
 		
-		<div id="test2" class="col s12">
+		<div id="tab3" class="col s12">
 			<ng-include src="'./admin.tabs.tab2.html'" class="include tab2" onload="prepairElements()"></ng-include>
 		</div>
 	</div>
 
 	<ng-include src="'./admin.upload.actor.html'" onload="prepairElements()"></ng-include>
+
+	<script>
+		(function(w,d,s,g,js,fjs){
+			g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+			js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+			js.src='https://apis.google.com/js/platform.js';
+			fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+		}(window,document,'script'));
+	</script>
+
+	<script>
+		gapi.analytics.ready(function() {
+
+
+			var CLIENT_ID = '310847899228-k2i6ikqimo60t23fq32inu10qnmuujmh.apps.googleusercontent.com';
+
+			gapi.analytics.auth.authorize({
+				container: 'auth-button',
+				clientid: CLIENT_ID,
+			});
+
+
+			var viewSelector = new gapi.analytics.ViewSelector({
+				container: 'view-selector'
+			});
+
+
+			var timeline = new gapi.analytics.googleCharts.DataChart({
+				reportType: 'ga',
+				query: {
+					'dimensions': 'ga:date',
+					'metrics': 'ga:sessions',
+					'start-date': '5daysAgo',
+					'end-date': 'today',
+				},
+				chart: {
+					type: 'LINE',
+					container: 'timeline'
+				}
+			});
+
+
+			gapi.analytics.auth.on('success', function(response) {
+				viewSelector.execute();
+			});
+
+			viewSelector.on('change', function(ids) {
+				var newIds = {
+					query: {
+						ids: ids
+					}
+				}
+				timeline.set(newIds).execute();
+			});
+		});
+	</script>
 
 	<script type="text/javascript" src="./bower_components/gsap/src/uncompressed/TweenMax.js"></script>
 	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
