@@ -3,7 +3,7 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.controller('changepasswordController', function($scope, AuthenticationService, Notification){
+    app.controller('changepasswordController', function($scope, AuthenticationService, Notification, GoogleAnalyticService){
         $scope.user = {};
         $scope.isWaiting = false;
 
@@ -14,6 +14,12 @@
         };
         $scope.updatePassword = function(){
             $scope.isWaiting = true;
+            GoogleAnalyticService.send({
+                hitType: 'event',
+                eventCategory: 'Change Password',
+                eventAction: 'None',
+                eventLabel: 'Phim Moi'
+            });
             if(firstCheck($scope.user)){
                 AuthenticationService.updatePassword($scope.user.password).then(
                     function(response){

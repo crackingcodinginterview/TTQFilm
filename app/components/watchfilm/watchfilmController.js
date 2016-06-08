@@ -13,7 +13,13 @@
 
 		FilmService.setCurrentFilm($scope.film);
 
-		console.log($scope.film);
+		GoogleAnalyticService.send({
+			hitType: 'event',
+			eventCategory: 'Film Detail',
+			eventAction: $scope.film.Name_Vi,
+			eventLabel: 'Phim Moi'
+		});
+
 		$state.get('app.watchfilm').data.pageTitle = $scope.film.Name_Vi.toUpperCase();
 		// console.log($state.get('app.watchfilm').data.pageTitle);
 		$scope.Watch = function(){

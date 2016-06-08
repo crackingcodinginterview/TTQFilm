@@ -240,6 +240,18 @@
 				});
 		}
 
+		sc.chooseJSON = function (event) {
+			console.log(event);
+			var file = event.target.files[0];
+			console.log(file);
+			var reader = new FileReader();
+			reader.readAsText(file);
+			console.log(reader);
+			console.log(reader.result);
+			var object = JSON.parse(reader.result);
+			console.log(object);
+		}
+
 		sc.prepairElements = function () {
 			AdminService.prepairElements();
 		}
