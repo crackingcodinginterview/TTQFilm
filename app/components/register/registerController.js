@@ -3,7 +3,7 @@
  */
 (function(){
     var app = angular.module('movieApp');
-    app.controller('registerController', function($scope, UserService, Notification){
+    app.controller('registerController', function($scope, UserService, Notification, GoogleAnalyticService){
         $scope.user = {};
         $scope.isWaiting = false;
 
@@ -15,6 +15,12 @@
 
         $scope.register = function(){
             $scope.isWaiting = true;
+            GoogleAnalyticService.send({
+                hitType: 'event',
+                eventCategory: 'Register',
+                eventAction: 'None',
+                eventLabel: 'Phim Moi'
+            });
             if(firstCheck($scope.user)) {
                 $scope.isWaiting = true;
                 UserService.createUserWithEmailAndPassword($scope.user).then(

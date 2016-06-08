@@ -1,7 +1,9 @@
 (function(){
 	var app = angular.module('movieApp');
 
-	app.controller('filmController', function($state,$scope,$log,$sce,FilmService){
+	app.controller('filmController', function($state,$scope,$log,$sce,FilmService, GoogleAnalyticService){
+
+
 
 		$scope.film = {};
 
@@ -15,6 +17,14 @@
 		}
 
 		FilmService.setCurrentFilm($scope.film);
+
+		GoogleAnalyticService.send({
+			hitType: 'event',
+			eventCategory: 'Film Watching',
+			eventAction: $scope.film.Name_Vi,
+			eventLabel: 'Phim Moi'
+		});
+
 
 		$state.get('app.filmwatching').data.pageTitle = $scope.film.Name_Vi.toUpperCase();
 
