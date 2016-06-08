@@ -34,12 +34,12 @@ a:active {color:#fff; text-decoration: none}  /* selected link */
     border-bottom: solid 5px #d8cc46;
 }
 
-.logo{
+.logo img{
     display: inline-block;
-    background: url("../img/image.png") 0px -320px no-repeat;
     color: #00b3ee;
-    width: 260px;
-    height : 55px;
+    width: 210px;
+    height: 70px;
+    margin-top: -25px;
 }
 
 .header__search{
@@ -142,14 +142,12 @@ a:active {color:#fff; text-decoration: none}  /* selected link */
     padding-bottom: 20px;
 }
 
-.footer__logo__image{
+.footer__logo__image img{
     display: block;
-    background: url("../img/image.png") 0px -320px no-repeat;
-    /*background-position-x: 0;*/
-    /*background-position-y: -320px;*/
+    margin-top: -20px;
     color: #00b3ee;
     width: 260px;
-    height : 55px;
+    height : 100px;
 }
 
 .footer__link__group__title{

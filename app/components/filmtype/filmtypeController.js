@@ -16,8 +16,9 @@
 		if($scope.listfilm == null)
 		{
 			$state.go('app');
+			return;
 		}
-		
+
 		$scope.type = $state.params.typename;
 
 		$scope.currentPage = 1;
