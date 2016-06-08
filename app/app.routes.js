@@ -199,7 +199,8 @@
         AuthenticationService.getLastCredential();
         FilmService.getLastCurrentFilm();
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toStateParams) {
-            $window.ga('send', 'pageview', $location.path());
+            $window.ga('send', 'pageview', { page : $location.path() });
+            // $window.ga('send', 'pageview', $location.path());
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
             AuthenticationService.authorize();
