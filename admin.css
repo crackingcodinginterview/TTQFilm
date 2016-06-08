@@ -44,3 +44,8 @@ label{
 .include.ng-enter{
 	animation: fadeInDown 1s;
 }
+
+.block-ui-overlay{
+	opacity: 1 !important;
+	background-color: #607D8B !important;
+}

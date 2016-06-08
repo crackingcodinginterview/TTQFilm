@@ -12,7 +12,14 @@
 		<tbody>
 			<tr>
 				<td>
-
+					<div class="input-field col s12">
+						<select ng-model="search.status">
+							<option value="">All</option>
+							<option value="active">Active</option>
+							<option value="blocked">Blocked</option>
+						</select>
+						<label>Search by Role</label>
+					</div>
 				</td>
 				<td>
 					<div class="input-field col s12">
@@ -39,7 +46,7 @@
 					</div>
 				</td>
 			</tr>
-			<tr ng-repeat="user in userList | filter: {name: search.name, role: search.role, email: search.email, status : '!!'}" class="fx-fade-up fx-ease-sine">
+			<tr ng-repeat="user in userList | filter: {name: search.name, role: search.role, email: search.email, status : search.status, uid : '!!'}" class="fx-fade-up fx-ease-sine">
 				<td >
 					<p>
 						<input type="checkbox" id="{{user.uid}}" ng-change="$parent.Check(user, value)" ng-model="value"/>

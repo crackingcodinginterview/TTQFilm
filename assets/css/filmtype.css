@@ -35,7 +35,7 @@ ul.listfilmtype{
 	}
 }
 
-@media (max-width: 400px) {
+@media (max-width: 350px) {
 	.listfilmtype {
 		-moz-column-count:    1;
 		-webkit-column-count: 1;
