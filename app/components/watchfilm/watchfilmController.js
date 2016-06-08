@@ -1,7 +1,7 @@
 (function(){
 	var app = angular.module('movieApp');
 
-	app.controller('watchfilmController', function($scope, $state, FilmService){
+	app.controller('watchfilmController', function($scope, $state, FilmService,GoogleAnalyticService){
 
 		//window.sc = $scope;
 		$scope.film = {};
