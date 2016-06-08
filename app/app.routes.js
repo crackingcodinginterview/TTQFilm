@@ -35,6 +35,7 @@
                 url:'theloai/{filmtypename}',
                 params: {
                     listfilm : null,
+                    typename : null
                 },
                 views : {
                     'subview2@':{

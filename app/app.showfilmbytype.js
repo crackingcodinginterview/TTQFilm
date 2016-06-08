@@ -9,5 +9,10 @@
 		filmObject.$loaded().then(function(){
 			console.log($scope.allfilms);
 		});
+
+		$scope.convertURL = function(name){
+			name = FilmService.convertURL(name);
+			return name;
+		}
     });
 }());

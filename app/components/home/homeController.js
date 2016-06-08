@@ -15,5 +15,10 @@
 		//get 10 cartoon films by priority
 		sc.cartoonfilms = FilmService.getCartoonFilms();
 
+		sc.convertURL = function(name){
+			name = FilmService.convertURL(name);
+			return name;
+		}
+
 	});
 }());
