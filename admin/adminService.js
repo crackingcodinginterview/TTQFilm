@@ -1,15 +1,13 @@
 (function () {
 	var app = angular.module('movieApp');
-	app.factory('AdminService', function($rootScope, $timeout){
+	app.factory('AdminService', function($rootScope, $timeout, $cookies, blockUI, $window){
 		var service = {};
 		service.prepairElements = prepairElements;
 		service.updateMaterialElement = updateMaterialElement;
 		service.checkValidData = checkValidData;
 		service.updateSelect = updateSelect;
 		service.updateSelectElements = updateSelectElements;
-		// service.changeUserRole = changeUserRole;
-		// service.blockUser = blockUser;
-		// service.unblockUser = unblockUser;
+		service.checkUser = checkUser;
 		return service;
 
 		function prepairElements() {
@@ -46,9 +44,9 @@
 		}
 
 		function checkValidData(data) {
-			if (data.Source == undefined)
+			if (data.Source == undefined || data.Source == "")
 				return {valid: false, message: "File source cannot be empty!"};
-			if (data.Name_Vi == undefined || data.Name_En == undefined)
+			if (data.Name_Vi == undefined || data.Name_En == undefined || data.Name_Vi == "" || data.Name_En == "")
 				return {valid: false, message: "Name cannot be empty!"};
 			return {valid: true, message: "Valid data!"};
 		}
@@ -69,6 +67,22 @@
 				sc.userList[index].status = status;
 				ref.child(sc.userList[index].uid).update({status: status});
 			}
+		}
+
+		function checkUser() {
+			$timeout(function(){
+				if ($rootScope.global.stage === "admin" && $cookies.getObject('user') == undefined)
+				{
+					$window.location.reload();
+					return;
+				}
+				if ($rootScope.global.stage === "notadmin")
+				{
+					$window.location.reload();
+					return;
+				}
+			}, 10000);
+			
 		}
 
 	})

@@ -6,13 +6,15 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="./bower_components/Materialize/dist/css/materialize.css"  media="screen,projection"/>
-	<link rel="stylesheet" type="text/css" href="./admin.css">
+	<link rel="stylesheet" type="text/css" href="./admin/admin.css">
 	<link rel="stylesheet" type="text/css" href="./bower_components/animate.css/animate.css">
 	<link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.min.css">
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body ng-controller="mainCtr">
+	<div class="btn" id="adminName">Hello {{admin.displayName}}</div>
+
 	<div class="row">
 		<div class="col s12">
 			<ul class="tabs">
@@ -23,74 +25,23 @@
 			</ul>
 		</div>
 		<div class="row" id ="tab1">
-			<ng-include src="'./admin.tabs.tab1.html'" onload="prepairElements()" class="include tab1"></ng-include>
+			<ng-include src="'./admin/admin.tabs.tab1.html'" onload="prepairElements()" class="include tab1"></ng-include>
 		</div>
 
 		<div class="row" id="tab2">
-			<ng-include src="'./admin.tabs.googleAnalystic.html'"></ng-include>
+			<ng-include src="'./admin/admin.tabs.googleAnalystic.html'"></ng-include>
 		</div>
 		
 		<div id="tab3" class="col s12">
-			<ng-include src="'./admin.tabs.tab2.html'" class="include tab2" onload="prepairElements()"></ng-include>
+			<ng-include src="'./admin/admin.tabs.tab2.html'" class="include tab2" onload="prepairElements()"></ng-include>
 		</div>
 	</div>
 
-	<ng-include src="'./admin.upload.actor.html'" onload="prepairElements()"></ng-include>
-
-	<script>
-		(function(w,d,s,g,js,fs){
-			g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
-			js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
-			js.src='https://apis.google.com/js/platform.js';
-			fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
-		}(window,document,'script'));
-	</script>
-
-	<script>
-		gapi.analytics.ready(function() {
-
-			var CLIENT_ID = '310847899228-k2i6ikqimo60t23fq32inu10qnmuujmh.apps.googleusercontent.com';
-
-			gapi.analytics.auth.authorize({
-				container: 'auth-button',
-				clientid: CLIENT_ID,
-			});
+	<ng-include src="'./admin/admin.upload.actor.html'" onload="prepairElements()"></ng-include>
 
 
-			var viewSelector = new gapi.analytics.ViewSelector({
-				container: 'view-selector'
-			});
 
-
-			var timeline = new gapi.analytics.googleCharts.DataChart({
-				reportType: 'ga',
-				query: {
-					'dimensions': 'ga:date',
-					'metrics': 'ga:sessions',
-					'start-date': '5daysAgo',
-					'end-date': 'today',
-				},
-				chart: {
-					type: 'LINE',
-					container: 'timeline'
-				}
-			});
-
-
-			gapi.analytics.auth.on('success', function(response) {
-				viewSelector.execute();
-			});
-
-			viewSelector.on('change', function(ids) {
-				var newIds = {
-					query: {
-						ids: ids
-					}
-				}
-				timeline.set(newIds).execute();
-			});
-		});
-	</script>
+	<script type="text/javascript" src="./admin/google.Analystic.js"></script>
 
 	<script type="text/javascript" src="./bower_components/gsap/src/uncompressed/TweenMax.js"></script>
 	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
@@ -101,15 +52,15 @@
 	<script type="text/javascript" src="./bower_components/angularfire/dist/angularfire.js"></script>
 	<script type="text/javascript" src="./bower_components/angular-cookies/angular-cookies.js"></script>
 	<script type="text/javascript" src="./bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
-	<script type="text/javascript" src="./admin.module.js"></script>
-	<script type="text/javascript" src="./admin.run.js"></script>
-	<script type="text/javascript" src="./admin.directive.js"></script>
-	<script type="text/javascript" src="./admin.prepair.js"></script>
+	<script type="text/javascript" src="./admin/admin.module.js"></script>
+	<script type="text/javascript" src="./admin/admin.run.js"></script>
+	<script type="text/javascript" src="./admin/admin.directive.js"></script>
+	<script type="text/javascript" src="./admin/admin.prepair.js"></script>
 	<script type="text/javascript" src="./app.firebase.js"></script>
 	<script type="text/javascript" src="./app/fsp/factories/databaseService.js"></script>
-	<script type="text/javascript" src="./adminService.js"></script>
+	<script type="text/javascript" src="./admin/adminService.js"></script>
 	<script type="text/javascript" src="./storageService.js"></script>
-	<script type="text/javascript" src="./admin.js"></script>
+	<script type="text/javascript" src="./admin/admin.js"></script>
 	<script type="text/javascript" src="./bower_components/Materialize/dist/js/materialize.js"></script>
 </body>
 </html>

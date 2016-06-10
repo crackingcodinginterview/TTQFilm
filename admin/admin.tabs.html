@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col s12">
+		<ul class="tabs">
+			<li class="tab col s3"><a href="#tab1" class="active teal-text text-lighten-5">Quản Trị Web</a></li>
+			<li class="tab col s3"><a href="#tab2" class="active teal-text text-lighten-5">Google Analystic</a></li>
+			<li class="tab col s3"><a class=" teal-text text-lighten-5"  href="#tab3">Upload Phim</a></li>
+			<div class="indicator teal lighten-5" style="z-index:1"></div>
+		</ul>
+	</div>
+	<div class="row" id ="tab1">
+		<ng-include src="'./admin/admin.tabs.tab1.html'" onload="prepairElements()" class="include tab1"></ng-include>
+	</div>
+
+	<div class="row" id="tab2">
+		<ng-include src="'./admin/admin.tabs.googleAnalystic.html'"></ng-include>
+	</div>
+	
+	<div id="tab3" class="col s12">
+		<ng-include src="'./admin/admin.tabs.tab2.html'" class="include tab2" onload="prepairElements()"></ng-include>
+	</div>
+</div>

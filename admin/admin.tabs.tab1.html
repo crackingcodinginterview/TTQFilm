@@ -1,7 +1,7 @@
 <div class="col s8">
 	<h5 class="col 12">All Users</h5>
 	<table>
-		<thead>
+		<thead class="tableHeader">
 			<tr>
 				<th data-field="id">User Status</th>
 				<th data-field="email">Email</th>
@@ -25,7 +25,6 @@
 					<div class="input-field col s12">
 						<input id="searchEmail" type="text" class="validate" ng-model="search.email">
 						<label for="searchEmail">Search by Email</label>
-						
 					</div>
 				</td>
 				<td>
@@ -40,7 +39,6 @@
 							<option value="">All</option>
 							<option value="admin">Admin</option>
 							<option value="user">User</option>
-							<option value="blocked">Blocked</option>
 						</select>
 						<label>Search by Role</label>
 					</div>
