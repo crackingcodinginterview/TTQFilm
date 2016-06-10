@@ -6,6 +6,13 @@ ul.listfilmtype{
 	width: 100% !important;
 }
 
+@media (max-width: 2000px) {
+	.listfilmtype {
+		-moz-column-count:    4;
+		-webkit-column-count: 4;
+		column-count:         4;
+	}
+}
 @media (max-width: 1600px) {
 	.listfilmtype {
 		-moz-column-count:    4;
@@ -14,13 +21,6 @@ ul.listfilmtype{
 	}
 }
 @media (max-width: 1200px) {
-	.listfilmtype {
-		-moz-column-count:    3;
-		-webkit-column-count: 3;
-		column-count:         3;
-	}
-}
-@media (max-width: 1000px) {
 	.listfilmtype {
 		-moz-column-count:    3;
 		-webkit-column-count: 3;
